@@ -915,7 +915,7 @@
        {label:"PROCESS", idx:[11]}
      ]},
      subtitle:"Destabilizing the Surveilling of Queer Bodies",
-     title:"Body-Oddy-Oddy-Oddy", year:"2023-2024", sort:2023.5, medium:"8-channel installation", tags:["Performance"],
+     title:"Body-Oddy-Oddy-Oddy", year:"2023-2024", sort:2023.5, medium:"8-channel installation", mediumFull:"Single channel, 9min 21sec, and synchronized 8-channel installation, 7min 9sec. Experimental animation, sound, and objects, 3840x2160 UHD 4k, 2023-2024", tags:["Performance"],
      vimeo:"910144792", spec:"Single channel, 9min 21sec, and synchronized 8-channel installation, 7min 9sec. Experimental animation, sound, and objects, 3840x2160 UHD 4k, 2023-2024",
      credits:"with Benjamin Rosenthal",
      statement:["Body-oddy-oddy-oddy: Destabilizing the Surveilling of Queer Bodies explores the nature of how we understand the body, the ways in which we queer the body, and performative nature of how we explore our identities in media space. The work challenges the supremacy of normative human body-to-body contact by exploring the role that a hybrid human-object-virtual encounter might pose for alternative forms of intimacy and contact. By creating a multi-channel video installation, we create opportunities for audiences to reimagine their own bodies in proximity to the screens.","In the making of the work, the use of self-surveillance as a strategy of making and being is critical to our understanding of contemporary bodily experiences. The lens, the camera, the video as electronic mirror, and the performance of identity in mediated spaces all participate in the construction of who we are and how we exploit our positions. The opportunity for a feedback loop where the surveyor surveils themselves surveilling speaks to the ever-shifting nature of how we constantly reconfigure our experiences and bodies. Rupturing expectations for what counts as a body, and reconfiguring our body (with both a motion capture suit) to perform through another body, we question how this destabilizing act contributes to the further destabilization of normative systems and categories. By collaborating with A.I. systems that are trained on our visual and linguistic cultural understanding of “normativity,” “queerness” and “bodies,” we further exploit the ability to disrupt and problematize our own preconditions as makers (with identities of our own) and participants in the production of frameworks for these categories.","In essence, through the act of making this work, we aim to disrupt the hegemony of stable bodies in search of what might be greater potential. Recasting difference as an asset, we thus contribute to the ongoing histories of those who are “other” reclaiming and redefining space for new opportunities. “Breaking” the intentions of the software and hardware specifications, we blast open possibility for new rules and new narratives."]},
@@ -1805,7 +1805,7 @@
       var v=document.createElement("div"); v.className="val"; v.textContent=val;
       side.appendChild(l); side.appendChild(v);
     }
-    field("YEAR", w.year); field("MEDIUM", w.medium); field("SERIES", w.tags.join(", ")); field("CREDITS", w.credits);
+    field("YEAR", w.year); field("MEDIUM", w.mediumFull||w.medium); field("SERIES", w.tags.join(", ")); field("CREDITS", w.credits);
     if(lay && lay.creditGif!=null && A && A[lay.creditGif]){
       var cg=document.createElement("div"); cg.className="credit-gif";
       cg.style.width = (A[lay.creditGif].w ? Math.min(200, Math.max(110, Math.round(A[lay.creditGif].w*0.24))) : 170)+"px";
