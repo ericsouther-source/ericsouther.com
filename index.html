@@ -69,7 +69,7 @@
      ============================================================ */
   .arrival{position:relative;min-height:100svh;margin-top:-57px;display:grid;grid-template-rows:1fr auto;
     isolation:isolate;background:#000;overflow:hidden;color:#fff}
-  .arrival-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#000}
+  .arrival-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#000;cursor:pointer}
   .arrival-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;
     transition:opacity .9s ease}
   /* an iframe cannot object-fit, so it is sized to contain: the full frame,
@@ -785,13 +785,21 @@
     }
     /* browsers refuse audio before a gesture; one click brings it in at half volume,
        and a sounding film is left to run — no more one-minute loop */
-    var soundBtn=document.getElementById("arrivalSound");
+    var soundBtn=document.getElementById("arrivalSound"), soundRamp=0;
     function setSound(on){
       if(!player||!soundBtn) return;
+      var my=++soundRamp;
       if(on){
         letRun=true; media.classList.add("free-run");
         var m=player.setMuted(false); if(m&&m.catch) m.catch(ignore);
-        var v=player.setVolume(.5); if(v&&v.catch) v.catch(ignore);
+        /* the audio fades up to half volume rather than slamming in */
+        var step=0;
+        (function ramp(){
+          if(my!==soundRamp) return;
+          step++;
+          var v=player.setVolume(.05*step); if(v&&v.catch) v.catch(ignore);
+          if(step<10) setTimeout(ramp,90);
+        }());
       } else {
         var m2=player.setMuted(true); if(m2&&m2.catch) m2.catch(ignore);
       }
@@ -800,6 +808,18 @@
       soundBtn.dataset.on=on?"1":"";
     }
     if(soundBtn) soundBtn.addEventListener("click",function(){ setSound(!soundBtn.dataset.on); });
+    /* the film itself is the unmute surface — one tap anywhere on the arrival
+       that is not a link or button toggles the sound, the gesture every
+       phone has taught. Text selection is left alone. */
+    var arrivalEl=media.closest?media.closest(".arrival"):null;
+    if(arrivalEl){
+      arrivalEl.addEventListener("click",function(e){
+        if(!player||!soundBtn) return;
+        if(e.target.closest&&e.target.closest("a,button")) return;
+        if(window.getSelection&&String(window.getSelection())!=="") return;
+        setSound(!soundBtn.dataset.on);
+      });
+    }
     function arrivalMotionChanged(e){
       if(e.matches){ pause(); media.classList.remove("video-ready","video-playing"); }
       else if(arrivalIsVisible()) restart();
