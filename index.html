@@ -182,7 +182,7 @@
   .a-mp4 video{width:100%;height:auto;display:block;background:#000}
   .a-cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:var(--ink-dim);margin-top:9px;line-height:1.6}
   /* credits and notes settle under the media rather than leading it */
-  .a-text{grid-column:1 / -1;order:var(--ord,4);position:relative;z-index:0;font-family:var(--mono);font-size:11.5px;
+  .a-text{grid-column:1 / -1;order:var(--ord,9);position:relative;z-index:0;font-family:var(--mono);font-size:11.5px;
     line-height:1.75;color:var(--ink-dim);border-top:1px solid var(--line-soft);padding-top:15px;max-width:80ch}
 
   /* the gif sits ON the title, out of flow, so it cannot push the spec down */
@@ -769,6 +769,11 @@
      from the artist statements on those uploads, not the upload dates.
      ============================================================ */
   var allWorks = [
+    {slug:"searchenginevisionstateofthenation", thumb:"img/sev-state-of-the-nation.jpg",
+     title:"Search Engine Vision: State of the Nation", year:"2026", sort:2026.5, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"1221268645", spec:"Single channel video, 23min, 4K UHD, 2026",
+     credits:"The video above is an excerpt.",
+     statement:["Search Engine Vision: State of the Nation examines how online communities collectively define the United States in 2026. Drawing on the semiotic concerns running throughout the Search Engine Vision series, the work treats language as transient, meaning formed organically, in the moment, by the masses.","The first 1,000 videos returned by an online search for each of the 50 states are compiled into grids and remapped onto the geographic form of each state. One thousand videos was hand selected out of the 50k. The database is apolitical in its collection, however the politics of each state will indubitably show through. Two hundred and fifty years into its conception, what is the state of this nation? Can it be defined by the masses?"]},
     {slug:"devotionalsignals", wix:"4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png",
      title:"Devotional Signals~", year:"2025-2026", sort:2026, medium:"Audiovisual performance", tags:["Performance"],
      vimeo:"1178941183", spec:"Audiovisual performance, 12-15min, 4K UHD, 2025-2026",
@@ -893,9 +898,9 @@
      title:"Search Engine Vision \"Christ\"", year:"2014", sort:2014, medium:"Single channel video", tags:["Search Engine Vision"],
      vimeo:"845376726", spec:"Single channel video, 5min 51sec, 1920x1080 HD, 2014", credits:"",
      statement:["Jesus Christ is surrounded and made up of the mass representations of the \u201cChrist.\u201d The collection of videos dives into the complexities of the Christian faith in the modern era, both critical and celebratory. Christ confronts his online existence that expands and challenges our notions of his meaning within the masses."]},
-    {slug:"dissectingmuybridge", thumb:"https://i.vimeocdn.com/video/482671316-ecd9d6a68db3e3e2eaa2db872ff617f579cdbcddc6684ddf920e65425dba2191-d_640?region=us",
+    {slug:"dissectingmuybridge", thumb:"https://static.wixstatic.com/media/4d098a_bd8bae324ebc438791a50a684aac5ad3~mv2.jpg",
      title:"Dissecting Muybridge", year:"2014", sort:2014, medium:"Single channel video", tags:["Performance"],
-     vimeo:"101002353", spec:"Part I: The Moving Image, 14min 14sec. Part II: Structures of Time, 15min 43sec. Part III: Limits of Chronophotography, 14min 50sec. 720x480 SD, 2014", credits:"Image processing utilized the Signal Culture studio during my Feb. 2014 artist residency, specifically the analog video Hearn videolab and modular synthesis for image and sound creation. The source material was created by making videos from Muybridge's photographs and custom code developed in Processing, then manipulated in After Effects and Premiere Pro.",
+     vimeo:"101002353", spec:"Three part series, 720x480 SD, 2014", credits:"The source material was created by making videos from Muybridge's photographs and custom code developed in Processing, then manipulated in After Effects and Premiere Pro.",
      statement:["Dissecting Muybridge recontextualizes Eadweard Muybridge’s late nineteenth century chronophotography, to both critique and analyze the language of film through the immediacy of video. The work is divided into three parts that trails the moving image’s evolution into film, analog video, and digital video."]},
     {slug:"searchenginevisionbuddha", thumb:"https://i.vimeocdn.com/video/1697840359-4d10b3889390a89d2be7994da3c07dbab94d985aee57eecb1301ffed4ceef113-d_640?region=us",
      title:"Search Engine Vision \"Buddha\"", year:"2012", sort:2012, medium:"Single channel video", tags:["Search Engine Vision"],
@@ -1253,7 +1258,10 @@
     for(var oi=0;oi<CV_ORGANIZATIONS.length;oi++) if(CV_ORGANIZATIONS[oi].matches(id)) return CV_ORGANIZATIONS[oi];
     return null;
   }
-  var cvSecs=[], cvOrgs=[], cvOrgMap={}, CV_TOTAL=0, cvGroup="all", cvQ="";
+  /* landing on ALL shows thirty-two closed drawers and reads as a filing cabinet.
+     PRACTICE opens on the record that actually introduces him. */
+  var CV_DEFAULT_GROUP="practice";
+  var cvSecs=[], cvOrgs=[], cvOrgMap={}, CV_TOTAL=0, cvGroup=CV_DEFAULT_GROUP, cvQ="";
   var cvBody=document.getElementById("cvBody"), cvCount=document.getElementById("cvCount");
 
   function ensureCvOrganization(config){
@@ -1305,7 +1313,7 @@
     var cvGroupsEl=document.getElementById("cvGroups");
     CV_GROUPS.forEach(function(g){
       var b=document.createElement("button"); b.className="chip"; b.type="button";
-      b.textContent=g.label; b.setAttribute("aria-controls","cvBody"); b.setAttribute("aria-pressed", g.k==="all"?"true":"false");
+      b.textContent=g.label; b.setAttribute("aria-controls","cvBody"); b.setAttribute("aria-pressed", g.k===CV_DEFAULT_GROUP?"true":"false");
       b.addEventListener("click", function(){
         cvGroup=g.k;
         Array.prototype.forEach.call(cvGroupsEl.children, function(c){ c.setAttribute("aria-pressed", c===b?"true":"false"); });
@@ -1446,15 +1454,19 @@
   function orientOf(r){ return r<=0 ? "unk" : (r>=1.2 ? "land" : (r<=0.82 ? "port" : "sq")); }
   /* the hero is the main event at full width. everything in the run is supporting
      material and sits smaller: landscape two up, square and vertical three up. */
-  var SPAN={land:3,sq:2,port:2,unk:2}, ORD={land:1,sq:2,port:3,unk:3};
-  function applyOrient(wrap,k){
+  var SPAN={land:3,sq:2,port:2,unk:2}, RANK={land:1,sq:2,port:3,unk:3};
+  /* order is type first, orientation second: every moving image, then every
+     still, then any text. a run should not interleave the two. */
+  var TYPE_BASE={video:0,mp4:0,image:3,text:6};
+  function ordOf(t,k){ return (TYPE_BASE[t]!=null?TYPE_BASE[t]:0) + RANK[k]; }
+  function applyOrient(wrap,k,t){
     wrap.className=wrap.className.replace(/\bo-(land|sq|port|unk)\b/g,"").trim()+" o-"+k;
     wrap.style.setProperty("--span",SPAN[k]);
-    wrap.style.setProperty("--ord",ORD[k]);
+    wrap.style.setProperty("--ord",ordOf(t,k));
   }
   function assetEl(a, lazy, altFallback){
     var wrap=document.createElement("figure"); wrap.className="asset";
-    applyOrient(wrap, orientOf(ratioOf(a)));
+    applyOrient(wrap, orientOf(ratioOf(a)), a.t);
     if(a._i!=null) wrap.setAttribute("data-i", a._i);
     if(a.t==="video"){
       wrap.className += " is-vid";
@@ -1475,7 +1487,7 @@
            pulling video metadata just to find out which way up it is */
         var probe=new Image();
         probe.addEventListener("load", function(){
-          if(probe.naturalWidth && probe.naturalHeight) applyOrient(wrap, orientOf(probe.naturalWidth/probe.naturalHeight));
+          if(probe.naturalWidth && probe.naturalHeight) applyOrient(wrap, orientOf(probe.naturalWidth/probe.naturalHeight), a.t);
         });
         probe.src=a.poster;
       }
@@ -1492,7 +1504,7 @@
       i2.appendChild(im); wrap.appendChild(i2);
     } else if(a.t==="text"){
       var t=document.createElement("div"); t.className="a-text"; t.textContent=a.body;
-      t.style.setProperty("--ord",4);
+      t.style.setProperty("--ord",9);
       return t;
     }
     if(a.cap){ var c=document.createElement("figcaption"); c.className="a-cap"; c.textContent=a.cap; wrap.appendChild(c); }

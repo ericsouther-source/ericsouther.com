@@ -2,6 +2,11 @@
 // Generated data only. Assets are listed in true top-to-bottom page order.
 
 window.WORK_ASSETS = {
+  "searchenginevisionstateofthenation": {
+    assets: [
+      { t:"image", src:"img/sev-state-of-the-nation.jpg", w:2400, h:1350, cap:"One thousand videos per state, remapped onto the geographic form of each." }
+    ]
+  },
   "bodyoddyoddyoddy": {
     assets: [
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_dbaa3c1468f34c05aab44a6bd321af00~mv2.png", w:1500, h:932, cap:"" },
@@ -62,12 +67,11 @@ window.WORK_ASSETS = {
   },
   "dissectingmuybridge": {
     assets: [
-      { t:"video", id:"883005291", cap:"" },
-      { t:"video", id:"883236039", cap:"" },
-      { t:"video", id:"883235719", cap:"" },
-      { t:"text", body:"Dissecting Muybridge Part I: The Moving Image, 14 min 14 sec, 720x480 SD, 2014\nDissecting Muybridge Part II: Structures of Time, 15min 43 sec, 720x480 SD, 2014\nDissecting Muybridge Part III: Limits of Chronophotography, 14 min 50 sec, 720x480 SD, 2014\nTechnical details: Image processing utilized the Signal Culture studio during my Feb. 2014 artist residency, specifically the analog video Hearn videolab and modular synthesis for image and sound creation. The source material was created by making videos from Muybridge's photographs and custom code developed in Processing, then manipulated in After Effects and Premiere Pro." },
+      { t:"video", id:"883005291", cap:"Part I: The Moving Image. 14min 13sec, 720x480 SD, 2014." },
+      { t:"video", id:"883236039", cap:"Part II: Structures of Time. 15min 43sec, 720x480 SD, 2014." },
+      { t:"video", id:"883235719", cap:"Part III: Limits of Chronophotography. 14min 50sec, 720x480 SD, 2014." },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_bd8bae324ebc438791a50a684aac5ad3~mv2.jpg", w:1861, h:1440, cap:"Still Image from Dissecting Muybridge Part I: The Moving Image" },
-      { t:"video", id:"98976637", cap:"" },
+      { t:"video", id:"98976637", cap:"Image processing at the Signal Culture studio during my February 2014 artist residency, using the analog video Hearn videolab and modular synthesis for image and sound creation." },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_3a71c37cbd814fc5b135c7ad8cb19073~mv2_d_1958_1440_s_2.jpg", w:1958, h:1440, cap:"" }
     ]
   },
