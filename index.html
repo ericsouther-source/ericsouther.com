@@ -1053,7 +1053,7 @@
      vimeo:null, spec:"Single channel video, 2024-2025", credits:"", statement:[]},
     {slug:"notimeofdeeptime", wix:"4d098a_4892826507504a55bb72f0711f4d44f0~mv2.jpg",
      title:"No Time of Deep Time", year:"2025", sort:2025, medium:"Single channel video", tags:["Deep Time", "Signal Processing"],
-     vimeo:null, spec:"4k UHD, 9min, 2025", credits:"Michigan's Pictured Rocks National Lakeshore, Upper Peninsula.",
+     vimeo:"1146203208", vimeoHash:"a3e903c0cf", spec:"4K UHD, 8min 11sec, 2025", credits:"Michigan's Pictured Rocks National Lakeshore, Upper Peninsula.",
      statement:["If we could witness the Earth across deep time, the ground beneath our feet would oscillate, revealing the dynamic nature of our planet. What feels permanent to us is actually in constant flux when viewed on the geological timescale.","No Time of Deep Time explores Michigan's Pictured Rocks National Lakeshore in the Upper Peninsula as a site of geological deep time. I use custom software to transform audio waves into complex patterns that weave and cut across vantage points of the site, exploring the aged relationships between water and rock. A contemplation of imperceptible movements that have shaped these iconic sandstone cliffs over 500 million years.","The images work as metaphors to visualize geological processes, that reveal hidden rhythms in what appears static. Patterns that seek to feel erosion, sedimentation, and metamorphosis, processes that continue unabated beyond human perception."]},
     {slug:"deeptimeoflatentspace", wix:"4d098a_03dc72bfb417446d806cca1de208c2ae~mv2.jpg",
      title:"Deep Time of Latent Space", year:"2024", sort:2024, medium:"Real-time synthesis", tags:["Deep Time", "Latent Space"],
@@ -1823,7 +1823,7 @@
     /* the video leads the page. eric's own link when the work carries one, otherwise the
        first video in the asset pack. everything else falls in behind it, deduped. */
     var heroVid=null, heroFromPack=false;
-    if(w.vimeo){ heroVid={id:w.vimeo}; }
+    if(w.vimeo){ heroVid={id:w.vimeo, hash:w.vimeoHash}; }
     else if(vids.length){ heroVid=vids[0]; heroFromPack=true; }
     var hero=heroVid?null:(A?A[0]:null);
     var rest=[];
@@ -1833,7 +1833,8 @@
       if(heroVid&&!heroFromPack&&a.t==="video"&&a.id===w.vimeo) return;
       rest.push(a);
     });
-    var vimeoId=heroVid?heroVid.id:(vids.length?vids[0].id:w.vimeo);
+    var vimeoRef=heroVid||(vids.length?vids[0]:(w.vimeo?{id:w.vimeo,hash:w.vimeoHash}:null));
+    var vimeoId=vimeoRef?vimeoRef.id:null;
 
     var back=document.createElement("a"); back.className="backlink"; back.href="#/"; back.textContent="← BACK TO THE WORK"; projBody.appendChild(back);
     var head=document.createElement("div"); head.className="proj-head";
@@ -1890,7 +1891,7 @@
                      : "POSTER ONLY";
     var right=document.createElement("span");
     var va=document.createElement("a");
-    va.href = vimeoId ? "https://vimeo.com/"+vimeoId : "https://vimeo.com/souther";
+    va.href = vimeoRef ? "https://vimeo.com/"+vimeoRef.id+(vimeoRef.hash?"/"+vimeoRef.hash:"") : "https://vimeo.com/souther";
     va.target="_blank"; va.rel="noopener"; va.textContent = vimeoId ? "OPEN ON VIMEO ↗" : "VIMEO PROFILE ↗";
     right.appendChild(va);
     meta.appendChild(left); meta.appendChild(right); projBody.appendChild(meta);

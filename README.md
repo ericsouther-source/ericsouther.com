@@ -42,6 +42,14 @@ insert a new work where it belongs chronologically rather than appending it.
 Set `hidden:true` to keep a work in the file but off the site entirely: out of the
 grid, out of the counts, out of prev and next, unreachable by URL.
 
+If the Vimeo link is unlisted, meaning it looks like `vimeo.com/<id>/<hash>`, put the
+hash in its own field:
+
+    vimeo:"1146203208", vimeoHash:"a3e903c0cf",
+
+It goes into the player as `?h=` and onto the OPEN ON VIMEO link as `/<hash>`, which
+an unlisted video needs or the link 404s. Public videos leave `vimeoHash` off.
+
 The project page hero is the Vimeo player itself, so `vimeo` is what leads. If a
 work has no `vimeo` the first video in its asset pack leads instead, and if it has
 no video at all the hero falls back to a still.
