@@ -1,0 +1,2056 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eric Souther — Video Artist &amp; Toolmaker</title>
+<meta name="description" content="Eric Souther builds moving-image works, performances, installations, and artist-built tools that trace signals through ritual, bodies, artificial intelligence, and deep time.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eric Souther — Video Artist &amp; Toolmaker">
+<meta property="og:description" content="Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological time.">
+<meta property="og:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eric Souther — Video Artist &amp; Toolmaker">
+<meta name="twitter:description" content="Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological time.">
+<meta name="twitter:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --plate:#f3f3f0;
+    --ink:#121214;
+    --ink-dim:#67675f;
+    --line:rgba(18,18,20,.16);
+    --line-soft:rgba(18,18,20,.08);
+    --accent:#0b6b4c;
+    --accent-soft:rgba(11,107,76,.09);
+    --mono:"Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --disp:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--ink);color:#fff}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .skip-link{position:fixed;left:14px;top:10px;z-index:120;transform:translateY(-160%);background:var(--ink);color:#fff;
+    padding:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;transition:transform .18s}
+  .skip-link:focus{transform:translateY(0)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .bar{max-width:1320px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
+  .brand{font-family:var(--mono);font-weight:700;letter-spacing:.22em;font-size:12.5px}
+  .brand .dot{color:var(--accent)}
+  .nav-toggle{display:none;min-width:44px;min-height:36px;border:1px solid var(--line);background:#fff;color:var(--ink);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;padding:8px 10px;cursor:pointer}
+  nav.main{display:flex;gap:20px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--ink-dim)}
+  nav.main a{position:relative;padding:4px 0;transition:color .2s}
+  nav.main a:hover,nav.main a:focus-visible{color:var(--ink)}
+  nav.main a.on{color:var(--ink)}
+  nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ink);transition:right .25s ease}
+  nav.main a:hover::after,nav.main a:focus-visible::after,nav.main a.on::after{right:0}
+  nav.main .ext{color:var(--ink-dim);opacity:.85}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 28px}
+  .view{display:none}
+  .view.on{display:block}
+
+  /* ---------- ARRIVAL / THE SIGNAL FIELD ---------- */
+  .arrival{max-width:1320px;min-height:calc(100svh - 56px);margin:0 auto;padding:38px 28px 54px;display:grid;position:relative;isolation:isolate;
+    grid-template-columns:minmax(300px,5fr) minmax(440px,7fr);gap:clamp(38px,6vw,88px);align-items:center}
+  .arrival-copy{padding:30px 0;align-self:center;position:relative;z-index:1}
+  .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 30px;font-family:var(--mono);font-size:10.5px;
+    line-height:1.6;letter-spacing:.17em;color:var(--accent)}
+  .arrival-kicker::before{content:"";width:38px;height:1px;background:var(--accent);flex:none}
+  .arrival h1{font-size:clamp(44px,5.8vw,82px);line-height:.98;letter-spacing:-.045em;font-weight:600;margin:0 0 30px;max-width:9.5ch}
+  .arrival-deck{font-size:clamp(16px,1.5vw,20px);line-height:1.55;max-width:34ch;margin:0 0 34px;color:#38383a}
+  .arrival-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+  .arrival-links a{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;padding:9px 0;border-bottom:1px solid var(--line);transition:.2s}
+  .arrival-links a:hover{color:var(--accent);border-color:var(--accent)}
+  .arrival-feature{display:block;align-self:center;min-width:0;position:relative;z-index:1}
+  .arrival-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#050505;isolation:isolate}
+  .arrival-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    transition:opacity .55s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .arrival-video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .55s ease;background:#050505;pointer-events:none}
+  .arrival-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+  .arrival-media.video-ready .arrival-video{opacity:1}
+  .arrival-media.video-ready .arrival-poster{opacity:0}
+  .gesture-feedback-field{position:absolute;inset:0;z-index:0;width:100%;height:100%;pointer-events:none;opacity:0;
+    transition:opacity .5s ease;contain:strict;mix-blend-mode:multiply}
+  .gesture-feedback-field.active{opacity:.82}
+  .cursor-buffer-field{position:absolute;inset:0;z-index:6;width:100%;height:100%;pointer-events:none;opacity:0;
+    transition:opacity .18s ease;contain:strict}
+  .cursor-buffer-field.active{opacity:1}
+  .arrival.gesture-cursor-on,.arrival.gesture-cursor-on *{cursor:none!important}
+  .arrival-hit{position:absolute;inset:0;z-index:3}
+  .arrival-hit:focus-visible{outline-offset:-4px}
+  .arrival-loop-label{position:absolute;left:14px;bottom:13px;color:#fff;background:rgba(5,5,5,.76);padding:7px 9px;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;z-index:4;opacity:0;transition:opacity .3s;pointer-events:none}
+  .arrival-media.video-ready .arrival-loop-label{opacity:1}
+  .arrival-progress{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent);z-index:4;
+    transform:scaleX(0);transform-origin:left center;pointer-events:none}
+  .arrival-media.video-playing .arrival-progress{animation:arrival-minute 60s linear infinite}
+  @keyframes arrival-minute{to{transform:scaleX(1)}}
+  .arrival-meta{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;padding-top:13px;font-family:var(--mono);
+    font-size:10px;line-height:1.55;letter-spacing:.08em;color:var(--ink-dim)}
+  .arrival-meta strong{font-family:var(--disp);font-size:17px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);font-weight:500}
+  .arrival-meta .arrival-enter{color:var(--accent);text-align:right;white-space:nowrap}
+
+  .archive{border-top:1px solid var(--line-soft);scroll-margin-top:68px}
+
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    padding:44px 0 18px;border-bottom:1px solid var(--line);margin-bottom:22px}
+  .sec-head h1,.sec-head h2{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.28em;margin:0}
+  .sec-head .idx{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--ink-dim)}
+  .sec-note{max-width:64ch;color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin:-2px 0 22px}
+  .sec-note a{color:var(--accent);border-bottom:1px solid var(--line)}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-dim);background:transparent;
+    border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;transition:.18s;white-space:nowrap}
+  .chip:hover{color:var(--ink);border-color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+
+  /* ---------- THE GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:40px 30px;padding-bottom:30px}
+  .tile{display:block;color:inherit}
+  .tile.hide{display:none}
+  .tile:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+  .tile-media{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--bg)}
+  .tile-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .tile:hover .tile-media img{transform:scale(1.035)}
+  .tile-lab{display:flex;gap:11px;align-items:flex-start;padding-top:13px}
+  .tile-lab .tn{font-family:var(--mono);font-size:11px;color:var(--ink-dim);padding-top:3px;flex:none}
+  .tile-txt{flex:1;min-width:0}
+  .tile-txt .tt{display:block;font-size:16.5px;font-weight:500;letter-spacing:-.01em;line-height:1.22;transition:color .18s}
+  .tile:hover .tile-txt .tt{color:var(--accent)}
+  .tile-txt .tm{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-dim);margin-top:6px;line-height:1.5}
+  .tagpill{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent);
+    border:1px solid var(--accent);border-radius:999px;padding:3px 9px}
+  .era{grid-column:1 / -1;display:flex;align-items:center;gap:16px;padding:22px 0 2px;font-family:var(--mono);
+    font-size:11px;letter-spacing:.22em;color:var(--ink-dim)}
+  .era::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+  .era.hide{display:none}
+
+  /* ---------- page shell ---------- */
+  .page{max-width:1080px;margin:0 auto;padding:30px 28px 40px}
+  .backlink{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-dim);transition:.2s;display:inline-block;margin-bottom:26px}
+  .backlink:hover{color:var(--accent)}
+  .page h1.pt{margin:0 0 10px;font-weight:600;letter-spacing:-.025em;line-height:1.04;font-size:clamp(28px,4.4vw,52px)}
+  .page .spec{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-dim);margin-bottom:24px}
+  .proj-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .proj-head .pn{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  .pmedia{position:relative;width:100%;aspect-ratio:16/9;background:transparent;overflow:hidden;margin-bottom:10px}
+  .pmedia>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .pmedia iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .playbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;font-family:var(--mono);font-size:12px;
+    letter-spacing:.16em;font-weight:700;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:15px 25px;cursor:pointer;transition:.18s}
+  .playbtn:hover,.playbtn:focus-visible{transform:translate(-50%,-50%) scale(1.05);background:var(--accent)}
+  .pmedia .pending{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;text-align:center;font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);background:rgba(255,255,255,.9);border:1px dashed var(--line);border-radius:3px;padding:9px 13px;max-width:92%}
+  .pmeta{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-dim);margin-bottom:26px}
+  .pmeta a:hover{color:var(--accent)}
+  .pbody{display:grid;grid-template-columns:1.55fr 1fr;gap:48px;padding-bottom:6px;position:relative;overflow:visible}
+  .statement p{font-size:clamp(15.5px,1.7vw,18.5px);line-height:1.65;margin:0 0 20px;color:#2e2e30;max-width:64ch}
+  .pbody.facts-only{grid-template-columns:minmax(240px,420px)}
+  .step-gif{float:right;width:min(42%,220px);margin:2px 0 22px 24px}
+  .step-gif img{display:block;width:100%;height:auto}
+  .pside .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-dim);display:block;margin-bottom:8px}
+  .pside .val{font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--ink);margin-bottom:22px}
+  .projnav{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:22px 0 0;margin-top:20px}
+  .projnav a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-dim);transition:.2s;max-width:44%}
+  .projnav a:hover{color:var(--accent)}
+  .projnav .lb{display:block;color:var(--accent);margin-bottom:5px;font-size:9.5px;letter-spacing:.18em}
+  .projnav .nx{text-align:right}
+
+  /* ---------- PROJECT ASSETS ---------- */
+  /* assets sit ON the page: no shadows, no cards, no rounding.
+     each asset WRAPPER carries an inline width derived from the file's native size,
+     so a 378px gif never paints larger than a 1920px still. */
+  .assets{display:grid;grid-template-columns:repeat(6,1fr);gap:26px 20px;align-items:start;margin-top:4px;overflow:visible}
+  .asset{min-width:0;position:relative;z-index:1;margin:0}
+  .asset.is-still{z-index:2}
+  .asset.is-gif{z-index:5}
+  .asset img{max-width:100%}
+  .a-vid{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+  .a-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .a-img img{width:100%;height:auto;display:block}
+  .a-mp4 video{width:100%;height:auto;display:block;background:#000}
+  .a-cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:var(--ink-dim);margin-top:9px;line-height:1.6}
+  .a-text{grid-column:1 / -1;position:relative;z-index:0;font-family:var(--mono);font-size:11.5px;
+    line-height:1.75;color:var(--ink-dim);border-top:1px solid var(--line-soft);padding-top:15px;max-width:80ch}
+
+  /* the gif sits ON the title, out of flow, so it cannot push the spec down */
+  .title-block{position:relative}
+  .title-block h1.pt{margin:0 0 8px}
+  .title-gif{position:absolute;right:14px;top:-40px;z-index:6}
+  .title-gif img{width:100%;height:auto;display:block}
+
+  /* gif under the credits, hard right */
+  .credit-gif{margin:20px 0 0 auto;position:relative;z-index:5}
+  .credit-gif img{width:100%;height:auto;display:block}
+
+  /* named groups, two columns */
+  .grp{margin-top:8px}
+  .grp-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding:26px 0 8px;margin-top:26px}
+  .grp-head h3{font-family:var(--mono);font-weight:700;font-size:11.5px;letter-spacing:.26em;margin:0}
+  .grp-head .idx{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-dim)}
+  .grp-note{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink-dim);
+    margin:0 0 18px;line-height:1.7;max-width:80ch}
+
+  /* ---------- BODY-ODDY: VIDEO-FIRST PROJECT ---------- */
+  .bodyoddy-page{max-width:1320px;padding-top:22px}
+  .bodyoddy-page .backlink{margin-bottom:32px}
+  .bodyoddy-mast{display:grid;grid-template-columns:minmax(0,8fr) minmax(230px,3fr);gap:clamp(30px,6vw,92px);
+    align-items:end;border-top:1px solid var(--line);padding-top:18px}
+  .bodyoddy-kicker{display:flex;gap:12px;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent);margin-bottom:18px}
+  .bodyoddy-kicker::after{content:"";width:48px;height:1px;background:var(--accent)}
+  .bodyoddy-mast h1{font-size:clamp(46px,7vw,96px);line-height:.86;letter-spacing:-.06em;font-weight:600;margin:0;max-width:9.2ch}
+  .bodyoddy-subtitle{font-size:clamp(16px,1.8vw,23px);line-height:1.35;letter-spacing:-.02em;margin:22px 0 0;max-width:31ch}
+  .bodyoddy-mast-meta{font-family:var(--mono);font-size:10.5px;line-height:1.75;letter-spacing:.06em;color:var(--ink-dim);white-space:pre-line}
+  .bodyoddy-mast-meta strong{display:block;color:var(--ink);font-weight:700;margin-bottom:10px}
+  .bodyoddy-video-field{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:start;
+    margin:clamp(38px,6vw,76px) 0 clamp(72px,10vw,140px)}
+  .bodyoddy-video{margin:0;min-width:0;position:relative}
+  .bodyoddy-video-primary{grid-column:1 / span 10;z-index:1}
+  .bodyoddy-video-secondary{grid-column:6 / -1;z-index:2;margin-top:clamp(-70px,-5vw,-38px);padding:12px 0 0 12px;background:var(--bg)}
+  .bodyoddy-video-screen{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+  .bodyoddy-video-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .bodyoddy-video figcaption{display:flex;justify-content:space-between;gap:18px;align-items:baseline;margin-top:10px;
+    font-family:var(--mono);font-size:9.5px;line-height:1.6;letter-spacing:.08em;color:var(--ink-dim)}
+  .bodyoddy-video figcaption strong{color:var(--ink);font-size:10.5px}
+  .bodyoddy-video figcaption a{white-space:nowrap;color:var(--accent)}
+  .bodyoddy-statement{display:grid;grid-template-columns:minmax(0,8fr) minmax(230px,3fr);gap:clamp(42px,7vw,104px);
+    align-items:start;border-top:1px solid var(--line);padding-top:clamp(28px,4vw,54px);margin-bottom:clamp(84px,11vw,150px)}
+  .bodyoddy-statement-copy p{font-size:clamp(16px,1.65vw,20px);line-height:1.68;margin:0 0 24px;color:#2e2e30;max-width:64ch}
+  .bodyoddy-statement-copy p:first-child{font-size:clamp(23px,2.6vw,35px);line-height:1.36;letter-spacing:-.025em;color:var(--ink);max-width:42ch}
+  .bodyoddy-facts{font-family:var(--mono);font-size:10.5px;line-height:1.7;letter-spacing:.06em;color:var(--ink-dim)}
+  .bodyoddy-fact{border-top:1px solid var(--line-soft);padding:11px 0 18px}
+  .bodyoddy-fact span{display:block;font-size:9px;letter-spacing:.18em;color:var(--accent);margin-bottom:4px}
+  .bodyoddy-doc-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid var(--line);padding-top:17px;margin-bottom:clamp(32px,5vw,70px)}
+  .bodyoddy-doc-head h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.25em;margin:0}
+  .bodyoddy-doc-head span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-dim)}
+  .bodyoddy-collage{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-flow:dense;gap:clamp(28px,5vw,76px) clamp(16px,2vw,30px);align-items:start}
+  .bodyoddy-collage .asset{grid-column:auto;width:auto;margin:0}
+  .bodyoddy-collage .bodyoddy-asset-0{grid-column:1 / span 8!important}
+  .bodyoddy-collage .bodyoddy-asset-2{grid-column:10 / span 3!important;margin-top:clamp(40px,10vw,130px)}
+  .bodyoddy-collage .bodyoddy-asset-3{grid-column:2 / span 4!important}
+  .bodyoddy-collage .bodyoddy-asset-4{grid-column:6 / span 6!important}
+  .bodyoddy-collage .bodyoddy-asset-5{grid-column:1 / span 3!important;margin-top:clamp(26px,6vw,84px)}
+  .bodyoddy-collage .bodyoddy-asset-6{grid-column:4 / span 7!important;margin-top:clamp(-62px,-4vw,-26px)}
+  .bodyoddy-collage .bodyoddy-asset-10{grid-column:8 / span 5!important;margin-top:clamp(28px,7vw,92px)}
+  .bodyoddy-support{display:grid;grid-template-columns:minmax(0,7fr) minmax(220px,4fr);gap:clamp(32px,7vw,100px);align-items:end;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(28px,5vw,62px) 0;margin:clamp(82px,12vw,160px) 0 58px}
+  .bodyoddy-support h2{font-size:clamp(28px,4.7vw,62px);line-height:1;letter-spacing:-.04em;margin:0;max-width:13ch;font-weight:500}
+  .bodyoddy-support-copy{font-family:var(--mono);font-size:10.5px;line-height:1.9;letter-spacing:.06em;white-space:pre-line;color:var(--ink-dim)}
+  .bodyoddy-support-copy strong{display:block;color:var(--accent);font-size:11px;margin-bottom:8px}
+  @media (max-width:820px){
+    .assets{grid-template-columns:1fr}
+    .assets>.asset,.assets>.a-text{grid-column:1 / -1!important;width:auto!important;transform:none!important}
+    .title-gif{position:static;width:130px;margin:12px 0 0 auto}
+    .credit-gif{margin-left:0}
+    .step-gif{float:none;width:min(72vw,220px);margin:0 auto 26px}
+    .bodyoddy-page{padding:22px 20px 40px}
+    .bodyoddy-mast,.bodyoddy-statement,.bodyoddy-support{grid-template-columns:1fr}
+    .bodyoddy-mast h1{font-size:clamp(44px,15vw,68px)}
+    .bodyoddy-video-field,.bodyoddy-collage{grid-template-columns:1fr;gap:34px;margin-bottom:72px}
+    .bodyoddy-video-primary,.bodyoddy-video-secondary,.bodyoddy-collage .asset{grid-column:1 / -1!important;margin-top:0!important;padding:0}
+    .bodyoddy-video figcaption{align-items:flex-start}
+    .bodyoddy-statement{gap:34px;margin-bottom:86px}
+    .bodyoddy-doc-head{margin-bottom:32px}
+    .bodyoddy-support{gap:26px;margin:88px 0 44px}
+  }
+
+  /* ---------- LAYOUT EDITOR (prototype only) ---------- */
+  .ed-bar{position:fixed;right:16px;bottom:16px;z-index:95;display:none;gap:7px}
+  body.layout-editor .ed-bar{display:flex}
+  .ed-bar button{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:9px 11px;
+    border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;border-radius:2px}
+  .ed-bar button:hover{border-color:var(--ink)}
+  .ed-bar button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .ed-out{position:fixed;right:16px;bottom:58px;z-index:95;width:340px;display:none}
+  .ed-out.on{display:block}
+  .ed-out textarea{width:100%;height:200px;font-family:var(--mono);font-size:9.5px;line-height:1.5;
+    border:1px solid var(--ink);padding:8px;background:#fff;color:var(--ink);resize:vertical}
+  .ed-hint{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--ink-dim);padding:6px 2px}
+  body.editing .asset,body.editing .title-gif,body.editing .credit-gif{
+    outline:1px dashed rgba(11,107,76,.8);outline-offset:2px;cursor:move;user-select:none}
+  body.editing .asset:hover,body.editing .title-gif:hover,body.editing .credit-gif:hover{outline-color:var(--accent);outline-style:solid}
+  body.editing .a-vid,body.editing .a-mp4{pointer-events:none}
+  .rs-handle{display:none;position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;
+    background:var(--accent);cursor:nwse-resize;z-index:30}
+  body.editing .rs-handle{display:block}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.7fr 300px;gap:60px;align-items:start}
+  .about-name{margin:0 0 10px;font-weight:600;letter-spacing:-.025em;line-height:1.05;font-size:clamp(25px,2.9vw,36px)}
+  .about-lede{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;line-height:1.8;color:var(--ink-dim);margin:0 0 34px}
+  .about-lede b{color:var(--ink);font-weight:400}
+  .bio p.para{font-size:clamp(16px,1.85vw,20px);line-height:1.62;margin:0 0 22px;color:#2e2e30;max-width:60ch}
+  .portrait-sm{width:100%;height:auto;display:block;margin-bottom:26px}
+  .side-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-dim);display:block;margin-bottom:10px}
+  .venue-list{list-style:none;margin:0 0 28px;padding:0}
+  .venue-list li{border-top:1px solid var(--line-soft);padding:9px 0;font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--ink-dim)}
+  .venue-list li:last-child{border-bottom:1px solid var(--line-soft)}
+  .venue-list li b{color:var(--ink);font-weight:400;display:block}
+  .cvbtn{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;font-weight:700;
+    background:var(--ink);color:#fff;border-radius:2px;padding:12px 18px;transition:.18s}
+  .cvbtn:hover{background:var(--accent)}
+
+  /* ---------- CV ---------- */
+  .cv-bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+  .cv-search{flex:1;min-width:240px;max-width:440px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+    padding:11px 13px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink)}
+  .cv-search::placeholder{color:var(--ink-dim)}
+  .cv-search:focus{outline:none;border-color:var(--ink)}
+  .cv-sec{margin-bottom:0;border-bottom:1px solid var(--line-soft)}
+  .cv-sec>summary{list-style:none;cursor:pointer;margin:0!important;padding:18px 0!important;border-bottom:0!important}
+  .cv-sec>summary::-webkit-details-marker{display:none}
+  .cv-sec>summary::before{content:"+";font-family:var(--mono);font-size:12px;color:var(--accent);margin-right:12px}
+  .cv-sec[open]>summary::before{content:"−"}
+  .cv-sec>summary h2{flex:1}
+  .cv-sec .cv-list{padding-bottom:20px}
+  .cv-org>summary{padding:22px 0!important}
+  .cv-org>summary h2{font-size:13px;letter-spacing:.22em}
+  .cv-org-body{margin:0 0 8px 5px;padding:0 0 16px 34px;border-left:1px solid var(--line-soft)}
+  .cv-subsec{margin:0;border-top:1px solid var(--line-soft)}
+  .cv-subsec:last-child{border-bottom:1px solid var(--line-soft)}
+  .cv-subsec>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:12px;padding:14px 0 14px 18px}
+  .cv-subsec>summary::-webkit-details-marker{display:none}
+  .cv-subsec>summary::before{content:"+";font-family:var(--mono);font-size:11px;color:var(--accent);flex:none}
+  .cv-subsec[open]>summary::before{content:"−"}
+  .cv-subsec>summary h3{font-family:var(--mono);font-size:10.5px;line-height:1.55;letter-spacing:.16em;font-weight:700;margin:0;flex:1}
+  .cv-subsec>summary .idx{font-size:10px;letter-spacing:.1em;white-space:nowrap}
+  .cv-subsec .cv-list{padding:0 0 18px 42px}
+  .cv-list{list-style:none;margin:0;padding:0}
+  .cv-list li{border-top:1px solid var(--line-soft);padding:12px 0;display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:start}
+  .cv-list li:last-child{border-bottom:1px solid var(--line-soft)}
+  .cv-y{font-family:var(--mono);font-size:11px;color:var(--accent);padding-top:2px;white-space:nowrap}
+  .cv-t{font-size:15.5px;line-height:1.38;font-weight:500;letter-spacing:-.005em}
+  .cv-d{font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:5px;line-height:1.6}
+  .cv-miss{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--ink-dim);border:1px dashed var(--line);
+    padding:20px;border-radius:3px;background:var(--plate)}
+  @media (max-width:640px){
+    .cv-list li{grid-template-columns:1fr;gap:3px}
+    .cv-y{padding-top:0}
+    .cv-org-body{margin-left:0;padding-left:0;border-left:0}
+    .cv-subsec>summary{padding-left:0}
+    .cv-subsec .cv-list{padding-left:24px}
+  }
+
+  /* ---------- NEWS ---------- */
+  .news-group{margin-bottom:44px}
+  .news-group[id]{scroll-margin-top:76px}
+  .news-list{list-style:none;margin:0;padding:0}
+  .news-list li{border-top:1px solid var(--line-soft);padding:17px 0;display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:start}
+  .news-list li:last-child{border-bottom:1px solid var(--line-soft)}
+  .news-list .when{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--accent)}
+  .news-list .when.past{color:var(--ink-dim)}
+  .news-list .nt{font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+  .news-list .nt a{border-bottom:1px solid var(--line)}
+  .news-list .nt a:hover{color:var(--accent);border-color:var(--accent)}
+  .news-list .nv{font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:6px;line-height:1.55}
+  .news-list .kind{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--ink-dim);border:1px solid var(--line);border-radius:999px;padding:4px 9px;white-space:nowrap}
+  .empty{font-family:var(--mono);font-size:11.5px;line-height:1.7;letter-spacing:.04em;color:var(--ink-dim);border:1px dashed var(--line);padding:20px;border-radius:3px;background:var(--plate)}
+
+  /* ---------- TOOLMAKING ---------- */
+  .tools-intro{display:grid;grid-template-columns:1.5fr 1fr;gap:52px;align-items:start}
+  .tool-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:58px 0 24px}
+  .tool-pillar{border-top:1px solid var(--ink);padding:14px 0 18px;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;transition:.2s}
+  .tool-pillar .tp-no{font-family:var(--mono);font-size:10px;color:var(--accent)}
+  .tool-pillar strong{font-size:17px;font-weight:500;letter-spacing:-.01em}
+  .tool-pillar p{grid-column:2;margin:0;color:var(--ink-dim);font-size:13px;line-height:1.55;max-width:30ch}
+  .tool-pillar:hover{color:var(--accent);border-color:var(--accent)}
+  .tool-disclosure{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px}
+  .tool-disclosure summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:14px 0;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;color:var(--ink)}
+  .tool-disclosure summary::-webkit-details-marker{display:none}
+  .tool-disclosure summary::after{content:"+";color:var(--accent)}
+  .tool-disclosure[open] summary::after{content:"−"}
+  .tool-disclosure .feed-grid{padding:6px 0 20px}
+  .lede-lg{font-size:clamp(19px,2.4vw,27px);line-height:1.4;letter-spacing:-.015em;margin:0 0 20px;max-width:30ch;font-weight:500}
+  .para{font-size:clamp(15px,1.7vw,17.5px);line-height:1.65;margin:0 0 18px;color:#2e2e30;max-width:66ch}
+  .hist .para{max-width:78ch}
+  .tools-lead{max-width:80ch}
+  /* the source gif is light-on-dark: invert flips it to black-on-white, and multiply
+     drops the (now white) background straight into the page so it carries no box */
+  /* the gif carries baked-in whitespace around the wordmark, so its file edge is not
+     its visual edge. these negative margins pull the actual P onto the button's left
+     edge and close the dead space underneath. tuned by eye, nudge freely. */
+  .tools-gif{display:block;max-width:540px;margin:4px 0 -22px -16px}
+  .tools-gif img{width:100%;height:auto;display:block;filter:invert(1);mix-blend-mode:multiply}
+  .tools-lead .patreon{margin-top:0}
+  .sc-logo img{width:100%;height:auto;display:block}
+  .sc-logo{display:block;max-width:150px}
+  .suite{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .suite a{display:block;transition:.2s}
+  .suite a:hover{transform:translateY(-3px)}
+  .suite img{width:100%;height:auto;display:block}
+  .suite .sl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-dim);padding-top:9px}
+  .suite a:hover .sl{color:var(--accent)}
+
+  /* ---------- TOOLS FEED ---------- */
+  .feed-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+  .fcard{position:relative;aspect-ratio:16/9;background:var(--plate);overflow:hidden;display:block;transition:.2s}
+  .fcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.3s}
+  .fcard:hover img{transform:scale(1.04)}
+  .fcard .fmeta{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 11px 9px;
+    background:linear-gradient(0deg, rgba(0,0,0,.88), rgba(0,0,0,0));font-family:var(--mono);font-size:10px;letter-spacing:.03em;line-height:1.4}
+  .fcard .fmeta .ft{color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .fcard .fmeta .fd{color:#8ff0c6;margin-top:4px}
+  .fcard.no-thumb{background:var(--accent)}
+  .fcard.no-thumb::before{content:"PHILOSOPHICAL TOOLS / PATREON";position:absolute;left:11px;top:11px;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;color:rgba(255,255,255,.72)}
+  .feed-live{display:flex;justify-content:space-between;gap:18px;align-items:baseline;border-top:1px solid var(--line-soft);
+    padding:13px 0 2px;font-family:var(--mono);font-size:10px;line-height:1.5;letter-spacing:.11em;color:var(--ink-dim)}
+  .feed-live:hover{color:var(--accent)}
+  .feed-live span:last-child{color:var(--accent);white-space:nowrap}
+  .patreon{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;
+    background:var(--ink);color:#fff;border-radius:2px;padding:11px 16px;transition:.18s;margin-top:22px}
+  .patreon:hover{background:var(--accent)}
+
+  .contact .lbl{color:var(--ink-dim);font-size:10px;letter-spacing:.18em;display:block;margin-bottom:10px;font-family:var(--mono)}
+  .contact a.mail{font-size:clamp(17px,2.2vw,24px);color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:3px;transition:.2s}
+  .contact a.mail:hover{color:var(--accent);border-color:var(--accent)}
+  .social{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .social a{color:var(--ink-dim);border:1px solid var(--line);border-radius:2px;padding:8px 11px;transition:.2s;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em}
+  .social a:hover{color:var(--ink);border-color:var(--ink)}
+  footer{border-top:1px solid var(--line);margin-top:56px}
+  .foot{max-width:1320px;margin:0 auto;padding:24px 28px 56px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-dim)}
+
+  @media (max-width:900px){
+    .arrival{min-height:auto;grid-template-columns:1fr;gap:28px;padding-top:48px}
+    .arrival-copy{padding-bottom:0}
+    .arrival h1{max-width:11ch}
+    .arrival-feature{width:min(100%,720px)}
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .portrait-sm{max-width:340px}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px 22px}
+    .tools-intro{grid-template-columns:1fr;gap:30px}
+    .tool-pillars{grid-template-columns:1fr;gap:8px}
+    .tools-gif{max-width:420px}
+  }
+  @media (max-width:820px){
+    .nav-toggle{display:block}
+    nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:rgba(255,255,255,.98);border-top:1px solid var(--line-soft);
+      border-bottom:1px solid var(--line);padding:18px 28px 22px;grid-template-columns:1fr 1fr;gap:8px 22px;font-size:11px}
+    .bar.nav-open nav.main{display:grid}
+    nav.main a{min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--line-soft)}
+    .pbody{grid-template-columns:1fr;gap:32px}
+    .news-list li{grid-template-columns:1fr;gap:8px}
+    .news-list .kind{justify-self:start}
+  }
+  @media (max-width:640px){
+    .bar{padding-left:20px;padding-right:20px}
+    nav.main{padding-left:20px;padding-right:20px}
+    .arrival{padding:36px 20px 44px}
+    .arrival-kicker{margin-bottom:22px}
+    .arrival h1{font-size:clamp(42px,14vw,62px);margin-bottom:24px}
+    .arrival-media{aspect-ratio:16/9}
+    .arrival-meta{grid-template-columns:1fr auto}
+    .arrival-meta>span:first-child{display:none}
+    .arrival-meta .arrival-enter{grid-column:2;grid-row:1}
+    .wrap,.page{padding-left:20px;padding-right:20px}
+    .grid{grid-template-columns:1fr;gap:30px}
+    .suite{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .arrival-video,.arrival-loop-label,.arrival-progress,.gesture-feedback-field,.cursor-buffer-field{display:none}
+    .tile:hover .tile-media img{transform:none}
+  }
+  @media (hover:none),(pointer:coarse){.gesture-feedback-field,.cursor-buffer-field{display:none}}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">SKIP TO CONTENT</a>
+
+  <header>
+    <div class="bar">
+      <a class="brand" href="#/">ERIC SOUTHER</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">MENU</button>
+      <nav class="main" id="primaryNav" aria-label="Primary">
+        <a href="#/" id="nav-work">WORK</a>
+        <a href="#/toolmaking" id="nav-tools">TOOLMAKING</a>
+        <a href="#/about" id="nav-about">ABOUT</a>
+        <a href="#/news" id="nav-news">NEWS</a>
+        <a href="#/cv" id="nav-cv">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+  <!-- ============ WORK: THE GRID ============ -->
+  <section class="view on" id="view-index">
+    <div class="arrival">
+      <canvas class="gesture-feedback-field" id="gestureFeedbackField" aria-hidden="true"></canvas>
+      <canvas class="cursor-buffer-field" id="cursorBufferField" aria-hidden="true"></canvas>
+      <div class="arrival-copy">
+        <p class="arrival-kicker">Video Artist, Toolmaker, Curator.</p>
+        <h1>I build instruments for seeing across time.</h1>
+        <p class="arrival-deck">Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological deep time.</p>
+        <div class="arrival-links">
+          <a href="#archive">ENTER THE ARCHIVE ↓</a>
+        </div>
+      </div>
+      <div class="arrival-feature">
+        <div class="arrival-media">
+          <img class="arrival-poster" src="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png" alt="Eric Souther performing before green synthesized forms in Devotional Signals" fetchpriority="high">
+          <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
+          <a class="arrival-hit" href="#/work/devotionalsignals" aria-label="Enter Devotional Signals, 2025 to 2026"></a>
+          <span class="arrival-loop-label" aria-hidden="true">MUTED / 01:00 LOOP</span>
+          <span class="arrival-progress" aria-hidden="true"></span>
+        </div>
+        <a class="arrival-meta" href="#/work/devotionalsignals">
+          <span>2025—2026<br>AUDIOVISUAL PERFORMANCE</span>
+          <strong>Devotional Signals~</strong>
+          <span class="arrival-enter">ENTER PROJECT →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap archive" id="archive">
+      <div class="sec-head"><h2>THE ARCHIVE</h2><span class="idx" id="workCount" aria-live="polite"></span></div>
+      <p class="sec-note">The complete body of work, newest to oldest. Filter by the throughlines that move across media and time.</p>
+      <div class="filters" role="group" aria-label="Filter works by series">
+        <button class="chip" type="button" data-tag="all" aria-controls="grid" aria-pressed="true">ALL</button>
+        <button class="chip" type="button" data-tag="Search Engine Vision" aria-controls="grid" aria-pressed="false">SEARCH ENGINE VISION</button>
+        <button class="chip" type="button" data-tag="Deep Time" aria-controls="grid" aria-pressed="false">DEEP TIME</button>
+        <button class="chip" type="button" data-tag="Performance" aria-controls="grid" aria-pressed="false">PERFORMANCE</button>
+        <button class="chip" type="button" data-tag="Signal Processing" aria-controls="grid" aria-pressed="false">SIGNAL PROCESSING</button>
+        <button class="chip" type="button" data-tag="Latent Space" aria-controls="grid" aria-pressed="false">LATENT SPACE</button>
+        <button class="chip" type="button" data-tag="Ritual" aria-controls="grid" aria-pressed="false">RITUAL</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="view" id="view-about">
+    <div class="page">
+      <div class="sec-head"><h1>ABOUT</h1><span class="idx">BIOGRAPHY</span></div>
+      <div class="about-grid">
+        <div class="bio">
+          <h2 class="about-name">Eric Souther</h2>
+          <p class="about-lede"><b>Video artist and toolmaker.</b> b. 1987, Kansas City.<br>
+          <b>Associate Professor of Kinetic Imaging</b>, Gwen Frostic School of Art, Western Michigan University.</p>
+          <p class="para">I hold an MFA in Electronic Integrated Arts from the New York State College of Ceramics at Alfred University, and a BFA in New Media from the Kansas City Art Institute.</p>
+          <p class="para">My creative research draws from new materialism, anthropology, ritual, deep time, and toolmaking. I read these areas through one another and bring them together in technological assemblages: emergent systems and software for exploring relations. I turn these systems into performative instruments for navigating unexpected images and ways of making meaning. The work takes many forms, including interactive installation, audiovisual performance, single-channel video, and software.</p>
+          <p class="para">My work has been exhibited and screened nationally and internationally across the United States, Europe, Asia, and South America.</p>
+          <a class="cvbtn" href="#/cv">CURRICULUM VITAE</a>
+          <div class="contact" style="margin-top:44px">
+            <span class="lbl">ELSEWHERE</span>
+            <div class="social" style="margin-top:0">
+              <a href="https://www.instagram.com/ericsouther" target="_blank" rel="noopener">INSTAGRAM</a>
+              <a href="https://www.patreon.com/c/PhilosophicalTools" target="_blank" rel="noopener">PHILOSOPHICAL TOOLS</a>
+              <a href="https://vimeo.com/souther" target="_blank" rel="noopener">VIMEO</a>
+              <a href="https://objkt.com/profile/souther/created" target="_blank" rel="noopener">OBJKT</a>
+            </div>
+          </div>
+        </div>
+        <aside>
+          <img class="portrait-sm" id="portrait" src="https://static.wixstatic.com/media/4d098a_ca627e3a8ca24568b879612ceb6120ef~mv2_d_2560_1440_s_2.jpg" alt="Portrait of Eric Souther">
+          <span class="side-lbl">SELECTED VENUES AND FESTIVALS</span>
+          <ul class="venue-list" id="venues"></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWS ============ -->
+  <section class="view" id="view-news">
+    <div class="page" style="max-width:1320px">
+      <div class="sec-head"><h1>NEWS</h1><span class="idx" id="newsToday"></span></div>
+      <div class="news-group">
+        <div class="sec-head" style="padding:0 0 14px"><h2 style="color:var(--accent)">UPCOMING</h2><span class="idx" id="upCount"></span></div>
+        <ul class="news-list" id="newsUp"></ul>
+      </div>
+      <div class="news-group">
+        <div class="sec-head" style="padding:8px 0 14px"><h2>RECENT</h2><span class="idx" id="pastCount"></span></div>
+        <ul class="news-list" id="newsPast"></ul>
+      </div>
+      <div class="news-group">
+        <div class="sec-head" style="padding:8px 0 14px"><h2>GRANTS AND AWARDS</h2><span class="idx" id="awardsCount"></span></div>
+        <ul class="news-list" id="newsAwards"></ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TOOLMAKING ============ -->
+  <section class="view" id="view-tools">
+    <div class="page" style="max-width:1320px">
+      <div class="sec-head"><h1>TOOLMAKING</h1><span class="idx">PHILOSOPHICAL TOOLS</span></div>
+
+      <div class="tools-lead">
+        <p class="lede-lg">Building tools within experimental media art opens ways of seeing the electronic image beyond industry-defined possibilities. It also creates space to question every tool and its relationship to what can be imagined.</p>
+        <p class="para">Community, shared knowledge, modularity, and performativity are central to how new images—and new ways of thinking—emerge.</p>
+        <a href="https://www.patreon.com/c/PhilosophicalTools" target="_blank" rel="noopener" class="tools-gif">
+          <img src="https://static.wixstatic.com/media/4d098a_ffb9bc0b21ca4332ad64d1e381a25799~mv2.gif/v1/fill/w_1600,h_400,q_85,enc_avif,quality_auto/4d098a_ffb9bc0b21ca4332ad64d1e381a25799~mv2.gif" alt="Philosophical Tools" loading="lazy">
+        </a>
+        <a class="patreon" href="https://www.patreon.com/c/PhilosophicalTools" target="_blank" rel="noopener">PHILOSOPHICAL TOOLS ON PATREON ↗</a>
+      </div>
+
+      <nav class="tool-pillars" aria-label="Explore toolmaking areas">
+        <a class="tool-pillar" href="#tool-instruments"><span class="tp-no">01</span><strong>ARTIST-BUILT INSTRUMENTS</strong><p>Modular TOX suites and performative systems for real-time images.</p></a>
+        <a class="tool-pillar" href="#tool-research"><span class="tp-no">02</span><strong>RESEARCH &amp; LINEAGE</strong><p>Historical signal flows carried into contemporary software practice.</p></a>
+        <a class="tool-pillar" href="#tool-tutorials"><span class="tp-no">03</span><strong>TUTORIALS &amp; COMMUNITY</strong><p>Shared tools and techniques for experimental media artists.</p></a>
+      </nav>
+
+      <div class="news-group" id="tool-research">
+        <div class="sec-head" style="padding:34px 0 16px"><h2>TOUCHDESIGNER TUTORIALS AND TOOLS FOR EXPERIMENTAL MEDIA ARTS</h2></div>
+        <div class="hist">
+          <p class="para">In the late 1960s and early 1970s, a generation of artists and engineers began building their own video instruments; analog circuits modeled on the modular logic of audio synthesizers like the Moog, but for video. Unlike the closed, industrial tools of broadcast television, these devices were open systems that invited experimentation, happy accidents, and entirely new ways of seeing the electronic image. Out of this excitement around a new frontier, organizations emerged that focused on building community, developing artist-built tools, and providing access to facilities and equipment that would otherwise be out of reach. The Experimental Television Center in Owego, New York, the National Center for Experiments in Television in San Francisco, and the Electronic Visualization Laboratory in Chicago all became vital hubs for this work, helping not only to launch the careers of pioneers like Nam June Paik, Woody and Steina Vasulka, and Gary Hill, but also creating rich environments where artists and engineers collaborated to build new instruments and processes that worked modularly, giving artists the flexibility to find hybrid forms and push the boundaries of the moving image.</p>
+          <p class="para">The instruments at the center of this research cannot truly be replicated. Their phenomena emerged from discrete analog circuits that produced phenomena unique to CRT televisions, NTSC signals, and vector-based displays, systems that are irreducibly physical and historical. Rather than imitation, this project looks closely at historical signal flows and uses contemporary software to develop new visual vocabularies that honor that lineage while pushing into new territories.</p>
+        </div>
+      </div>
+
+      <div class="news-group" id="tool-instruments">
+        <div class="sec-head" style="padding:34px 0 16px"><h2>TOX SUITE</h2><span class="idx">THREE VOLUMES</span></div>
+        <div class="suite" id="suite"></div>
+      </div>
+
+      <div class="news-group">
+        <div class="sec-head" style="padding:34px 0 16px"><h2>MODULAR TOX OVERVIEWS</h2><span class="idx" id="toxCount"></span></div>
+        <p class="sec-note">The instruments. Each TOX is a modular component built for TouchDesigner and made to be played, in the lineage of artist-built video tools.</p>
+        <details class="tool-disclosure"><summary>BROWSE THE COMPLETE INSTRUMENT INDEX</summary><div class="feed-grid" id="toxFeed"></div><a class="feed-live" href="https://www.patreon.com/collection/680746" target="_blank" rel="noopener"><span>COMPLETE MODULAR TOX COLLECTION</span><span>LIVE ON PATREON ↗</span></a></details>
+      </div>
+
+      <div class="news-group" id="tool-tutorials">
+        <div class="sec-head" style="padding:34px 0 16px"><h2>TD FOR VIDEO ARTISTS</h2><span class="idx" id="tdCount"></span></div>
+        <p class="sec-note">A tutorial series for artists coming to TouchDesigner from video. Listed in the order they were published. Only Parts 17 and 18 carry a number on Vimeo, so the rest are shown by title. Downloads and project files are on <a href="https://www.patreon.com/c/PhilosophicalTools" target="_blank" rel="noopener">Patreon</a>.</p>
+        <details class="tool-disclosure"><summary>BROWSE THE COMPLETE TUTORIAL INDEX</summary><div class="feed-grid" id="tdFeed"></div><a class="feed-live" href="https://www.patreon.com/collection/674230" target="_blank" rel="noopener"><span>COMPLETE TD FOR VIDEO ARTISTS COLLECTION</span><span>LIVE ON PATREON ↗</span></a></details>
+      </div>
+
+      <div class="news-group">
+        <div class="sec-head" style="padding:34px 0 16px"><h2>SIGNAL CULTURE MODULAR APPS</h2><span class="idx">EXPERIMENTAL REAL-TIME VIDEO PROCESSING</span></div>
+        <div class="tools-intro">
+          <div>
+            <p class="para">The Signal Culture Apps give access to custom professional video and new media software applications for producing real-time experimental media artworks. I joined the board of Signal Culture in 2016, to help develop these experimental video applications for real-time video processing. From 2016 to the present, Jason Bernagozzi and I have developed nine experimental media art applications. We work collaboratively on the code behind the main process and functionality of the application, and I develop the user interface and design.</p>
+            <p class="para">The Signal Culture applications have over ten thousand users worldwide and are in more than twenty university media art studios around the United States. Our applications provide a way of sharing the importance of artist-built tools and the principles and pedagogies that emerged from the Experimental Television Center and that continue with Signal Culture's studios. These include modularity, performativity, and philosophical processes.</p>
+            <a class="patreon" href="https://signalculture.org/sc-modular-apps.html" target="_blank" rel="noopener">SIGNAL CULTURE MODULAR APPS ↗</a>
+          </div>
+          <a href="https://signalculture.org/" target="_blank" rel="noopener" class="sc-logo">
+            <img src="https://static.wixstatic.com/media/4d098a_3439cf836cd64b84b0eee89f69678419~mv2.jpg" alt="Signal Culture" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CV ============ -->
+  <section class="view" id="view-cv">
+    <div class="page" style="max-width:1320px">
+      <div class="sec-head"><h1>CURRICULUM VITAE</h1><span class="idx" id="cvCount" aria-live="polite"></span></div>
+      <p class="sec-note">The full record, 2008 to now. Filter by area, or search across every entry at once.</p>
+      <div class="cv-bar">
+        <input class="cv-search" id="cvSearch" type="search" placeholder="SEARCH TITLES, VENUES, CURATORS, YEARS" aria-label="Search CV entries" autocomplete="off">
+        <a class="patreon" style="margin-top:0" href="Full%20CV_ES.pdf" download="Eric-Souther-CV.pdf">DOWNLOAD CURRENT CV (.PDF) ↓</a>
+      </div>
+      <div class="filters" id="cvGroups" role="group" aria-label="Filter CV by area"></div>
+      <div id="cvBody"></div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECT ============ -->
+  <section class="view" id="view-work"><div class="page" id="projBody"></div></section>
+  </main>
+
+  <div class="ed-out" id="edOut">
+    <div class="ed-hint">DRAG TO MOVE  ·  CORNER TO SCALE  ·  SEND ME THIS JSON</div>
+    <textarea id="edText" readonly></textarea>
+  </div>
+  <div class="ed-bar">
+    <button id="edToggle" type="button">EDIT LAYOUT</button>
+    <button id="edCopy" type="button">COPY JSON</button>
+    <button id="edReset" type="button">RESET</button>
+  </div>
+
+  <footer>
+    <div class="foot">
+      <span>&copy; 2026 ERIC SOUTHER</span>
+      <a href="#/about">LINKS &amp; CV →</a>
+    </div>
+  </footer>
+
+<script src="cv-data.js"></script>
+<script src="work-assets.js"></script>
+<script>
+(function(){
+  "use strict";
+  var MEDIA = "https://static.wixstatic.com/media/";
+  var DEFAULT_SHARE_IMAGE="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png";
+  var reduceMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function initArrivalVideo(){
+    var media=document.querySelector(".arrival-media"), host=document.getElementById("arrivalVideo");
+    var motionQuery=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
+    var saveData=!!(navigator.connection&&navigator.connection.saveData);
+    if(!media||!host||saveData) return;
+    if(motionQuery&&motionQuery.matches){
+      if(host.hasAttribute("data-motion-wait")) return;
+      host.setAttribute("data-motion-wait","");
+      var enableArrivalVideo=function(e){
+        if(e.matches) return;
+        if(motionQuery.removeEventListener) motionQuery.removeEventListener("change",enableArrivalVideo);
+        else if(motionQuery.removeListener) motionQuery.removeListener(enableArrivalVideo);
+        host.removeAttribute("data-motion-wait"); initArrivalVideo();
+      };
+      if(motionQuery.addEventListener) motionQuery.addEventListener("change",enableArrivalVideo);
+      else if(motionQuery.addListener) motionQuery.addListener(enableArrivalVideo);
+      return;
+    }
+    if(host.hasAttribute("data-video-ready")) return;
+    host.setAttribute("data-video-ready","");
+    var frame=document.createElement("iframe");
+    frame.src="https://player.vimeo.com/video/1178941183?background=1&autoplay=1&muted=1&loop=1&autopause=0&playsinline=1&dnt=1&title=0&byline=0&portrait=0";
+    frame.allow="autoplay; fullscreen; picture-in-picture";
+    frame.title="Muted one-minute loop from Devotional Signals";
+    frame.tabIndex=-1;
+    frame.setAttribute("aria-hidden","true");
+    host.appendChild(frame);
+
+    var player=null, resetting=false;
+    function ignore(){}
+    function play(){ if(motionQuery&&motionQuery.matches) return; if(player){ var p=player.play(); if(p&&p.catch) p.catch(ignore); } }
+    function pause(){ if(player){ var p=player.pause(); if(p&&p.catch) p.catch(ignore); } }
+    function restart(){
+      if(!player) return;
+      var p=player.setCurrentTime(0);
+      if(p&&p.then) p.then(play).catch(ignore); else play();
+    }
+    function arrivalIsVisible(){
+      if(!media.offsetParent) return false;
+      var rect=media.getBoundingClientRect();
+      var visible=Math.max(0,Math.min(rect.bottom,window.innerHeight)-Math.max(rect.top,0));
+      return visible/Math.max(1,rect.height)>=.2;
+    }
+    function connectPlayer(){
+      if(player||!window.Vimeo||!window.Vimeo.Player) return;
+      player=new window.Vimeo.Player(frame);
+      player.on("play",function(){ media.classList.add("video-ready","video-playing"); });
+      player.on("pause",function(){ media.classList.remove("video-playing"); });
+      player.on("timeupdate",function(data){
+        if(data.seconds<60||resetting) return;
+        resetting=true;
+        player.setCurrentTime(0).then(function(){ resetting=false; play(); }).catch(function(){ resetting=false; });
+      });
+      if("IntersectionObserver" in window){
+        var observer=new IntersectionObserver(function(entries){
+          if((!motionQuery||!motionQuery.matches)&&entries[0].intersectionRatio>=.2) restart(); else pause();
+        },{threshold:.2});
+        observer.observe(media);
+      } else { restart(); }
+      document.addEventListener("visibilitychange",function(){
+        if(document.hidden||motionQuery&&motionQuery.matches) pause(); else if(arrivalIsVisible()) restart();
+      });
+    }
+    if(window.Vimeo&&window.Vimeo.Player){ connectPlayer(); }
+    else {
+      var sdk=document.createElement("script"); sdk.src="https://player.vimeo.com/api/player.js"; sdk.async=true;
+      sdk.addEventListener("load",connectPlayer); document.head.appendChild(sdk);
+    }
+    function arrivalMotionChanged(e){
+      if(e.matches){ pause(); media.classList.remove("video-ready","video-playing"); }
+      else if(arrivalIsVisible()) restart();
+    }
+    if(motionQuery){
+      if(motionQuery.addEventListener) motionQuery.addEventListener("change",arrivalMotionChanged);
+      else if(motionQuery.addListener) motionQuery.addListener(arrivalMotionChanged);
+    }
+  }
+  initArrivalVideo();
+  function initGestureFeedback(){
+    var root=document.querySelector(".arrival"), field=document.getElementById("gestureFeedbackField");
+    var cursorField=document.getElementById("cursorBufferField");
+    var motionQuery=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
+    var finePointer=!window.matchMedia||window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+    if(!root||!field||!cursorField||!field.getContext||!cursorField.getContext||!finePointer) return;
+
+    var BUFFER_COUNT=8, FRAME_DELAY=12, FRAME_SCALE=.5, CURSOR_LAYERS=8, DRAW_GREEN="#70ec4b";
+    var CURSOR_HISTORY=CURSOR_LAYERS*FRAME_DELAY+1;
+    var display={canvas:field,ctx:field.getContext("2d",{alpha:true})};
+    var cursorDisplay={canvas:cursorField,ctx:cursorField.getContext("2d",{alpha:true})};
+    if(!display.ctx||!cursorDisplay.ctx) return;
+    function makeLayer(scale){
+      var canvas=document.createElement("canvas");
+      return {canvas:canvas,ctx:canvas.getContext("2d",{alpha:true}),scale:scale||1,layerDpr:1};
+    }
+    var input=makeLayer(), buffers=[], frameBuffer=[], cursorFrames=[];
+    for(var i=0;i<BUFFER_COUNT;i++) buffers.push(makeLayer());
+    for(var f=0;f<FRAME_DELAY;f++) frameBuffer.push(makeLayer(FRAME_SCALE));
+    for(var c=0;c<CURSOR_HISTORY;c++) cursorFrames.push({x:0,y:0,valid:false});
+
+    var width=0, height=0, dpr=1, raf=0, frameStep=0, feedbackStep=0;
+    var frameCursor=0, framesCaptured=0;
+    var cursorWrite=0, cursorSamples=0, cursorEnergy=0, cursorX=0, cursorY=0;
+    var pending=false, energy=0, inside=false, last=null, sampleNo=0;
+    function sizeLayer(layer){
+      var scale=layer.scale||1;
+      layer.layerDpr=dpr*scale;
+      layer.canvas.width=Math.max(1,Math.round(width*layer.layerDpr));
+      layer.canvas.height=Math.max(1,Math.round(height*layer.layerDpr));
+      layer.ctx.setTransform(layer.layerDpr,0,0,layer.layerDpr,0,0);
+      layer.ctx.imageSmoothingEnabled=scale===1;
+    }
+    function clearLayer(layer){
+      layer.ctx.setTransform(1,0,0,1,0,0);
+      layer.ctx.clearRect(0,0,layer.canvas.width,layer.canvas.height);
+      layer.ctx.setTransform(layer.layerDpr,0,0,layer.layerDpr,0,0);
+    }
+    function reset(){
+      if(raf){ cancelAnimationFrame(raf); raf=0; }
+      pending=false; energy=0; frameStep=0; feedbackStep=0; frameCursor=0; framesCaptured=0; last=null;
+      inside=false; cursorWrite=0; cursorSamples=0; cursorEnergy=0;
+      for(var c=0;c<CURSOR_HISTORY;c++) cursorFrames[c].valid=false;
+      clearLayer(display); clearLayer(cursorDisplay); clearLayer(input); buffers.forEach(clearLayer); frameBuffer.forEach(clearLayer);
+      field.classList.remove("active"); cursorField.classList.remove("active"); root.classList.remove("gesture-cursor-on");
+    }
+    function resize(){
+      var rect=root.getBoundingClientRect();
+      var nextWidth=Math.max(1,Math.round(rect.width)), nextHeight=Math.max(1,Math.round(rect.height));
+      var nextDpr=Math.min(1.25,window.devicePixelRatio||1);
+      if(nextWidth===width&&nextHeight===height&&nextDpr===dpr) return;
+      width=nextWidth; height=nextHeight; dpr=nextDpr;
+      sizeLayer(display); sizeLayer(cursorDisplay); sizeLayer(input); buffers.forEach(sizeLayer); frameBuffer.forEach(sizeLayer); reset();
+    }
+    resize();
+
+    function ensureLoop(){ if(!raf) raf=requestAnimationFrame(tick); }
+    function drawPoint(e,rect){
+      var x=Math.round((e.clientX-rect.left)*2)/2, y=Math.round((e.clientY-rect.top)*2)/2;
+      if(x<0||y<0||x>width||y>height) return;
+      cursorX=x; cursorY=y; cursorEnergy=1;
+      if(!last){ last={x:x,y:y}; return; }
+      var dx=x-last.x, dy=y-last.y, speed=Math.max(.001,Math.sqrt(dx*dx+dy*dy));
+      var px=-dy/speed, py=dx/speed;
+      var ctx=input.ctx;
+      ctx.save();
+      ctx.strokeStyle=DRAW_GREEN; ctx.fillStyle=DRAW_GREEN; ctx.globalAlpha=.94;
+      ctx.lineWidth=Math.min(3.2,.8+speed*.045); ctx.lineCap="square"; ctx.lineJoin="miter";
+      ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(x,y); ctx.stroke();
+      if(sampleNo%3===0&&speed>2){
+        var offset=((sampleNo%7)-3)*.72;
+        ctx.globalAlpha=.48;
+        ctx.beginPath(); ctx.moveTo(last.x+px*offset,last.y+py*offset); ctx.lineTo(x+px*offset,y+py*offset); ctx.stroke();
+      }
+      if(sampleNo%5===0&&speed>4){
+        var bar=Math.min(42,7+speed*.72);
+        ctx.globalAlpha=.72; ctx.fillRect(x-bar*.5,Math.round(y),bar,1);
+      }
+      ctx.restore();
+      last={x:x,y:y}; sampleNo++; pending=true; energy=1;
+      field.classList.add("active"); ensureLoop();
+    }
+    function move(e){
+      if(motionQuery&&motionQuery.matches) return;
+      inside=true; root.classList.add("gesture-cursor-on");
+      var rect=root.getBoundingClientRect();
+      var points=e.getCoalescedEvents?e.getCoalescedEvents():[e];
+      for(var p=0;p<points.length;p++) drawPoint(points[p],rect);
+      cursorField.classList.add("active"); ensureLoop();
+    }
+    function enter(e){
+      if(motionQuery&&motionQuery.matches) return;
+      inside=true; cursorEnergy=1; root.classList.add("gesture-cursor-on");
+      var rect=root.getBoundingClientRect();
+      cursorX=e.clientX-rect.left; cursorY=e.clientY-rect.top;
+      last={x:cursorX,y:cursorY}; cursorField.classList.add("active"); ensureLoop();
+    }
+    function leave(){ inside=false; last=null; root.classList.remove("gesture-cursor-on"); ensureLoop(); }
+
+    function captureFrame(){
+      var slot=frameBuffer[frameCursor];
+      clearLayer(slot);
+      slot.ctx.save();
+      slot.ctx.imageSmoothingEnabled=false;
+      slot.ctx.drawImage(input.canvas,0,0,width,height);
+      slot.ctx.restore();
+      frameCursor=(frameCursor+1)%FRAME_DELAY;
+      framesCaptured=Math.min(FRAME_DELAY,framesCaptured+1);
+    }
+    function captureCursorFrame(){
+      var slot=cursorFrames[cursorWrite];
+      slot.x=cursorX; slot.y=cursorY; slot.valid=true;
+      cursorWrite=(cursorWrite+1)%CURSOR_HISTORY;
+      cursorSamples=Math.min(CURSOR_HISTORY,cursorSamples+1);
+    }
+    function cursorFrameAt(age){
+      if(age>=cursorSamples) return null;
+      var index=(cursorWrite-1-age+CURSOR_HISTORY)%CURSOR_HISTORY;
+      return cursorFrames[index].valid?cursorFrames[index]:null;
+    }
+    function drawCursorGlyph(ctx,x,y,rotation,alpha,fill){
+      ctx.save();
+      ctx.translate(x,y); ctx.rotate(rotation); ctx.globalAlpha=alpha;
+      ctx.beginPath();
+      ctx.moveTo(0,0); ctx.lineTo(.8,20); ctx.lineTo(5.4,15.5);
+      ctx.lineTo(9.5,24); ctx.lineTo(12.6,22.4); ctx.lineTo(8.4,14.2);
+      ctx.lineTo(15.2,13.5); ctx.closePath();
+      ctx.fillStyle=fill; ctx.strokeStyle="#fff"; ctx.lineWidth=1.15;
+      ctx.fill(); ctx.stroke(); ctx.restore();
+    }
+    function drawCursorBuffer(now){
+      clearLayer(cursorDisplay);
+      var ctx=cursorDisplay.ctx;
+      for(var layer=CURSOR_LAYERS-1;layer>=0;layer--){
+        var sample=cursorFrameAt((layer+1)*FRAME_DELAY);
+        if(!sample) continue;
+        var reach=1.2+layer*1.35;
+        var driftX=Math.sin(now*.0011+layer*1.73)*reach;
+        var driftY=Math.cos(now*.00087+layer*1.37)*reach*.72;
+        var rotation=Math.sin(now*.00072+layer*1.91)*(.035+layer*.012);
+        var ghostAlpha=Math.max(.1,.34-layer*.027)*cursorEnergy;
+        drawCursorGlyph(ctx,sample.x+driftX,sample.y+driftY,rotation,ghostAlpha,layer%2?"#171719":"#77777b");
+      }
+      if(inside) drawCursorGlyph(ctx,cursorX,cursorY,0,1,"#101012");
+    }
+    function stepFeedback(){
+      var hadInput=pending, source=buffers[0], recycled=buffers.pop(), ctx=recycled.ctx;
+      clearLayer(recycled);
+      var direction=feedbackStep%2?1:-1;
+      var shiftX=direction*(1+(feedbackStep%4)*.65);
+      var shiftY=((feedbackStep%5)-2)*.55;
+      var rotation=direction*(.0015+(feedbackStep%3)*.0008);
+      var zoom=1.0015+(feedbackStep%4)*.0007;
+      ctx.save();
+      ctx.translate(width*.5+shiftX,height*.5+shiftY); ctx.rotate(rotation); ctx.scale(zoom,zoom); ctx.translate(-width*.5,-height*.5);
+      ctx.globalAlpha=.92;
+      ctx.drawImage(source.canvas,0,0,width,height);
+      ctx.restore();
+      if(hadInput&&framesCaptured){
+        var available=Math.min(FRAME_DELAY,framesCaptured);
+        ctx.save(); ctx.imageSmoothingEnabled=false;
+        for(var frame=0;frame<available;frame++){
+          var frameIndex=(frameCursor-available+frame+FRAME_DELAY)%FRAME_DELAY;
+          var framePhase=frame-(available-1)*.5;
+          ctx.globalAlpha=.055+frame*.004;
+          ctx.drawImage(frameBuffer[frameIndex].canvas,framePhase*.28,framePhase*.12,width,height);
+        }
+        ctx.restore();
+      }
+      if(feedbackStep%3===2){
+        ctx.save(); ctx.globalCompositeOperation="destination-out"; ctx.globalAlpha=.82;
+        ctx.fillRect(0,(feedbackStep*47)%Math.max(1,height),width,1+(feedbackStep%2)); ctx.restore();
+      }
+      buffers.unshift(recycled); clearLayer(input); pending=false; framesCaptured=0; feedbackStep++;
+      energy=hadInput?Math.max(.82,energy):energy*.91;
+    }
+    function drawVisible(now){
+      if(pending||energy>.018){
+        clearLayer(display);
+        for(var index=BUFFER_COUNT-1;index>=0;index--){
+          var layer=buffers[index], spread=index/Math.max(1,BUFFER_COUNT-1);
+          var phase=Math.floor(now/(110+index*17)), direction=index%2?1:-1;
+          var driftX=((phase%5)-2)*.62*spread*direction;
+          var driftY=(((phase+index)%4)-1.5)*.48*spread;
+          var angle=(((phase+index*2)%5)-2)*.0017*spread;
+          display.ctx.save();
+          display.ctx.translate(width*.5+driftX,height*.5+driftY); display.ctx.rotate(angle); display.ctx.translate(-width*.5,-height*.5);
+          display.ctx.globalAlpha=(.2+(BUFFER_COUNT-1-index)*.05)*Math.min(1,energy+.16);
+          display.ctx.drawImage(layer.canvas,0,0,width,height); display.ctx.restore();
+        }
+        if(pending){
+          display.ctx.save(); display.ctx.globalAlpha=.88; display.ctx.drawImage(input.canvas,0,0,width,height); display.ctx.restore();
+        }
+      }
+      drawCursorBuffer(now);
+    }
+    function tick(now){
+      raf=0;
+      if((motionQuery&&motionQuery.matches)||!root.offsetParent){ reset(); return; }
+      if(pending) captureFrame();
+      if(inside){ captureCursorFrame(); cursorEnergy=1; }
+      else cursorEnergy*=.94;
+      frameStep=(frameStep+1)%FRAME_DELAY;
+      if(frameStep===0&&(pending||energy>.018)) stepFeedback();
+      drawVisible(now);
+      var active=pending||energy>.018||inside||cursorEnergy>.025;
+      field.classList.toggle("active",pending||energy>.018);
+      cursorField.classList.toggle("active",inside||cursorEnergy>.025);
+      if(active) raf=requestAnimationFrame(tick);
+    }
+
+    root.addEventListener("pointerenter",enter);
+    root.addEventListener("pointermove",move);
+    root.addEventListener("pointerleave",leave);
+    window.addEventListener("blur",reset);
+    window.addEventListener("resize",resize,{passive:true});
+    document.addEventListener("visibilitychange",function(){ if(document.hidden) reset(); });
+    if(window.ResizeObserver) new ResizeObserver(resize).observe(root);
+    var homeView=root.closest(".view");
+    if(window.MutationObserver&&homeView){
+      new MutationObserver(function(){
+        if(!homeView.classList.contains("on")) reset();
+      }).observe(homeView,{attributes:true,attributeFilter:["class"]});
+    }
+    function motionChanged(e){
+      if(e.matches) reset();
+      else resize();
+    }
+    if(motionQuery){
+      if(motionQuery.addEventListener) motionQuery.addEventListener("change",motionChanged);
+      else if(motionQuery.addListener) motionQuery.addListener(motionChanged);
+    }
+  }
+  initGestureFeedback();
+  function rawUrl(id){ return MEDIA + id; }
+  function fitUrl(id,w,h){ return MEDIA + id + "/v1/fill/w_" + w + ",h_" + h + ",q_85,enc_avif,quality_auto/" + id; }
+  function wixIdFromSrc(src){
+    var m=String(src||"").match(/static\.wixstatic\.com\/media\/([^/?]+)/);
+    return m ? m[1] : null;
+  }
+  function sizedAssetSrc(a, maxW){
+    if(!a || !a.src) return a&&a.src;
+    if(/\.gif(?:\?|$)/i.test(a.src)&&!reduceMotion) return a.src;
+    var id=wixIdFromSrc(a.src);
+    if(!id || !a.w || !a.h) return a.src;
+    var tw=Math.min(maxW||1800,a.w), th=Math.max(1,Math.round(tw*a.h/a.w));
+    return fitUrl(id,tw,th);
+  }
+  function assetSrcset(a){
+    if(!a || !a.src || !a.w || !a.h || (/\.gif(?:\?|$)/i.test(a.src)&&!reduceMotion)) return "";
+    var id=wixIdFromSrc(a.src); if(!id) return "";
+    var widths=[640,1000,1600].filter(function(w){ return w<a.w; });
+    widths.push(Math.min(1800,a.w));
+    return widths.filter(function(w,i,arr){ return arr.indexOf(w)===i; }).map(function(w){
+      return fitUrl(id,w,Math.max(1,Math.round(w*a.h/a.w)))+" "+w+"w";
+    }).join(", ");
+  }
+  /* archive covers are optimized stills; motion is reserved for project pages */
+  function gridSrc(w){
+    if(!w.wix) return w.thumb;
+    return fitUrl(w.wix,900,675);
+  }
+  function bigSrc(w){
+    if(!w.wix) return w.thumb;
+    return /\.gif$/i.test(w.wix)&&!reduceMotion ? rawUrl(w.wix) : fitUrl(w.wix,1600,1200);
+  }
+  /* ============================================================
+     THE CATALOG, 2009 to 2026.
+     2019+ imagery comes from the Wix media library (his site).
+     Pre-2019 imagery comes from Vimeo thumbnails.
+     Years for the 2023 re-uploads are the ORIGINAL work years, taken
+     from the artist statements on those uploads, not the upload dates.
+     ============================================================ */
+  var allWorks = [
+    {slug:"devotionalsignals", wix:"4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png",
+     title:"Devotional Signals~", year:"2025-2026", sort:2026, medium:"Audiovisual performance", tags:["Performance"],
+     vimeo:"1178941183", spec:"Audiovisual performance, 4K UHD, 12min 30sec, 2025-2026",
+     credits:"Documentation of Devotional Signals~ performed live in Michigan Theater for the 64th Ann Arbor Film Festival.",
+     statement:["Devotional Signals~ is an audiovisual alchemic process that explores the materiality of the signal as it shifts through historical forms into contemporary graphics.","Leap Motion controls a spatial mixer built from twelve complex oscillators: x and z define position, while y generates one envelope per hand. Invisible planes to either side of the performer trigger drums that can be grabbed in midair, morphing the audiovisual material."]},
+    {slug:"videoinstruments", wix:"4d098a_e4dc460e90da44f7a87c474171325b00~mv2.jpg",
+     title:"Video Instruments: Artists and Toolmakers Past and Present", year:"WIP", sort:2025.9, medium:"Research archive", tags:["Signal Processing"],
+     vimeo:"1139355657", spec:"Lecture, 1hr 50min, 2025",
+     credits:"Presented during the Critical Flow Workshop Series curated by Marcos Serafim, School of Art, University of Arizona.",
+     statement:["A lecture tracing artist-built tools from Nam June Paik and the opening up of the black box, through the National Center for Experiments in Television and the Experimental Television Center, to Dave Jones, the Vasulkas, and contemporary toolmaking.","Signal flow sits outside the circuit. The work argues for the artist-built instrument as a way of seeing, and for error itself as a creative medium."]},
+    {slug:"theageofthesynthetic", wix:"4d098a_2aa1d4976bf743aeae67c3c4bd4a966b~mv2.jpg",
+     title:"The Age of the Synthetic", year:"2024-2025", sort:2025, medium:"Single channel video", tags:["Latent Space"],
+     vimeo:null, spec:"Single channel video, 2024-2025", credits:"", statement:[]},
+    {slug:"notimeofdeeptime", wix:"4d098a_4892826507504a55bb72f0711f4d44f0~mv2.jpg",
+     title:"No Time of Deep Time", year:"2025", sort:2025, medium:"Single channel video", tags:["Deep Time", "Signal Processing"],
+     vimeo:null, spec:"4k UHD, 9min, 2025", credits:"Michigan's Pictured Rocks National Lakeshore, Upper Peninsula.",
+     statement:["If we could witness the Earth across deep time, the ground beneath our feet would oscillate, revealing the dynamic nature of our planet. What feels permanent to us is actually in constant flux when viewed on the geological timescale.","No Time of Deep Time explores Michigan's Pictured Rocks National Lakeshore in the Upper Peninsula as a site of geological deep time. I use custom software to transform audio waves into complex patterns that weave and cut across vantage points of the site, exploring the aged relationships between water and rock. A contemplation of imperceptible movements that have shaped these iconic sandstone cliffs over 500 million years.","The images work as metaphors to visualize geological processes, that reveal hidden rhythms in what appears static. Patterns that seek to feel erosion, sedimentation, and metamorphosis, processes that continue unabated beyond human perception."]},
+    {slug:"deeptimeoflatentspace", wix:"4d098a_03dc72bfb417446d806cca1de208c2ae~mv2.jpg",
+     title:"Deep Time of Latent Space", year:"2024", sort:2024, medium:"Real-time synthesis", tags:["Deep Time", "Latent Space"],
+     vimeo:null, spec:"1920x1080, 9min 59sec, 2024", credits:"Featuring an interview with Dr. Jeremy Farrell, the Jefferson Project at Lake George.",
+     statement:["Deep Time of Latent Space relates the strata of human activity within large language models as another layer of the Anthropocene, which places AI into the realm of geological thinking that spirals into deep time and broadcasts into the future.","The AI narrator takes us through the most incomprehensible moments of our history starting with the big bang, creation of earth, and the start of life. It uses its generalized knowledge to resolve our grasp of these moments into data-visualized images. It does so with confidence and a little bit of attitude, however, it tends to hallucinate. These hallucinations shine a light on what is needed to create a more ethical and accurate AI.","Lake George was chosen as a site of deep time and for its art historical significance. At the birth of geology in the nineteenth century the emerging science was in vogue. Many painters from the Hudson River School, including John Frederick Kensett and Thomas Cole, painted portraits of rocks at the lake's shores. This point in time marks a transformative shift away from the biblical 6,000 year age of the earth to the conception of deep time that spans billions of years."]},
+    {slug:"bodyoddyoddyoddy", wix:"4d098a_944f5e3f20bb40e4a756d563054163b7~mv2.gif",
+     lay:{ titleGif:2, creditGif:3, groups:[
+       {label:"THE INSTALLATION", idx:[1,4,5,6,7]},
+       {label:"SINGLE CHANNEL", noteIdx:9, sub:"The video below is a preview.", idx:[8,10]}
+     ]},
+     title:"Body-Oddy-Oddy-Oddy", year:"2023-2024", sort:2023.5, medium:"8-channel installation", tags:["Performance"],
+     vimeo:"1158863622", spec:"Synchronized 8-channel installation with experimental animation, sound, and objects, 7min 9sec, 3840x2160 UHD 4k, 2023",
+     credits:"with Benjamin Rosenthal",
+     statement:["Body-oddy-oddy-oddy: Destabilizing the Surveilling of Queer Bodies explores the nature of how we understand the body, the ways in which we queer the body, and the performative nature of how we explore our identities in media space. The work challenges the supremacy of normative human body-to-body contact by exploring the role that a hybrid human-object-virtual encounter might pose for alternative forms of intimacy and contact.","In the making of the work, the use of self-surveillance as a strategy of making and being is critical to our understanding of contemporary bodily experiences. The opportunity for a feedback loop where the surveyor surveils themselves surveilling speaks to the ever-shifting nature of how we constantly reconfigure our experiences and bodies."]},
+    {slug:"ultranervoussystem", wix:"4d098a_90c4cafc62f94e76a8fc79fe48025358~mv2.gif",
+     title:"Ultra Nervous System", year:"2023", sort:2023, medium:"Real-time video synthesis", tags:["Performance"],
+     vimeo:"845372013", spec:"Real-time video synthesis, 13min 44sec, 1920x1080, 2023", credits:"",
+     statement:["A negotiation between assemblages of more-than-human actors. Nervous signals move through the sedimented layers of past labor and raw materials extracted for the system to function."]},
+    {slug:"frequenciesofdeeptime", wix:"4d098a_7308461fb9ef4d37b50a78d1df7ff021~mv2.jpg",
+     title:"Frequencies of Deep Time", year:"2022", sort:2022, medium:"Single channel video", tags:["Deep Time", "Signal Processing"],
+     vimeo:"852494498", spec:"Single channel video, 6min 26sec, 3840x2160, 2022", credits:"",
+     statement:["Frequencies of Deep Time explores changes of geological time in Western New York, change that form strata in the rock formations of gorges like Watkins Glen State Park."]},
+    {slug:"searchingformeaning", wix:"4d098a_e097351ca671493ca61cde7ba20e7ff4~mv2.gif",
+     title:"Searching For Meaning Series", year:"2021-2022", sort:2021.5, medium:"Search Engine Vision", tags:["Search Engine Vision"],
+     vimeo:null, spec:"Search Engine Vision, 2021-2022", credits:"", statement:[]},
+    {slug:"thegleaners", wix:"4d098a_ba960e1180c34fd592dc1c54a529a705~mv2.gif",
+     title:"the gleaners, and: ritual for signaled bodies", year:"2020", sort:2020, medium:"Single channel video", tags:["Ritual"],
+     vimeo:"882998240", spec:"Single channel video, 8min 32sec, 4096x2160, 2020", credits:"with Benjamin Rosenthal",
+     statement:["the gleaners, and: ritual for signaled bodies performs at the edges between body and the external, oscillating and eroding those boundaries."]},
+    {slug:"spacetimeform", wix:"4d098a_4ca0b46338dc4cd485a79b046075561a~mv2.jpg",
+     title:"SPACE TIME FORM", year:"2020", sort:2020, medium:"Single channel video", tags:["Signal Processing"],
+     vimeo:"859150750", spec:"Single channel video, 11min 27sec, 3840x2160, 2020", credits:"", statement:[]},
+    {slug:"exponentialgrowth", wix:"4d098a_7adbb230541d4062a29e215ea13fec4e~mv2.gif",
+     title:"Exponential Growth", year:"2020", sort:2020, medium:"Single channel video", tags:["Signal Processing"],
+     vimeo:"412035980", spec:"Single channel video, 13min 6sec, 1920x1080, 2020", credits:"with Andrew Deutsch",
+     statement:["The exponential growth of the human race, capitalism, and climate change reveals a system on the brink of failure."]},
+    {slug:"videosyntharchitect", wix:"4d098a_2eb3c4b1a10e47e289d642a931509bac~mv2.jpg",
+     title:"Video Synth Architect", year:"2019-2020", sort:2019.5, medium:"Software instrument", tags:["Performance"],
+     vimeo:"859151310", spec:"Audiovisual performance, 18min 43sec, 3840x2160, 2019-2020", credits:"",
+     statement:["Video Synth Architect: The Morphogenesis of Pixel Sorted Waves."]},
+    {slug:"searchenginevisionwhitehouse", wix:"4d098a_0405a60ad508497a96356d1cd9f125ae~mv2.gif",
+     title:"Search Engine Vision: The White House", year:"2018-2019", sort:2019, medium:"Single channel video and VR", tags:["Search Engine Vision"],
+     vimeo:"845383608", spec:"Single channel video and VR, 19min 28sec, 3840x2160, 2018-2019", credits:"",
+     statement:["Search Engine Vision: The White House compares the online culture of America and its politics from 2005, the start of YouTube, to 2018. A large-scale map of the United States flickers with 5,000 videos from each year totaling 65,000 videos over the course of 13 years."]},
+    {slug:"shambala", wix:"4d098a_0c73552bf71348ffb6e9acdb86f77e87~mv2.gif",
+     title:"Shambala", year:"2019", sort:2019, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
+     vimeo:"845373831", spec:"Single channel video, 8min 36sec, 3840x2160, 2019", credits:"",
+     statement:["This work focuses on the prayer flags located at the Shambhala Mountain Center in Red Feather Lakes, Colorado. What I find interesting about prayer flags is they are not prayers to a God, but prayers and good will sent out."]},
+
+    /* ---- pre-2019 ---- */
+    {slug:"xyz", hidden:true, thumb:"https://i.vimeocdn.com/video/736081921-1c99eac088517e349685ddfc7ae1a3a0a54881d7e72fd4d1facf668c43c27f42-d_640?region=us",
+     title:"XYZ", year:"2018", sort:2018, medium:"Audiovisual performance", tags:["Performance"],
+     vimeo:"298219225", spec:"Audiovisual performance, 8min 58sec, 1920x1080, 2018", credits:"",
+     statement:["XYZ is an audiovisual performance that focuses on the exploration of sonic material for real-time sculpture."]},
+    {slug:"ritualtocleanseneoliberalism", thumb:"https://i.vimeocdn.com/video/732585205-cf334f8b0838ab776c4bf76b4e153f1299c07606225c6279477eed3b00e04aaf-d_640?region=us",
+     title:"Ritual to Cleanse Neoliberalism", year:"2018", sort:2018, medium:"Performance", tags:["Ritual"],
+     vimeo:"295396698", spec:"Performance, 15min 35sec, 1920x1080, 2018", credits:"",
+     statement:["Many ritualistic practices include sensory overload, for example, drumming, dancing, or pain."]},
+    {slug:"entangledecologies", thumb:"https://i.vimeocdn.com/video/731580626-e85f644fc10408458969cebb7bd56bca7dea45e5dd97feab1b1cbe2eb15cea20-d_640?region=us",
+     title:"Entangled Ecologies", year:"2018", sort:2018, medium:"Single channel video", tags:["Performance"],
+     vimeo:"294591541", spec:"Single channel video, 5min 55sec, 1920x1080, 2018", credits:"", statement:[]},
+    {slug:"agenciesofobservation", hidden:true, thumb:"https://i.vimeocdn.com/video/696389655-c1480724a7da5f0f2da4546dd0a86e85cd87c418c2a86eee5e865f68b5273cef-d_640?region=us",
+     title:"Agencies of Observation", year:"2018", sort:2018, medium:"Single channel video", tags:[],
+     vimeo:"266193559", spec:"Single channel video, 5min 36sec, 1920x1080, 2018", credits:"",
+     statement:["A work drawing on Woody and Steina Vasulka, and on Karen Barad's Meeting the Universe Halfway."]},
+    {slug:"ritualandrepetition", thumb:"https://i.vimeocdn.com/video/1697823840-0ea7af0010784190b45301d7460d2f6dc27ba367780b744f663b54b081f4934d-d_640?region=us",
+     title:"Ritual and Repetition", year:"2018", sort:2018, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
+     vimeo:"845369807", spec:"Single channel video, 8min 30sec, 1920x1080, 2018", credits:"Shot at Nanputuo Temple, Xiamen.", statement:[]},
+    {slug:"agentivematter", thumb:"https://i.vimeocdn.com/video/682464780-e458fe544b71320ebf8048fe6647265db4f049016810cb73ad7990a124d5d532-d_640?region=us",
+     title:"Agentive Matter", year:"2018", sort:2018, medium:"Single channel video", tags:["Performance"],
+     vimeo:"255125172", spec:"Single channel video, 15min 15sec, 1920x1080, 2018", credits:"", statement:[]},
+    {slug:"consultingtheoracles", thumb:"https://i.vimeocdn.com/video/679944964-2089bceef98436fa2d422cb62f623c5af61c209e19a87c41abb3e5df22892066-d_640?region=us",
+     title:"Consulting The Oracles: Analog and Digital Cleromancy", year:"2017", sort:2017, medium:"Performance", tags:["Ritual", "Performance"],
+     vimeo:"253135448", spec:"Performance, 9min 52sec, 1920x1080, 2017", credits:"with Leslie Rollins. Engaging the I Ching.", statement:[]},
+    {slug:"slowslowdown", hidden:true, thumb:"https://i.vimeocdn.com/video/673169156-3286c39f8987049dd69b365b21dc1a7806bac9905cd0af26cad96363e185341b-d_640?region=us",
+     title:"Slow Slow Down", year:"2017", sort:2017, medium:"Single channel video", tags:[],
+     vimeo:"247756323", spec:"Single channel video, 4min 20sec, 1920x1080, 2017", credits:"", statement:[]},
+    {slug:"projectingbuddha", thumb:"https://i.vimeocdn.com/video/1697841918-317fe2c293e971171d74feaf5c58a6bf21194636bc7d8e8032c4a3f29b49caa5-d_640?region=us",
+     title:"Projecting Buddha", year:"2013-2017", sort:2017, medium:"Multimedia installation", tags:["Search Engine Vision"],
+     vimeo:"845384286", spec:"Multimedia installation, 30 min loop, 1920x1080 HD, 2013-2017",
+     credits:"The Vimeo record is 7 minutes of documentation of the 30 minute loop.",
+     statement:["The Buddha is comprised and confronted with one thousand videos of himself. He gazes knowingly upon his western existence online, and he searches for himself among the masses.","One video at a time is selected from the collection and is projected upon the Buddha figure. Does the video define Buddha, or is Buddha lost to the multiplicities of meaning? A conflict arises between timeless wisdom and the impermanence of an icon consumed by modern technology."]},
+    {slug:"searchenginevisionisis", thumb:"https://i.vimeocdn.com/video/1697831055-e3109bf1b6824284896c25c661f3b99cf172a1e7d50b3738e6465429fb7ae1f1-d_640?region=us",
+     title:"Search Engine Vision \"ISIS\"", year:"2016", sort:2016, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"845375893", spec:"Single channel video, 6min 30sec, 1920x1080, 2016", credits:"",
+     statement:["When the search is singularly ISIS, the first one thousand video results subvert the original search semiotically, representing the terrorist organization instead of the goddess."]},
+    {slug:"ritualoftherhizome", ak:"rhizome", thumb:"https://i.vimeocdn.com/video/577747272-8c49cc2e9203a57fae2d660e76252d6a0f65ae5c808805a0ffc8a3124a77386c-d_640?region=us",
+     title:"Ritual of the Rhizome", year:"2016", sort:2016, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
+     vimeo:"172095205", spec:"Single channel video, 7min 30sec, 1920x1080, 2016", credits:"",
+     statement:["The tree serves as a plethora of metaphors that underpin philosophical thought and knowledge, a symbol of logical progression that branches out but always retains a logical start and end."]},
+    {slug:"searchenginevisionchrist", thumb:"https://i.vimeocdn.com/video/1697834236-d24f1b189b31380c664787a8f2c90b55223fa8ac7434354799219741e203d897-d_640?region=us",
+     title:"Search Engine Vision \"Christ\"", year:"2014", sort:2014, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"845376726", spec:"Single channel video, 5min 51sec, 1920x1080, 2014", credits:"", statement:[]},
+    {slug:"dissectingmuybridge", thumb:"https://i.vimeocdn.com/video/482671316-ecd9d6a68db3e3e2eaa2db872ff617f579cdbcddc6684ddf920e65425dba2191-d_640?region=us",
+     title:"Dissecting Muybridge", year:"2014", sort:2014, medium:"Single channel video", tags:["Performance"],
+     vimeo:"101002353", spec:"Single channel video, excerpts, 3min 54sec, 2014", credits:"",
+     statement:["Dissecting Muybridge recontextualizes Eadweard Muybridge's late nineteenth century chronophotography, to both critique and analyze the language of film through the immediacy of video."]},
+    {slug:"searchenginevisionbuddha", thumb:"https://i.vimeocdn.com/video/1697840359-4d10b3889390a89d2be7994da3c07dbab94d985aee57eecb1301ffed4ceef113-d_640?region=us",
+     title:"Search Engine Vision \"Buddha\"", year:"2012", sort:2012, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"845381334", spec:"Single channel video, 4min 57sec, 1920x1080, 2012", credits:"",
+     statement:["The Buddha is comprised of and confronted by one thousand videos of himself. He gazes knowingly upon his western existence online, and he searches for himself among the masses."]},
+    {slug:"lifeinthemaelstrom", thumb:"https://i.vimeocdn.com/video/1697833692-b384ad6166859050e8f532cc13f31e967f9501d632195fed2d768f16c5fc0c72-d_640?region=us",
+     title:"Life In The Maelstrom", year:"2012", sort:2012, medium:"Single channel video", tags:["Signal Processing"],
+     vimeo:"845374208", spec:"Single channel video, 7min 23sec, 1920x1080, 2012", credits:"",
+     statement:["We exist in a constant state of flux. We are perpetually pushed to move forward and update."]},
+    {slug:"mythofthemasses", thumb:"https://i.vimeocdn.com/video/1751304923-4bd877cdd580dd5b7dfb6b7f5f09b78653cafa8681dadeb9d24cce64b2bd603a-d_640?region=us",
+     title:"Myth of The Masses", year:"2012", sort:2012, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
+     vimeo:"883002278", spec:"Single channel video, 4min 31sec, 1920x1080, 2012", credits:"",
+     statement:["There are myths created by mass media. Gods, if you will, that change the way we perceive the world around us."]},
+    {slug:"searchenginevisionchair", thumb:"https://i.vimeocdn.com/video/1751307968-76837b320490cb0b7913a295086e6b9cf2a47d21c8259c8ae69b9b1835c99076-d_640?region=us",
+     title:"Search Engine Vision \"Chair\"", year:"2011", sort:2011, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"883004706", spec:"Single channel video, 5min 49sec, 1920x1080, 2011", credits:"",
+     statement:["Users of online communities create visual languages, and as a collective, I am interested in how they define objects and their meaning. These transitive definitions of the objects exist within the moment."]},
+    {slug:"theinterfaceofmore", hidden:true, thumb:"https://i.vimeocdn.com/video/134478988-208e0b70ba0ec2b92809487f934536dc694dfdbdecd1f84671ec94f245cbfa4f-d_640?region=us",
+     title:"The Interface of More", year:"2011", sort:2011, medium:"Aesthetic Interface", tags:[],
+     vimeo:"19505998", spec:"Aesthetic Interface, 7min 56sec, 1920x1080, 2011", credits:"",
+     statement:["Aesthetic Interfaces are fully functional applications that are aesthetically organized as drawings. These applications are not neutral, but are subjective interfaces."]},
+    {slug:"bodybabble", hidden:true, thumb:"https://i.vimeocdn.com/video/151007057-6e65dad46ede124b20a8cafa7bc8e61514ae89d1bcea0553ba4b5fd1d63a1850-d_640?region=us",
+     title:"Body Babble", year:"2011", sort:2011, medium:"Installation", tags:[],
+     vimeo:"23161156", spec:"Installation, 1min 53sec, 1440x1080, 2011", credits:"", statement:[]},
+    {slug:"digitalmandala", thumb:"https://i.vimeocdn.com/video/14507401-27989d95ae7838b0b9f11b1c0da64a6ea32c9984478547a4d7150404d40c029d-d_640?region=us",
+     title:"Digital Mandala", year:"2009", sort:2009, medium:"Interactive installation", tags:["Ritual"],
+     vimeo:"4986741", spec:"Aesthetic Interface, 1min 5sec, 720x480, 2009", credits:"",
+     statement:["Digital Mandala is a work in which I explore my voice and body through a series of 800 prerecorded audio samples. The mandalic-triggering interface forms a sound portrait that probabilistically accesses the database, and initiates and controls the speed of the audio allowing for it to breathe."]},
+    {slug:"breathofthecipher", hidden:true, thumb:"https://i.vimeocdn.com/video/14636225-5798fe85cc0cf783f65ba9861a77c13afdf2da993a496d7e40d2e7f8ad7fe29d-d_640?region=us",
+     title:"Breath of the Cipher", year:"2009", sort:2009, medium:"Installation", tags:[],
+     vimeo:"5003832", spec:"Installation excerpt, 1min 41sec, 1280x720, 2009", credits:"",
+     statement:["A numerical database collected by my everyday life: phone numbers, personal stats, or how many steps it took to get to work that day."]},
+    {slug:"dataform", hidden:true, thumb:"https://i.vimeocdn.com/video/14513572-428290bc645cc4d3cca482b8e48301c15d9af71a60c5b933890a8f1ddb7b1123-d_640?region=us",
+     title:"DATAFORM", year:"2009", sort:2009, medium:"Interactive installation", tags:[],
+     vimeo:"4987481", spec:"Interactive installation, 1min 30sec, 720x480, 2009", credits:"",
+     statement:["An interactive installation that develops around a database of text archived from social networks like Facebook or Twitter. The text is interfaced within an interactive system that links all the information to one free flowing thought."]},
+    {slug:"extensionsofthebody", hidden:true, thumb:"https://i.vimeocdn.com/video/14523937-bb186497b4f7424e90819f59166e676a06ab540f8710da89ca9e071c51bf6c7d-d_640?region=us",
+     title:"Extensions of The Body", year:"2009", sort:2009, medium:"Interactive environment", tags:[],
+     vimeo:"4988077", spec:"Interactive environment, 9min 49sec, 720x480, 2009", credits:"",
+     statement:["Explores the unseen movements of dance in space. An interactive environment where the experience of the dance is extended through live video manipulation, projection mapping onto the body, and live light painting via an LED hula hoop."]},
+    {slug:"technobuddha", thumb:"https://i.vimeocdn.com/video/14458434-e424d6e573921d326bbb2f9feb6dcdce32bd96ec61cf4aa3523e5d3c76c91fb5-d_640?region=us",
+     title:"The Life of the Techno Buddha", year:"2009", sort:2008.9, medium:"Single channel video", tags:["Search Engine Vision"],
+     vimeo:"4979547", spec:"Single channel video, 2min 12sec, 1440x1080, 2009", credits:"",
+     statement:["Constructed out of 108 YouTube videos returned by the search term Buddha. The informational overloaded sound that the combination generates phases in and out of meditative loops."]}
+  ];
+
+  /* hidden:true keeps a work in the file but off the site entirely: out of the grid,
+     out of the counts, out of prev/next, unreachable by URL. Delete the flag to restore. */
+  var works = allWorks.filter(function(w){ return !w.hidden; });
+
+  /* TOX Suite, sold on Patreon */
+  var suite = [
+    {t:"TOX SUITE VOL. 1", img:"https://static.wixstatic.com/media/4d098a_0fe56b39b40f459091e590ef9bdf7527~mv2.png", url:"https://www.patreon.com/posts/tox-suite-vol-1-143326584"},
+    {t:"TOX SUITE VOL. 2", img:"https://static.wixstatic.com/media/4d098a_105af2c3677a4b85ad2e2178417fe982~mv2.png", url:"https://www.patreon.com/posts/tox-suite-vol-2-143345702"},
+    {t:"TOX SUITE VOL. 3", img:"https://static.wixstatic.com/media/4d098a_c4d1e876e42b4c88bb7f0cabefdaf2a0~mv2.png", url:"https://www.patreon.com/posts/tox-suite-vol-3-143368459"}
+  ];
+
+  /* TD for Video Artists, in publication order.
+     Only Parts 17 and 18 are numbered on Vimeo; 1 to 16 were never numbered. */
+  var tdSeries = [
+    {id:"1138961356", t:"Video Playback, Switching, Recording, and Fullscreen", d:1070, th:"https://i.vimeocdn.com/video/2085455811-39c0eaed4ec527e77c4a7ac06771380fc9ec7d0bfce98d557349ceac9609d4a1-d_640?region=us"},
+    {id:"1138961712", t:"Video Feedback", d:794, th:"https://i.vimeocdn.com/video/2085456246-c808d6e9ec717ab96b2fcad87028f756beef8fcc121fe05738ddea9328b515b0-d_640?region=us"},
+    {id:"1138960425", t:"Adding Performative Controls", d:1255, th:"https://i.vimeocdn.com/video/2085455236-74380628b1b5c951b680ad25d723044c351a3492978e1ec12e52cfa4a1316caf-d_640?region=us"},
+    {id:"1138958823", t:"Video Triggers with Keyboard or MIDI", d:482, th:"https://i.vimeocdn.com/video/2085452262-ca272fb9e4799cf8b4107124eed39eabffaba3650f70f336e1408ced3e036425-d_640?region=us"},
+    {id:"1138958663", t:"Video Scrubber", d:209, th:"https://i.vimeocdn.com/video/2085451636-d9f5d8f8d694188837ba66a8d8acba7f7ef0dba854f8a4ce5e6e0c872764bb67-d_640?region=us"},
+    {id:"1138961107", t:"Multi-Channel with Layout TOP", d:517, th:"https://i.vimeocdn.com/video/2085455329-b250ddb7e1b649a4b7967efe17558d93075bdea15c3c0018c103c58272687cb1-d_640?region=us"},
+    {id:"1138959469", t:"Wobbulation and Displacements", d:825, th:"https://i.vimeocdn.com/video/2085453326-67f139ced57905be0233105296360a1650fc445c4471fe4d54318174adca6284-d_640?region=us"},
+    {id:"1138959183", t:"Turning Video Into Sound", d:587, th:"https://i.vimeocdn.com/video/2085452699-6fe105c2a3c4f053c7ea4aff3e2950963c376f0985b4cf80a91c09cf59fbc778-d_640?region=us"},
+    {id:"1138958226", t:"Simple Audio-Visual Reactivity vs Audio-Visual Relationships", d:891, th:"https://i.vimeocdn.com/video/2085451563-431e2fe60d4d689177248c8662edb054fd78e1e7b5f48427e98dff71a0fae4e7-d_640?region=us"},
+    {id:"1138957710", t:"Randomness and Database Narrative", d:1009, th:"https://i.vimeocdn.com/video/2085450858-cb9c50d385861a9a7f517c8bcc1e75de74265d42cbc424e1c84c527693dee459-d_640?region=us"},
+    {id:"1138962052", t:"MIDI and VSTs", d:400, th:"https://i.vimeocdn.com/video/2085456384-5d0b9d2e7b340730db3e09e553ee89cbfbadaead0503250be6bb0c0bbff42eda-d_640?region=us"},
+    {id:"1138962144", t:"Oscillographics and Performative Keyframe DATs", d:1126, th:"https://i.vimeocdn.com/video/2085456995-9b2a6f24908910ac86d4f9d1d66556bc72d958a02b4a4131397eaa74e0ea1b88-d_640?region=us"},
+    {id:"1138959959", t:"Building Your Own Tools", d:1058, th:"https://i.vimeocdn.com/video/2085454036-866f17e396119c3a32c65e26fac22ed956210a7e017e1d74a916eb8d81b503ee-d_640?region=us"},
+    {id:"1139034065", t:"Building Your Own GLSL Materials with Vibe Coding", d:934, th:"https://i.vimeocdn.com/video/2085550735-5c0ba97605c1ab4e191956cfaf4769a2d43d6c9c238e340ac9c8621e0051b396-d_640?region=us"},
+    {id:"1139330004", t:"Linear vs Exponential Curves for Animating Parameters", d:447, th:"https://i.vimeocdn.com/video/2085942622-4aab759d4e76b4b66d34975a0b4903acda42e33e54e30460afeb6b70fea692a2-d_640?region=us"},
+    {id:"1139347765", t:"Intro to 3D Cameras and Animating with LFOs", d:1476, th:"https://i.vimeocdn.com/video/2085969955-9e62de98c2851337da1921a2e82cc38ee199534d6065be0bebd24cf54e0dac40-d_640?region=us"},
+    {id:"1139346899", t:"Animating FBX Joints with LFOs", d:559, th:"https://i.vimeocdn.com/video/2085965671-ca1909920c9f2c14e1bb11b420d87cc7211898fd30879e63bf7d487e5af4b7e6-d_640?region=us"},
+    {id:"1139349108", t:"Time Series Part One: Frame Buffer", d:1292, th:"https://i.vimeocdn.com/video/2085969478-4e7dedf38695e8799ff07006538d10122785f9a99f63e648355ab6d0b951c75d-d_640?region=us"},
+    {id:"1139350727", t:"Time Series Part Two: Slit-Scan", d:1451, th:"https://i.vimeocdn.com/video/2085970533-85962bad4058c97c353c7f212027adaaec53acc40111ad1752c87bd1d1d1fae6-d_640?region=us"},
+    {id:"1139360961", t:"MIDI Control for Video Mixer", d:273, th:"https://i.vimeocdn.com/video/2085983301-52ec9590e7cfcac224553c9907e8fd03933c9c61c9bfea98c72f6eb358416a7a-d_640?region=us"},
+    {id:"1169791635", t:"Part 17: Mixing With CV", d:524, th:"https://i.vimeocdn.com/video/2128678451-44336926f518d71340f4eb88dfc0794b6b100f5d4123fb8574c3c9ad4f5dc523-d_640?region=us"},
+    {id:"1206982795", t:"Part 18: Techniques for Mixing Images", d:899, th:"https://i.vimeocdn.com/video/2175976597-813b2bdb685a7b979d01143c62992e35f22e1755eb165ae16f4c7b93bf22a904-d_640?region=us"}
+  ];
+  var toxSeries = [
+    {id:null, t:"Mosh TOP", meta:"PATREON · JULY 31, 2026", url:"https://www.patreon.com/PhilosophicalTools/posts/mosh-top-165378992", th:null},
+    {id:"1206972251", t:"Flow TOP Overview", d:242, th:"https://i.vimeocdn.com/video/2175976720-84c46a9027b52e447fff34e3a35aa6b4ea09b690dee4b46843dee7fcf8222c1e-d_640?region=us"},
+    {id:"1197485761", t:"Buffer SOP + POP Overview", d:654, th:"https://i.vimeocdn.com/video/2163828982-7d4c8ff2c685c417cfe584cb25774bf8e42fbc3b1ea8d598bef4db8b27ba6971-d_640?region=us"},
+    {id:"1187479708", t:"DataBending TOP Overview", d:560, th:"https://i.vimeocdn.com/video/2151503277-152a04491c946b62983f45f80614439952176fd21edd13f63742d67d6115f42a-d_640?region=us"},
+    {id:"1179060109", t:"KeySlice TOX Overview", d:1194, th:"https://i.vimeocdn.com/video/2140809091-ee8e6629e0ea1739c339b11398b1d8f9e4a98036841c503529f4529b643e33f0-d_640?region=us"},
+    {id:"1165847064", t:"KeyMix TOX Overview", d:1335, th:"https://i.vimeocdn.com/video/2123278451-9a90393806fcab2e352cf8ff2ad4d84f1c4b73acbcaa135d4429e0d47e4f89d7-d_640?region=us"},
+    {id:"1150738030", t:"BUFR TOX Overview", d:1271, th:"https://i.vimeocdn.com/video/2101688396-68a8f56a414e7910114149c292d13061d39a69b2263dee7b1b1f13072ed30302-d_640?region=us"},
+    {id:"1139427366", t:"NotARuttEtra TOX Overview", d:790, th:"https://i.vimeocdn.com/video/2086070071-23aa1e191f0103704c8bc002147560a84c34c1e767ce50f87bdb1046a4359ca1-d_640?region=us"},
+    {id:"1139346578", t:"Video Paint TOX Overview", d:928, th:"https://i.vimeocdn.com/video/2085967565-e1badf5303cfed638ecb9dcee634c34987826793f0e875141551abdba81171b0-d_640?region=us"},
+    {id:"1139346233", t:"BitShaper TOX Overview", d:681, th:"https://i.vimeocdn.com/video/2085965138-54a06bb944b11c51674b227249cf4aaae3117820cc0a69350d29b640ad34d137-d_640?region=us"},
+    {id:"1139036436", t:"PixaVex TOX Overview", d:419, th:"https://i.vimeocdn.com/video/2085553754-39a5e75415215a5f0667a4f69e44379cfe57979a484d9f242cc73bd09db75a4e-d_640?region=us"},
+    {id:"1139034606", t:"Video Sampler TOX with Xbox Controller", d:611, th:"https://i.vimeocdn.com/video/2085551370-dcc1c75aaac590a349fe93733ff1bab06f8e60fb08df2c7dddc363bab762fcc1-d_640?region=us"},
+    {id:"1138970437", t:"Video Sampler TOX Overview", d:582, th:"https://i.vimeocdn.com/video/2085468149-89c6ff974a319052830b69de36647b7c1bceb71528180134a60a50de649b5f68-d_640?region=us"},
+    {id:"1138970177", t:"Audio Visual Sequencer TOX Overview", d:603, th:"https://i.vimeocdn.com/video/2085467402-9010ceb2914290aefacbeaf7db12a7e7aa8d5972edc8b3bf0e04b7f9373f148e-d_640?region=us"},
+    {id:"1138969594", t:"Colorizer TOX Overview", d:619, th:"https://i.vimeocdn.com/video/2085467084-d5552f35598b2941d3cf1eb83881a950a517a2c9aefcd788af3496f068b8d26c-d_640?region=us"},
+    {id:"1138968480", t:"Slitter TOX Overview", d:943, th:"https://i.vimeocdn.com/video/2085465370-dffa1ae55f44eb7b25f076b781613fc64acca8eaeb90745e9b7dd6348d76c4f4-d_640?region=us"},
+    {id:"1138956967", t:"EchoFold TOX Overview", d:1551, th:"https://i.vimeocdn.com/video/2085450430-9834bc354b2eed1f5bf7024fd88c3d385b56d72d0b337d4adbfd660c9ecf4cb9-d_640?region=us"},
+    {id:"1138956642", t:"Mellltr TOX Overview", d:632, th:"https://i.vimeocdn.com/video/2085449135-eec52f1e6c3bb283cf83460404c265ef9fa12ada536288aba4aeca792b71ab78-d_640?region=us"},
+    {id:"1138956402", t:"Video Mixer TOX Overview", d:630, th:"https://i.vimeocdn.com/video/2085448678-289bef452561139a6018ca52b79bd39a128c511ba44437f45a17e1258a4b4245-d_640?region=us"},
+    {id:"1138956277", t:"Pixelator TOX Overview", d:377, th:"https://i.vimeocdn.com/video/2085448378-263fc0e842d89330d3e52d1f28c8834e89835deecf312cd6fe590dd1390b336a-d_640?region=us"},
+    {id:"1138955755", t:"Cronos TOX Overview", d:850, th:"https://i.vimeocdn.com/video/2085448359-1a619de4812b04c0aad59df8c45e3db33f00c2818fc7c869a338ce98ec1c48a3-d_640?region=us"},
+    {id:"1138955198", t:"ColorMixer TOX Overview", d:894, th:"https://i.vimeocdn.com/video/2085447614-4800fe93c6348558115a6d54d807e0ac5785949777399b4a9c568cdc3be3a75b-d_640?region=us"},
+    {id:"1138954753", t:"MeshWave TOX Overview", d:701, th:"https://i.vimeocdn.com/video/2085446831-646bb8a5544fa9dc59b5b1a8e4ca0de845245ee9bb5343f6e3609cfd9c63eb29-d_640?region=us"},
+    {id:"1138952910", t:"Fragmentor TOX Overview", d:1022, th:"https://i.vimeocdn.com/video/2085444578-a4216ec9e433a4856ab861f81ac7078699b4362c5b7ed9e640e7f8cbb007df35-d_640?region=us"},
+    {id:"1138948298", t:"VectMandala TOX Overview", d:747, th:"https://i.vimeocdn.com/video/2085438473-09bcdf3f07ac02b1903a154b00b0932b6e358cf83c47280bd9a1151c2d42a217-d_640?region=us"},
+    {id:"990773653", t:"Pattern Generator TOX Overview", d:473, th:"https://i.vimeocdn.com/video/1906582101-0c257e0d03b7ee5e531783fe5d45ed2d17c0f5c6bb43f716235b99df7430a698-d_640?region=us"}
+  ];
+
+  var upcomingNews = [
+    {d:"2026-10-22", end:"2026-12-11", when:"October 22 to December 11, 2026", t:"Frequencies of Deep Time", v:"Baber Room Gallery, Central Michigan University · Solo exhibition", loc:"Mount Pleasant, MI", link:"", kind:"EXHIBITION"},
+    {d:"2026-10-01", end:"2026-10-04", when:"October 1 to 4, 2026", t:"Short Cuts", v:"SHED · Jurors Janelle VanderKelen, Lilan Yang, and curator Gabrielle Banzhaf", loc:"Cleveland, OH", link:"", kind:"SCREENING"},
+    {d:"2026-09-18", end:"2026-10-03", when:"September 18 to October 3, 2026", t:"Reskinned", v:"Resonant Gallery / ArtPrize Venue · Co-curated with Micah Alhadeff", loc:"Grand Rapids, MI", link:"", kind:"EXHIBITION"},
+    {d:"2026-08-31", end:"2026-10-24", when:"August 31 to October 24, 2026", t:"Landscape, Apparently", v:"Ferris State University's Kendall College of Art and Design / ArtPrize · Curated by Michele Bosak", loc:"Grand Rapids, MI", link:"", kind:"EXHIBITION"}
+  ];
+  var venues = [
+    {v:"Museum of Art and Design", l:"New York, NY"},
+    {v:"Everson Museum of Art", l:"Syracuse, NY"},
+    {v:"Museum of Art", l:"Zhangzhou, China"},
+    {v:"Athens Digital Arts Festival", l:"Athens, Greece"},
+    {v:"Istanbul International Experimental Film Festival", l:"Beyoglu, Istanbul"},
+    {v:"Cronosfera Festival", l:"Alessandria, Italy"},
+    {v:"Galerija 12 New Media Hub", l:"Belgrade, Serbia"},
+    {v:"Simultan Festival", l:"Timisoara, Romania"},
+    {v:"Festival ECRA of Audiovisual Experimentations", l:"Rio de Janeiro, Brazil"}
+  ];
+
+  function vimeoSrc(id){ return "https://player.vimeo.com/video/" + id + "?autoplay=1&title=0&byline=0&portrait=0&dnt=1"; }
+  function pad(n){ return (n<10?"0":"")+n; }
+  function fmtDur(s){ return Math.floor(s/60)+":"+pad(s%60); }
+
+  /* number the catalog newest to oldest */
+  works.forEach(function(w,i){ w.n = (i+1<10?"0":"")+(i+1); });
+
+  /* ---------- build the grid ---------- */
+  var grid=document.getElementById("grid"), tiles=[];
+  works.forEach(function(w,i){
+    var a=document.createElement("a");
+    a.className="tile"; a.href="#/work/"+w.slug;     a.setAttribute("aria-label", w.title+", "+w.year);
+    var md=document.createElement("div"); md.className="tile-media";
+    var im=document.createElement("img"); im.loading="lazy"; im.decoding="async"; im.alt=w.title+", "+w.year; im.src=gridSrc(w);
+    im.addEventListener("error", function(){
+      if(im.getAttribute("data-fb") || !w.wix){ im.style.visibility="hidden"; return; }
+      im.setAttribute("data-fb","1"); im.src=fitUrl(w.wix,900,675);
+    });
+    md.appendChild(im);
+
+    var lab=document.createElement("div"); lab.className="tile-lab";
+    var tn=document.createElement("span"); tn.className="tn"; tn.textContent=w.n;
+    var tx=document.createElement("span"); tx.className="tile-txt";
+    var tt=document.createElement("span"); tt.className="tt"; tt.textContent=w.title;
+    var cleanTags=w.tags.filter(function(t){ return t.toLowerCase()!==w.medium.toLowerCase(); });
+    var tm=document.createElement("span"); tm.className="tm"; tm.textContent=[w.year,w.medium].concat(cleanTags).join("  ·  ");
+    tx.appendChild(tt); tx.appendChild(tm);
+    lab.appendChild(tn); lab.appendChild(tx);
+    a.appendChild(md); a.appendChild(lab); grid.appendChild(a);
+    tiles.push({el:a, w:w});
+  });
+  document.getElementById("workCount").textContent = works.length + " WORKS / 2009 TO 2026";
+
+  var chips=Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  chips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      chips.forEach(function(c){ c.setAttribute("aria-pressed", c===chip?"true":"false"); });
+      var tag=chip.getAttribute("data-tag"), n=0;
+      tiles.forEach(function(t){
+        var s=(tag==="all")||(t.w.tags.indexOf(tag)>=0);
+        t.el.classList.toggle("hide", !s);
+        if(s) n++;
+      });
+      document.getElementById("workCount").textContent =
+        (tag==="all") ? works.length+" WORKS / 2009 TO 2026" : n+" IN "+tag.toUpperCase();
+    });
+  });
+
+  var vl=document.getElementById("venues");
+  venues.forEach(function(x){
+    var li=document.createElement("li");
+    var b=document.createElement("b"); b.textContent=x.v;
+    li.appendChild(b); li.appendChild(document.createTextNode(x.l)); vl.appendChild(li);
+  });
+  var portrait=document.getElementById("portrait");
+  portrait.addEventListener("error", function(){ portrait.style.display="none"; });
+
+  /* ---------- news ---------- */
+  function newsRow(x, isPast){
+    var li=document.createElement("li");
+    var w=document.createElement("span"); w.className="when"+(isPast?" past":""); w.textContent=x.when;
+    var mid=document.createElement("span");
+    var t=document.createElement("div"); t.className="nt";
+    if(x.link){ var a=document.createElement("a"); a.href=x.link; a.target="_blank"; a.rel="noopener"; a.textContent=x.t; t.appendChild(a); }
+    else { t.textContent=x.t; }
+    var v=document.createElement("div"); v.className="nv";
+    v.textContent = x.v + (x.loc ? (x.v ? ". " : "") + x.loc : "");
+    mid.appendChild(t); mid.appendChild(v);
+    var k=document.createElement("span"); k.className="kind"; k.textContent=x.kind;
+    li.appendChild(w); li.appendChild(mid); li.appendChild(k);
+    return li;
+  }
+  var cvMonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  function cvSection(id){
+    if(!window.CV || !window.CV.sections) return [];
+    for(var i=0;i<window.CV.sections.length;i++) if(window.CV.sections[i].id===id) return window.CV.sections[i].entries || [];
+    return [];
+  }
+  function cvDateRegex(){
+    var months=cvMonthNames.join("|");
+    return new RegExp("\\b("+months+")\\.?\\s+(\\d{1,2})(?:\\s+to\\s+(?:("+months+")\\.?\\s+)?(\\d{1,2}))?(?:,?\\s+(\\d{4}))?","gi");
+  }
+  function cvDateInfo(entry){
+    var fallback=(String(entry.y).match(/\d{4}/)||[])[0], re=cvDateRegex(), match, starts=[], ends=[];
+    while((match=re.exec(entry.d))){
+      var year=Number(match[5]||fallback), startMonth=cvMonthNames.map(function(x){return x.toLowerCase();}).indexOf(match[1].toLowerCase());
+      var endMonth=match[3]?cvMonthNames.map(function(x){return x.toLowerCase();}).indexOf(match[3].toLowerCase()):startMonth;
+      if(!year || startMonth<0 || endMonth<0) continue;
+      var start=new Date(year,startMonth,Number(match[2])), end=new Date(year,endMonth,Number(match[4]||match[2]));
+      if(endMonth<startMonth) end.setFullYear(year+1);
+      starts.push(start); ends.push(end);
+    }
+    if(!starts.length) return null;
+    return {start:new Date(Math.min.apply(null,starts)),end:new Date(Math.max.apply(null,ends))};
+  }
+  function cvWhen(info){
+    var a=info.start,b=info.end, am=cvMonthNames[a.getMonth()],bm=cvMonthNames[b.getMonth()];
+    if(a.getTime()===b.getTime()) return am+" "+a.getDate()+", "+a.getFullYear();
+    if(a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth()) return am+" "+a.getDate()+" to "+b.getDate()+", "+b.getFullYear();
+    if(a.getFullYear()===b.getFullYear()) return am+" "+a.getDate()+" to "+bm+" "+b.getDate()+", "+b.getFullYear();
+    return am+" "+a.getDate()+", "+a.getFullYear()+" to "+bm+" "+b.getDate()+", "+b.getFullYear();
+  }
+  function cvNewsKind(entry){
+    var text=(entry.t+" "+entry.d).toLowerCase();
+    if(text.indexOf("performance")>=0 || text.indexOf("concert")>=0) return "PERFORMANCE";
+    if(text.indexOf("exhibition")>=0) return "EXHIBITION";
+    return "SCREENING";
+  }
+  function recentNewsFromCV(now,limit){
+    var year=String(now.getFullYear()), entries=[];
+    ["solo-two-person","selected-group","curation"].forEach(function(id){ entries=entries.concat(cvSection(id)); });
+    return entries.map(function(entry){ return {entry:entry,dates:cvDateInfo(entry)}; })
+      .filter(function(x){ return x.entry.y===year && x.dates && x.dates.end<now; })
+      .sort(function(a,b){ return b.dates.end-a.dates.end; })
+      .slice(0,limit)
+      .map(function(x){ return {when:cvWhen(x.dates),t:x.entry.t,v:x.entry.d,loc:"",link:"",kind:cvNewsKind(x.entry)}; });
+  }
+  function recentGrantsFromCV(limit){
+    return cvSection("grants-awards")
+      .filter(function(entry){ return /grant/i.test(entry.t+" "+entry.d); })
+      .slice(0,limit)
+      .map(function(entry){ return {when:entry.y,t:entry.t,v:entry.d,loc:"",link:"",kind:"GRANT"}; });
+  }
+  var today=new Date(); today.setHours(0,0,0,0);
+  var up=upcomingNews.filter(function(x){ return new Date((x.end||x.d)+"T23:59:59")>=today; });
+  var past=recentNewsFromCV(today,10), awards=recentGrantsFromCV(3);
+  up.sort(function(a,b){ return a.d<b.d?-1:1; });
+  var upEl=document.getElementById("newsUp"), pastEl=document.getElementById("newsPast"), awEl=document.getElementById("newsAwards");
+  if(up.length){ up.forEach(function(x){ upEl.appendChild(newsRow(x,false)); }); }
+  else {
+    var li=document.createElement("li"); li.style.display="block"; li.style.borderTop="0";
+    var e=document.createElement("div"); e.className="empty";
+    e.textContent="No upcoming dates are currently listed. Recent screenings and performances appear below.";
+    li.appendChild(e); upEl.appendChild(li);
+  }
+  past.forEach(function(x){ pastEl.appendChild(newsRow(x,true)); });
+  awards.forEach(function(x){ awEl.appendChild(newsRow(x,true)); });
+  document.getElementById("upCount").textContent = up.length ? up.length+" LISTED" : "NONE";
+  document.getElementById("pastCount").textContent = past.length+" FROM CV";
+  document.getElementById("awardsCount").textContent = awards.length+" FROM CV";
+  document.getElementById("newsToday").textContent = "AS OF " + today.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"}).toUpperCase();
+
+  /* ---------- philosophical tools ---------- */
+  function toolCard(v){
+    var a=document.createElement("a"); a.className="fcard"; a.href=v.url||("https://vimeo.com/"+v.id); a.target="_blank"; a.rel="noopener";
+    if(v.th){
+      var im=document.createElement("img"); im.src=v.th; im.alt=v.t; im.loading="lazy";
+      im.addEventListener("error", function(){ im.style.display="none"; });
+      a.appendChild(im);
+    } else { a.classList.add("no-thumb"); }
+    var m=document.createElement("div"); m.className="fmeta";
+    var t=document.createElement("div"); t.className="ft"; t.textContent=v.t;
+    var d=document.createElement("div"); d.className="fd"; d.textContent=v.meta||fmtDur(v.d);
+    m.appendChild(t); m.appendChild(d); a.appendChild(m);
+    return a;
+  }
+  var tdFeed=document.getElementById("tdFeed"), toxFeed=document.getElementById("toxFeed");
+  tdSeries.forEach(function(v){ tdFeed.appendChild(toolCard(v)); });
+  toxSeries.forEach(function(v){ toxFeed.appendChild(toolCard(v)); });
+  document.getElementById("tdCount").textContent = tdSeries.length+" TUTORIALS";
+  document.getElementById("toxCount").textContent = toxSeries.length+" INSTRUMENTS";
+
+  var suiteEl=document.getElementById("suite");
+  suite.forEach(function(s){
+    var a=document.createElement("a"); a.href=s.url; a.target="_blank"; a.rel="noopener";
+    var im=document.createElement("img"); im.src=s.img; im.alt=s.t; im.loading="lazy";
+    im.addEventListener("error", function(){ im.style.display="none"; });
+    var l=document.createElement("span"); l.className="sl"; l.textContent=s.t+"  ↗";
+    a.appendChild(im); a.appendChild(l); suiteEl.appendChild(a);
+  });
+
+  /* ---------- cv ---------- */
+  var CV_GROUPS=[
+    {k:"all",label:"ALL"},
+    {k:"practice",label:"PRACTICE"},
+    {k:"exhibitions",label:"EXHIBITIONS"},
+    {k:"grants",label:"GRANTS AND AWARDS"},
+    {k:"curation",label:"CURATION"},
+    {k:"talks",label:"TALKS AND WORKSHOPS"},
+    {k:"tools",label:"ARTIST BUILT TOOLS"},
+    {k:"press",label:"PRESS AND BOOKS"},
+    {k:"teaching",label:"TEACHING"},
+    {k:"service",label:"SERVICE"}
+  ];
+  function groupOf(id){
+    if(/^(wmu|nyscc|iu|alfred)/.test(id)) return /service/.test(id) ? "service" : "teaching";
+    var m={"education":"practice","professional-appointments":"practice","permanent-collections":"practice",
+      "residencies":"practice","professional-affiliations":"practice",
+      "solo-two-person":"exhibitions","selected-group":"exhibitions",
+      "grants-awards":"grants","curation":"curation",
+      "invited-talks":"talks","campus-talks":"talks","workshops-master-classes":"talks",
+      "artist-built-tools":"tools",
+      "catalogs-press-publications":"press","artist-books":"press",
+      "service-field-community":"service"};
+    return m[id] || "practice";
+  }
+  var CV_ORGANIZATIONS=[
+    {k:"wmu",label:"WESTERN MICHIGAN UNIVERSITY",matches:function(id){ return id.indexOf("wmu-")===0; }},
+    {k:"nyscc",label:"NYSCC SCHOOL OF ART AND DESIGN (ALFRED UNIVERSITY)",matches:function(id){ return id.indexOf("nyscc-")===0||id.indexOf("alfred-university-")===0; }},
+    {k:"iu",label:"INDIANA UNIVERSITY SOUTH BEND",matches:function(id){ return id.indexOf("iu-")===0; }}
+  ];
+  var CV_SUB_LABELS={
+    "wmu-courses-taught":"TEACHING / COURSES TAUGHT",
+    "wmu-experiential":"EXPERIENTIAL LEARNING & CURRICULAR INNOVATION",
+    "wmu-service":"SERVICE",
+    "nyscc-courses-taught":"TEACHING / COURSES TAUGHT",
+    "nyscc-graduate-committees":"GRADUATE COMMITTEES",
+    "nyscc-curriculum-development":"CURRICULUM DEVELOPMENT",
+    "nyscc-experiential":"EXPERIENTIAL LEARNING & CURRICULAR INNOVATION",
+    "nyscc-expanded-media-service":"EXPANDED MEDIA / ELECTRONIC INTEGRATED ARTS / INSTITUTE FOR ELECTRONIC ART SERVICE",
+    "nyscc-soad-service":"SCHOOL SERVICE",
+    "alfred-university-service":"UNIVERSITY SERVICE",
+    "iu-courses-taught":"COURSES TAUGHT",
+    "iu-teaching-mentorship":"TEACHING EXPERIENCE / MENTORSHIP / ASSESSMENT",
+    "iu-curriculum-development":"CURRICULUM DEVELOPMENT",
+    "iu-student-work":"PUBLIC DISPLAY OF STUDENT WORK / EXPERIENTIAL LEARNING",
+    "iu-university-service":"UNIVERSITY SERVICE",
+    "iu-college-service":"COLLEGE SERVICE"
+  };
+  function organizationOf(id){
+    for(var oi=0;oi<CV_ORGANIZATIONS.length;oi++) if(CV_ORGANIZATIONS[oi].matches(id)) return CV_ORGANIZATIONS[oi];
+    return null;
+  }
+  var cvSecs=[], cvOrgs=[], cvOrgMap={}, CV_TOTAL=0, cvGroup="all", cvQ="";
+  var cvBody=document.getElementById("cvBody"), cvCount=document.getElementById("cvCount");
+
+  function ensureCvOrganization(config){
+    if(cvOrgMap[config.k]) return cvOrgMap[config.k];
+    var details=document.createElement("details"); details.className="cv-sec cv-org";
+    var summary=document.createElement("summary"); summary.className="sec-head";
+    var heading=document.createElement("h2"); heading.textContent=config.label;
+    var count=document.createElement("span"); count.className="idx";
+    var body=document.createElement("div"); body.className="cv-org-body";
+    summary.appendChild(heading); summary.appendChild(count); details.appendChild(summary); details.appendChild(body); cvBody.appendChild(details);
+    var org={el:details,body:body,cnt:count,sections:[],total:0,visible:0};
+    cvOrgMap[config.k]=org; cvOrgs.push(org); return org;
+  }
+
+  if(!window.CV || !window.CV.sections){
+    var miss=document.createElement("div"); miss.className="cv-miss";
+    miss.textContent="The complete CV record could not be loaded. Please try refreshing the page.";
+    cvBody.appendChild(miss);
+    cvCount.textContent="NOT LOADED";
+  } else {
+    window.CV.sections.forEach(function(s){
+      var g=groupOf(s.id);
+      var orgConfig=organizationOf(s.id), parent=orgConfig?ensureCvOrganization(orgConfig):null;
+      var sec=document.createElement("details"); sec.className=parent?"cv-subsec":"cv-sec";
+      var hd=document.createElement("summary"); hd.className=parent?"cv-subhead":"sec-head";
+      var h2=document.createElement(parent?"h3":"h2"); h2.textContent=parent?(CV_SUB_LABELS[s.id]||s.label):s.label;
+      var cnt=document.createElement("span"); cnt.className="idx";
+      hd.appendChild(h2); hd.appendChild(cnt);
+      var ul=document.createElement("ul"); ul.className="cv-list";
+      var obj={el:sec,g:g,cnt:cnt,rows:[],parent:parent};
+      var searchContext=(s.label+" "+(orgConfig?orgConfig.label:"")).toLowerCase();
+      s.entries.forEach(function(e){
+        var li=document.createElement("li");
+        var y=document.createElement("span"); y.className="cv-y"; y.textContent=e.y||"";
+        var mid=document.createElement("div");
+        var t=document.createElement("div"); t.className="cv-t"; t.textContent=e.t;
+        mid.appendChild(t);
+        if(e.d){ var d=document.createElement("div"); d.className="cv-d"; d.textContent=e.d; mid.appendChild(d); }
+        li.appendChild(y); li.appendChild(mid); ul.appendChild(li);
+        obj.rows.push({li:li, hay:(searchContext+" "+(e.y||"")+" "+e.t+" "+e.d).toLowerCase()});
+        CV_TOTAL++;
+      });
+      sec.appendChild(hd); sec.appendChild(ul);
+      if(parent){ parent.body.appendChild(sec); parent.sections.push(obj); parent.total+=obj.rows.length; }
+      else cvBody.appendChild(sec);
+      cvSecs.push(obj);
+    });
+
+    var cvGroupsEl=document.getElementById("cvGroups");
+    CV_GROUPS.forEach(function(g){
+      var b=document.createElement("button"); b.className="chip"; b.type="button";
+      b.textContent=g.label; b.setAttribute("aria-controls","cvBody"); b.setAttribute("aria-pressed", g.k==="all"?"true":"false");
+      b.addEventListener("click", function(){
+        cvGroup=g.k;
+        Array.prototype.forEach.call(cvGroupsEl.children, function(c){ c.setAttribute("aria-pressed", c===b?"true":"false"); });
+        if(cvGroup==="all"&&!cvQ){
+          cvSecs.forEach(function(s){ s.el.open=false; });
+          cvOrgs.forEach(function(o){ o.el.open=false; });
+        }
+        cvFilter();
+      });
+      cvGroupsEl.appendChild(b);
+    });
+
+    function cvFilter(){
+      var shown=0, filtering=(cvGroup!=="all")||!!cvQ;
+      cvOrgs.forEach(function(o){ o.visible=0; });
+      cvSecs.forEach(function(s){
+        var okG=(cvGroup==="all")||(s.g===cvGroup), vis=0;
+        s.rows.forEach(function(r){
+          var ok=okG && (!cvQ || r.hay.indexOf(cvQ)>=0);
+          r.li.style.display= ok ? "" : "none";
+          if(ok) vis++;
+        });
+        s.el.style.display = vis ? "" : "none";
+        if(filtering) s.el.open=!!vis;
+        s.cnt.textContent = (vis===s.rows.length) ? String(s.rows.length) : vis+" OF "+s.rows.length;
+        if(s.parent) s.parent.visible+=vis;
+        shown+=vis;
+      });
+      cvOrgs.forEach(function(o){
+        o.el.style.display=o.visible ? "" : "none";
+        if(filtering) o.el.open=!!o.visible;
+        o.cnt.textContent=(o.visible===o.total) ? o.total+" ENTRIES" : o.visible+" OF "+o.total+" ENTRIES";
+      });
+      cvCount.textContent = (shown===CV_TOTAL) ? CV_TOTAL+" ENTRIES" : shown+" OF "+CV_TOTAL+" ENTRIES";
+    }
+    var cvSearch=document.getElementById("cvSearch");
+    cvSearch.addEventListener("input", function(){
+      cvQ=cvSearch.value.trim().toLowerCase();
+      if(!cvQ&&cvGroup==="all"){
+        cvSecs.forEach(function(s){ s.el.open=false; });
+        cvOrgs.forEach(function(o){ o.el.open=false; });
+      }
+      cvFilter();
+    });
+    cvFilter();
+  }
+
+  /* ---------- layout editor ---------- */
+  if(new URLSearchParams(window.location.search).get("edit")==="1") document.body.classList.add("layout-editor");
+  var EDITS = (window.LAYOUT_EDITS || {});
+  function applyEd(el, st){
+    el.style.transform = (st.dx||st.dy) ? "translate("+(st.dx||0)+"px,"+(st.dy||0)+"px)" : "";
+    if(st.w) el.style.width = st.w+"px";
+  }
+  function dumpEd(){
+    var t=document.getElementById("edText");
+    if(t) t.value = "window.LAYOUT_EDITS = " + JSON.stringify(EDITS, null, 1) + ";";
+  }
+  function makeEd(el, key){
+    if(EDITS[key]) applyEd(el, EDITS[key]);
+    var hd=document.createElement("div"); hd.className="rs-handle"; el.appendChild(hd);
+    el.addEventListener("mousedown", function(e){
+      if(!document.body.classList.contains("editing")) return;
+      e.preventDefault(); e.stopPropagation();
+      var st = EDITS[key] || (EDITS[key] = {dx:0, dy:0, w:0});
+      var resizing = (e.target === hd);
+      var x0=e.clientX, y0=e.clientY;
+      var dx0=st.dx||0, dy0=st.dy||0, w0=st.w||Math.round(el.getBoundingClientRect().width);
+      function mv(ev){
+        if(resizing){ st.w = Math.max(60, Math.round(w0 + (ev.clientX - x0))); }
+        else { st.dx = Math.round(dx0 + (ev.clientX - x0)); st.dy = Math.round(dy0 + (ev.clientY - y0)); }
+        applyEd(el, st); dumpEd();
+      }
+      function up(){ document.removeEventListener("mousemove", mv); document.removeEventListener("mouseup", up); }
+      document.addEventListener("mousemove", mv);
+      document.addEventListener("mouseup", up);
+    });
+  }
+  function wireEd(slug){
+    Array.prototype.forEach.call(projBody.querySelectorAll(".asset"), function(el){
+      var i=el.getAttribute("data-i");
+      if(i!=null) makeEd(el, slug+":"+i);
+    });
+    var tg=projBody.querySelector(".title-gif"); if(tg) makeEd(tg, slug+":titleGif");
+    var cg=projBody.querySelector(".credit-gif"); if(cg) makeEd(cg, slug+":creditGif");
+    dumpEd();
+  }
+  (function(){
+    var t=document.getElementById("edToggle"), c=document.getElementById("edCopy"),
+        r=document.getElementById("edReset"), o=document.getElementById("edOut");
+    t.addEventListener("click", function(){
+      var on=document.body.classList.toggle("editing");
+      t.classList.toggle("on", on); o.classList.toggle("on", on); dumpEd();
+    });
+    c.addEventListener("click", function(){
+      var ta=document.getElementById("edText");
+      ta.removeAttribute("readonly"); ta.select();
+      try{ document.execCommand("copy"); c.textContent="COPIED"; setTimeout(function(){c.textContent="COPY JSON";},1200); }catch(e){}
+      ta.setAttribute("readonly","readonly");
+    });
+    r.addEventListener("click", function(){
+      Object.keys(EDITS).forEach(function(k){ delete EDITS[k]; });
+      dumpEd(); routeTo(location.hash); currentRoute=null; routeTo(location.hash);
+    });
+  })();
+
+  /* ---------- project view ---------- */
+  var viewIndex=document.getElementById("view-index"), viewWork=document.getElementById("view-work"),
+      viewAbout=document.getElementById("view-about"), viewNews=document.getElementById("view-news"),
+      projBody=document.getElementById("projBody");
+
+  function vimeoEmbed(a, autoplay){
+    var base="https://player.vimeo.com/video/"+a.id+(a.hash?"?h="+a.hash+"&":"?");
+    return base+(autoplay?"autoplay=1&":"")+"title=0&byline=0&portrait=0&dnt=1";
+  }
+  /* every asset snaps to a whole number of columns, so widths are a unified
+     scale and every left edge lines up. size still comes from the native file. */
+  var COL = 163;
+  function spanOf(a){
+    if(a.t==="text") return 6;
+    if(a.t==="video") return 3;
+    if(a.t==="mp4") return 2;
+    if(a.w) return Math.max(1, Math.min(6, Math.round(a.w * 0.33 / COL)));
+    return 3;
+  }
+  function assetEl(a, lazy, altFallback){
+    var wrap=document.createElement("figure"); wrap.className="asset";
+    wrap.style.gridColumn = "span " + spanOf(a);
+    if(a._i!=null) wrap.setAttribute("data-i", a._i);
+    if(a.t==="video"){
+      wrap.className += " is-vid";
+      var v=document.createElement("div"); v.className="a-vid";
+      var f=document.createElement("iframe");
+      f.src=vimeoEmbed(a,false);
+      if(lazy) f.setAttribute("loading","lazy");
+      f.setAttribute("allow","fullscreen; picture-in-picture");
+      f.setAttribute("title", a.cap || altFallback || "Video artwork");
+      v.appendChild(f); wrap.appendChild(v);
+    } else if(a.t==="mp4"){
+      var m=document.createElement("div"); m.className="a-mp4";
+      var vid=document.createElement("video");
+      vid.controls=true; vid.preload="none"; vid.playsInline=true;
+      if(a.poster) vid.poster=a.poster;
+      vid.src=a.src;
+      vid.setAttribute("aria-label",a.cap||altFallback||"Video artwork");
+      m.appendChild(vid); wrap.appendChild(m);
+    } else if(a.t==="image"){
+      wrap.className += /\.gif(\?|$)/i.test(a.src) ? " is-gif" : " is-still";
+      var i2=document.createElement("div"); i2.className="a-img";
+      var im=document.createElement("img"); im.src=sizedAssetSrc(a,1800); im.alt=a.cap||altFallback||""; im.loading=lazy?"lazy":"eager"; im.decoding="async";
+      var srcset=assetSrcset(a); if(srcset){ im.srcset=srcset; im.sizes="(max-width:820px) calc(100vw - 40px), 1080px"; }
+      if(a.w) im.width=a.w; if(a.h) im.height=a.h;
+      im.addEventListener("error", function(){ im.style.display="none"; });
+      i2.appendChild(im); wrap.appendChild(i2);
+    } else if(a.t==="text"){
+      var t=document.createElement("div"); t.className="a-text"; t.textContent=a.body;
+      return t;
+    }
+    if(a.cap){ var c=document.createElement("figcaption"); c.className="a-cap"; c.textContent=a.cap; wrap.appendChild(c); }
+    return wrap;
+  }
+
+  function renderBodyOddyProject(i,w,A){
+    function el(tag,className,textValue){
+      var node=document.createElement(tag);
+      if(className) node.className=className;
+      if(textValue!=null) node.textContent=textValue;
+      return node;
+    }
+    function videoFigure(a,className,number,title,detail){
+      var figure=el("figure","bodyoddy-video "+className);
+      var screen=el("div","bodyoddy-video-screen");
+      var frame=document.createElement("iframe");
+      frame.src=vimeoEmbed(a,false);
+      frame.setAttribute("allow","fullscreen; picture-in-picture");
+      frame.setAttribute("allowfullscreen","");
+      frame.setAttribute("title",w.title+" — "+title);
+      screen.appendChild(frame); figure.appendChild(screen);
+      var cap=document.createElement("figcaption");
+      var info=document.createElement("span");
+      var strong=el("strong","",number+" / "+title); info.appendChild(strong);
+      info.appendChild(document.createElement("br")); info.appendChild(document.createTextNode(detail));
+      var open=el("a","","VIMEO ↗"); open.href="https://vimeo.com/"+a.id; open.target="_blank"; open.rel="noopener";
+      cap.appendChild(info); cap.appendChild(open); figure.appendChild(cap);
+      return figure;
+    }
+    function fact(parent,label,value){
+      var item=el("div","bodyoddy-fact"); item.appendChild(el("span","",label)); item.appendChild(document.createTextNode(value)); parent.appendChild(item);
+    }
+
+    var back=el("a","backlink","← BACK TO THE WORK"); back.href="#/"; projBody.appendChild(back);
+
+    var mast=el("header","bodyoddy-mast");
+    var mastMain=el("div","");
+    mastMain.appendChild(el("div","bodyoddy-kicker",w.n+" / PERFORMANCE + INSTALLATION"));
+    mastMain.appendChild(el("h1","",w.title));
+    mastMain.appendChild(el("p","bodyoddy-subtitle","Destabilizing the Surveilling of Queer Bodies"));
+    var mastMeta=el("div","bodyoddy-mast-meta");
+    mastMeta.appendChild(el("strong","","ERIC SOUTHER + BENJAMIN ROSENTHAL"));
+    mastMeta.appendChild(document.createTextNode("SYNCHRONIZED 8-CHANNEL INSTALLATION\n2023 / 7:09 / 4K UHD"));
+    mast.appendChild(mastMain); mast.appendChild(mastMeta); projBody.appendChild(mast);
+
+    var videos=el("section","bodyoddy-video-field"); videos.setAttribute("aria-label","Body-Oddy-Oddy-Oddy videos");
+    videos.appendChild(videoFigure(A[1],"bodyoddy-video-primary","01","EIGHT-CHANNEL INSTALLATION","2023 / 7 MIN 09 SEC / 3840 × 2160"));
+    videos.appendChild(videoFigure(A[8],"bodyoddy-video-secondary","02","SINGLE CHANNEL","2024 / 9 MIN 21 SEC / 3840 × 2160"));
+    projBody.appendChild(videos);
+
+    var statement=el("section","bodyoddy-statement");
+    var copy=el("div","bodyoddy-statement-copy");
+    w.statement.forEach(function(textValue){ copy.appendChild(el("p","",textValue)); });
+    var facts=el("aside","bodyoddy-facts");
+    fact(facts,"YEARS","2023—2024");
+    fact(facts,"FORM","8-channel installation / single-channel video");
+    fact(facts,"MATERIALS","Experimental animation, sound, objects, motion capture");
+    fact(facts,"CREDITS","With Benjamin Rosenthal");
+    statement.appendChild(copy); statement.appendChild(facts); projBody.appendChild(statement);
+
+    var docHead=el("div","bodyoddy-doc-head");
+    docHead.appendChild(el("h2","","INSTALLATION FIELD"));
+    docHead.appendChild(el("span","","ANIMATED DETAILS / OBJECTS / SPACE")); projBody.appendChild(docHead);
+    var collage=el("section","bodyoddy-collage"); collage.setAttribute("aria-label","Installation documentation");
+    [0,2,3,4,5,6,10].forEach(function(assetIndex){
+      var asset=assetEl(A[assetIndex],true,w.title+" — installation documentation "+(assetIndex+1));
+      asset.classList.add("bodyoddy-asset-"+assetIndex);
+      collage.appendChild(asset);
+    });
+    projBody.appendChild(collage);
+
+    var supportLines=(A[7]&&A[7].body?A[7].body:"").split("\n").filter(Boolean);
+    var winner=supportLines.length?supportLines[supportLines.length-1]:"Winner of Digital Juried Category ArtPrize 2023";
+    var supporters=supportLines.slice(1,-1).join("\n");
+    var support=el("section","bodyoddy-support");
+    support.appendChild(el("h2","",winner));
+    var supportCopy=el("div","bodyoddy-support-copy");
+    supportCopy.appendChild(el("strong","","WITH GRATITUDE AND SUPPORT FROM"));
+    supportCopy.appendChild(document.createTextNode(supporters)); support.appendChild(supportCopy); projBody.appendChild(support);
+
+    var nav=el("div","projnav");
+    var previous=works[(i-1+works.length)%works.length], next=works[(i+1)%works.length];
+    var prevLink=el("a",""); prevLink.href="#/work/"+previous.slug; prevLink.innerHTML='<span class="lb">PREVIOUS</span>'; prevLink.appendChild(document.createTextNode(previous.title));
+    var nextLink=el("a","nx"); nextLink.href="#/work/"+next.slug; nextLink.innerHTML='<span class="lb">NEXT</span>'; nextLink.appendChild(document.createTextNode(next.title));
+    nav.appendChild(prevLink); nav.appendChild(nextLink); projBody.appendChild(nav);
+  }
+
+  function renderProject(i){
+    var w=works[i]; projBody.innerHTML=""; projBody.className="page";
+    var pack=(window.WORK_ASSETS||{})[w.ak||w.slug];
+    var A=pack&&pack.assets&&pack.assets.length?pack.assets:null;
+    if(A) A.forEach(function(a,k){ a._i=k; });
+    if(w.slug==="bodyoddyoddyoddy"&&A){
+      projBody.classList.add("bodyoddy-page");
+      renderBodyOddyProject(i,w,A);
+      return;
+    }
+    var vids=A?A.filter(function(a){return a.t==="video";}):[];
+    var hero=A?A[0]:null;
+    var rest=A?A.slice(1):[];
+    var vimeoId=vids.length?vids[0].id:w.vimeo;
+
+    var back=document.createElement("a"); back.className="backlink"; back.href="#/"; back.textContent="← BACK TO THE WORK"; projBody.appendChild(back);
+    var head=document.createElement("div"); head.className="proj-head";
+    var pn=document.createElement("span"); pn.className="pn"; pn.textContent=w.n;
+    head.appendChild(pn);
+    w.tags.forEach(function(t){ var tp=document.createElement("span"); tp.className="tagpill"; tp.textContent=t; head.appendChild(tp); });
+    projBody.appendChild(head);
+    var lay=w.lay;
+    var hh=document.createElement("h1"); hh.className="pt"; hh.textContent=w.title;
+    if(lay && lay.titleGif!=null && A && A[lay.titleGif]){
+      var trow=document.createElement("div"); trow.className="title-block";
+      trow.appendChild(hh);
+      var tg=document.createElement("div"); tg.className="title-gif";
+      tg.style.width = (A[lay.titleGif].w ? Math.min(190, Math.max(110, Math.round(A[lay.titleGif].w*0.22))) : 150)+"px";
+      var tgi=document.createElement("img"); tgi.src=sizedAssetSrc(A[lay.titleGif],800); tgi.alt=""; tgi.loading="lazy";
+      tgi.addEventListener("error", function(){ tg.style.display="none"; });
+      tg.appendChild(tgi); trow.appendChild(tg);
+      var sp0=document.createElement("div"); sp0.className="spec"; sp0.textContent=w.spec;
+      trow.insertBefore(sp0, tg);
+      projBody.appendChild(trow);
+    } else {
+      projBody.appendChild(hh);
+      var sp=document.createElement("div"); sp.className="spec"; sp.textContent=w.spec; projBody.appendChild(sp);
+    }
+
+    /* hero */
+    var pm=document.createElement("div"); pm.className="pmedia";
+    if(hero && hero.t==="video"){
+      var pimg=document.createElement("img"); pimg.src=bigSrc(w); pimg.alt=w.title+", "+w.year;
+      pimg.addEventListener("error", function(){ pimg.style.display="none"; });
+      pm.appendChild(pimg);
+      var pb=document.createElement("button"); pb.className="playbtn"; pb.type="button"; pb.textContent="▶  PLAY";
+      pb.addEventListener("click", function(){
+        var f=document.createElement("iframe"); f.src=vimeoEmbed(hero,true);
+        f.setAttribute("allow","autoplay; fullscreen; picture-in-picture");
+        f.setAttribute("title", w.title+" on Vimeo");
+        pm.innerHTML=""; pm.appendChild(f);
+      });
+      pm.appendChild(pb);
+    } else if(hero && (hero.t==="image"||hero.t==="mp4")){
+      pm.appendChild(assetEl(hero,false,w.title+" — primary artwork"));
+      pm.style.aspectRatio="auto";
+      pm.firstChild.style.width="100%";
+    } else if(w.vimeo){
+      var pimg2=document.createElement("img"); pimg2.src=bigSrc(w); pimg2.alt=w.title+", "+w.year;
+      pimg2.addEventListener("error", function(){ pimg2.style.display="none"; });
+      pm.appendChild(pimg2);
+      var pb2=document.createElement("button"); pb2.className="playbtn"; pb2.type="button"; pb2.textContent="▶  PLAY";
+      pb2.addEventListener("click", function(){
+        var f=document.createElement("iframe"); f.src="https://player.vimeo.com/video/"+w.vimeo+"?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
+        f.setAttribute("allow","autoplay; fullscreen; picture-in-picture");
+        f.setAttribute("title", w.title+" on Vimeo");
+        pm.innerHTML=""; pm.appendChild(f);
+      });
+      pm.appendChild(pb2);
+    } else {
+      var pimg3=document.createElement("img"); pimg3.src=bigSrc(w); pimg3.alt=w.title+", "+w.year;
+      pimg3.addEventListener("error", function(){ pimg3.style.display="none"; });
+      pm.appendChild(pimg3);
+    }
+    projBody.appendChild(pm);
+
+    var meta=document.createElement("div"); meta.className="pmeta";
+    var left=document.createElement("span");
+    var mediaVideoCount=A?A.filter(function(a){ return a.t==="video"||a.t==="mp4"; }).length:(w.vimeo?1:0);
+    var mediaImageCount=A?A.filter(function(a){ return a.t==="image"; }).length:0;
+    left.textContent = mediaVideoCount>1 ? mediaVideoCount+" VIDEOS ON THIS WORK"
+                     : mediaVideoCount===1||w.vimeo ? "PRESS PLAY FOR SOUND"
+                     : mediaImageCount ? mediaImageCount+(mediaImageCount===1?" IMAGE":" IMAGES")
+                     : "POSTER ONLY";
+    var right=document.createElement("span");
+    var va=document.createElement("a");
+    va.href = vimeoId ? "https://vimeo.com/"+vimeoId : "https://vimeo.com/souther";
+    va.target="_blank"; va.rel="noopener"; va.textContent = vimeoId ? "OPEN ON VIMEO ↗" : "VIMEO PROFILE ↗";
+    right.appendChild(va);
+    meta.appendChild(left); meta.appendChild(right); projBody.appendChild(meta);
+
+    var body=document.createElement("div"); body.className="pbody";
+
+    /* pull the first gif out of the run and stand it on the text (only when unplaced) */
+    var stepper=null, stepVisual=null;
+    for(var gi=0; !lay && gi<rest.length; gi++){
+      if(rest[gi].t==="image" && /\.gif(\?|$)/i.test(rest[gi].src)){ stepper=rest.splice(gi,1)[0]; break; }
+    }
+    if(stepper){
+      var sg=document.createElement("div");
+      sg.className="step-gif" + ((stepper.h && stepper.w && stepper.h > stepper.w*1.4) ? " tall" : "");
+      var sgi=document.createElement("img"); sgi.src=sizedAssetSrc(stepper,800); sgi.alt=stepper.cap||w.title+" — animated detail"; sgi.loading="lazy";
+      sgi.addEventListener("error", function(){ sg.style.display="none"; });
+      sg.appendChild(sgi); stepVisual=sg;
+    }
+
+    var st=document.createElement("div"); st.className="statement";
+    if(stepVisual) st.appendChild(stepVisual);
+    w.statement.forEach(function(p){ var el=document.createElement("p"); el.textContent=p; st.appendChild(el); });
+    var side=document.createElement("div"); side.className="pside";
+    function field(label,val){
+      if(!val) return;
+      var l=document.createElement("span"); l.className="lbl"; l.textContent=label;
+      var v=document.createElement("div"); v.className="val"; v.textContent=val;
+      side.appendChild(l); side.appendChild(v);
+    }
+    field("YEAR", w.year); field("MEDIUM", w.medium); field("SERIES", w.tags.join(", ")); field("CREDITS", w.credits);
+    if(lay && lay.creditGif!=null && A && A[lay.creditGif]){
+      var cg=document.createElement("div"); cg.className="credit-gif";
+      cg.style.width = (A[lay.creditGif].w ? Math.min(200, Math.max(110, Math.round(A[lay.creditGif].w*0.24))) : 170)+"px";
+      var cgi=document.createElement("img"); cgi.src=sizedAssetSrc(A[lay.creditGif],800); cgi.alt=""; cgi.loading="lazy";
+      cgi.addEventListener("error", function(){ cg.style.display="none"; });
+      cg.appendChild(cgi); side.appendChild(cg);
+    }
+    if(w.statement.length||stepVisual) body.appendChild(st); else body.classList.add("facts-only");
+    body.appendChild(side); projBody.appendChild(body);
+
+    /* named groups when the work is really two works, otherwise one run in page order */
+    function renderGroup(label, note, list){
+      if(!list.length) return;
+      var gh=document.createElement("div"); gh.className="grp-head";
+      var h3=document.createElement("h3"); h3.textContent=label;
+      var nV=list.filter(function(a){return a.t==="video"||a.t==="mp4";}).length;
+      var nI=list.filter(function(a){return a.t==="image";}).length;
+      var bits=[]; if(nV) bits.push(nV+(nV>1?" VIDEOS":" VIDEO")); if(nI) bits.push(nI+(nI>1?" IMAGES":" IMAGE"));
+      var ix=document.createElement("span"); ix.className="idx"; ix.textContent=bits.join("  ·  ");
+      gh.appendChild(h3); gh.appendChild(ix); projBody.appendChild(gh);
+      if(note){ var nt=document.createElement("p"); nt.className="grp-note"; nt.textContent=note; projBody.appendChild(nt); }
+      var box=document.createElement("div"); box.className="assets";
+      list.forEach(function(a){ box.appendChild(assetEl(a,true,w.title+" — documentation image "+((a._i||0)+1))); });
+      projBody.appendChild(box);
+    }
+
+    if(lay && lay.groups){
+      lay.groups.forEach(function(g){
+        var note=[];
+        if(g.noteIdx!=null && A[g.noteIdx] && A[g.noteIdx].body) note.push(A[g.noteIdx].body);
+        if(g.sub) note.push(g.sub);
+        renderGroup(g.label, note.join("  ·  "), g.idx.map(function(k){ return A[k]; }).filter(Boolean));
+      });
+    } else if(rest.length){
+      renderGroup("MORE FROM THIS WORK", "", rest);
+    }
+
+    var nav=document.createElement("div"); nav.className="projnav";
+    var p=works[(i-1+works.length)%works.length], nx=works[(i+1)%works.length];
+    var pa=document.createElement("a"); pa.href="#/work/"+p.slug;
+    pa.innerHTML='<span class="lb">PREVIOUS</span>'; pa.appendChild(document.createTextNode(p.title));
+    var na=document.createElement("a"); na.href="#/work/"+nx.slug; na.className="nx";
+    na.innerHTML='<span class="lb">NEXT</span>'; na.appendChild(document.createTextNode(nx.title));
+    nav.appendChild(pa); nav.appendChild(na); projBody.appendChild(nav);
+    if(document.body.classList.contains("layout-editor")) wireEd(w.slug);
+  }
+
+  var viewTools=document.getElementById("view-tools"), viewCv=document.getElementById("view-cv");
+  var views=[viewIndex, viewAbout, viewNews, viewWork, viewTools, viewCv];
+  var navLinks={work:document.getElementById("nav-work"), tools:document.getElementById("nav-tools"),
+                about:document.getElementById("nav-about"), news:document.getElementById("nav-news"),
+                cv:document.getElementById("nav-cv")};
+  var navToggle=document.getElementById("navToggle"), navBar=document.querySelector(".bar");
+  function closeNav(){ navBar.classList.remove("nav-open"); navToggle.setAttribute("aria-expanded","false"); navToggle.textContent="MENU"; }
+  navToggle.addEventListener("click",function(){
+    var open=!navBar.classList.contains("nav-open");
+    navBar.classList.toggle("nav-open",open); navToggle.setAttribute("aria-expanded",open?"true":"false"); navToggle.textContent=open?"CLOSE":"MENU";
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeNav(); });
+
+  var metaDescription=document.querySelector('meta[name="description"]');
+  function setMetaContent(selector,value){ var el=document.querySelector(selector); if(el&&value) el.setAttribute("content",value); }
+  function setPageMeta(title,description,image){
+    image=image||DEFAULT_SHARE_IMAGE;
+    document.title=title;
+    if(metaDescription&&description) metaDescription.setAttribute("content",description);
+    setMetaContent('meta[property="og:title"]',title); setMetaContent('meta[property="og:description"]',description);
+    setMetaContent('meta[name="twitter:title"]',title); setMetaContent('meta[name="twitter:description"]',description);
+    setMetaContent('meta[property="og:image"]',image); setMetaContent('meta[name="twitter:image"]',image);
+  }
+  function setView(el, navKey, moveFocus, scrollTop){
+    views.forEach(function(v){ v.classList.toggle("on", v===el); });
+    Object.keys(navLinks).forEach(function(k){
+      var on=k===navKey; navLinks[k].classList.toggle("on",on);
+      if(on) navLinks[k].setAttribute("aria-current","page"); else navLinks[k].removeAttribute("aria-current");
+    });
+    closeNav();
+    window.scrollTo(0,scrollTop||0);
+    if(moveFocus){
+      var heading=el.querySelector("h1,h2");
+      if(heading){ heading.setAttribute("tabindex","-1"); requestAnimationFrame(function(){ heading.focus({preventScroll:true}); }); }
+    }
+  }
+  var currentRoute=null, lastIndexScroll=0;
+  function routeTo(hp, moveFocus){
+    var hh=String(hp||"#/").replace(/^#\/?/,"");
+    if(hh===currentRoute) return;
+    var previousRoute=currentRoute;
+    currentRoute=hh;
+    if(hh.indexOf("work/")===0){
+      var slug=hh.slice(5), i=-1;
+      works.forEach(function(w,k){ if(w.slug===slug) i=k; });
+      if(i>=0){
+        var w=works[i]; renderProject(i);
+        setPageMeta(w.title+" — Eric Souther",w.statement[0]||w.spec,bigSrc(w));
+        setView(viewWork,"work",moveFocus); return;
+      }
+    }
+    if(hh==="about"){ setPageMeta("About — Eric Souther","Biography, selected venues, curriculum vitae, and links for video artist and toolmaker Eric Souther."); setView(viewAbout,"about",moveFocus); return; }
+    if(hh==="news"){ setPageMeta("News — Eric Souther","Upcoming and recent screenings, performances, exhibitions, grants, and awards."); setView(viewNews,"news",moveFocus); return; }
+    if(hh==="toolmaking"){ setPageMeta("Toolmaking — Eric Souther","Artist-built video instruments, TouchDesigner tools, tutorials, and the history of experimental signal processing."); setView(viewTools,"tools",moveFocus); return; }
+    if(hh==="cv"){ setPageMeta("Curriculum Vitae — Eric Souther","The complete curriculum vitae of video artist, toolmaker, and Associate Professor Eric Souther."); setView(viewCv,"cv",moveFocus); return; }
+    projBody.innerHTML="";
+    setPageMeta("Eric Souther — Video Artist & Toolmaker","Eric Souther builds moving-image works, performances, installations, and artist-built tools that trace signals through ritual, bodies, artificial intelligence, and deep time.");
+    var restoreIndex=previousRoute&&previousRoute.indexOf("work/")===0&&lastIndexScroll>0;
+    setView(viewIndex,"work",moveFocus&&!restoreIndex,restoreIndex?lastIndexScroll:0);
+  }
+  function navigate(hp){
+    var next=String(hp||"").replace(/^#\/?/,"");
+    if(next===currentRoute){ closeNav(); window.scrollTo(0,0); return; }
+    if(currentRoute===""&&next.indexOf("work/")===0) lastIndexScroll=window.scrollY;
+    routeTo(hp,true);
+    try{ if(location.hash!==hp) location.hash=hp; }catch(e){}
+  }
+  /* route on click rather than waiting on hashchange, so navigation still works
+     inside sandboxed preview panes that block hash updates */
+  document.addEventListener("click",function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a[href^="#"]:not([href^="#/"])'):null;
+    if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    var target=document.getElementById(a.getAttribute("href").slice(1)); if(!target) return;
+    e.preventDefault(); target.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"start"});
+    if(a.classList.contains("skip-link")){ target.setAttribute("tabindex","-1"); target.focus({preventScroll:true}); }
+  });
+  document.addEventListener("click", function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="#/"]') : null;
+    if(!a || e.defaultPrevented || e.button!==0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    navigate(a.getAttribute("href"));
+  });
+  window.addEventListener("hashchange", function(){
+    if(!location.hash||location.hash.indexOf("#/")===0) routeTo(location.hash,true);
+  });
+  routeTo(location.hash.indexOf("#/")===0?location.hash:"#/",false);
+})();
+</script>
+</body>
+</html>
