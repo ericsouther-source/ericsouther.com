@@ -81,13 +81,14 @@
   .arrival-media.video-ready .arrival-video{opacity:1}
   .arrival-media.video-ready .arrival-poster{opacity:0}
   /* the film is the work; nothing tints it. the type carries its own shadow. */
-  .arrival-copy,.arrival-meta,.arrival-scroll,.arrival-sound,
+  .arrival-copy,.arrival-meta,.arrival-sound,
   body.at-hero .brand,body.at-hero nav.main a,body.at-hero .nav-toggle{
     text-shadow:0 1px 2px rgba(0,0,0,.72),0 4px 22px rgba(0,0,0,.45)}
   .arrival-copy{position:relative;z-index:3;grid-row:1;align-self:end;width:100%;max-width:1560px;margin:0 auto;
     padding:calc(57px + clamp(40px,11vh,130px)) clamp(20px,4vw,56px) clamp(26px,5vh,62px)}
   .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 clamp(16px,2.6vh,30px);
-    font-family:var(--mono);font-size:13.5px;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.95)}
+    font-family:var(--mono);font-size:13.5px;letter-spacing:.17em;text-transform:uppercase;color:#fff;
+    text-shadow:0 1px 2px rgba(0,0,0,.92),0 0 9px rgba(0,0,0,.85),0 0 20px rgba(0,0,0,.55)}
   .arrival-kicker::before{content:"";width:38px;height:1px;background:var(--accent-lit);flex:none}
   .arrival h1{font-size:clamp(38px,5.4vw,92px);line-height:.96;letter-spacing:-.042em;font-weight:600;
     margin:0 0 clamp(18px,2.8vh,34px);max-width:none}
@@ -102,25 +103,25 @@
   .arrival h1 .rv:nth-of-type(2)>span{animation-delay:.68s}
   .arrival-deck .rv>span{animation-delay:.95s}
   @keyframes fadeUp{to{transform:none;opacity:1}}
-  .arrival-meta,.arrival-scroll{opacity:0;transform:translateY(14px);animation:fadeUp 1s ease 1.25s forwards}
+  .arrival-meta{opacity:0;transform:translateY(14px);animation:fadeUp 1s ease 1.25s forwards}
   /* leaving the hero re-arms the sequence; returning plays it again */
   .arrival.rise-off .rv>span{animation:none;transform:translateY(115%);opacity:0}
-  .arrival.rise-off .arrival-meta,.arrival.rise-off .arrival-scroll{animation:none;opacity:0;transform:translateY(14px)}
-  .arrival-meta{position:relative;z-index:3;grid-row:2;display:grid;grid-template-columns:auto 1fr auto;
-    gap:clamp(14px,3vw,44px);align-items:end;width:100%;max-width:1560px;margin:0 auto;
+  .arrival.rise-off .arrival-meta{animation:none;opacity:0;transform:translateY(14px)}
+  .arrival-meta{position:relative;z-index:3;grid-row:2;display:flex;align-items:end;
+    gap:clamp(14px,3vw,44px);width:100%;max-width:1560px;margin:0 auto;
     padding:18px clamp(20px,4vw,56px) clamp(20px,3.4vh,34px);font-family:var(--mono);font-size:10.5px;
     letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.66);
     border-top:1px solid rgba(255,255,255,.19);transition:border-color .25s}
+  .arrival-meta-project{flex:1;min-width:0;display:grid;grid-template-columns:auto 1fr auto;
+    gap:clamp(14px,3vw,44px);align-items:end;color:inherit}
+  .arrival-meta-archive{white-space:nowrap;color:#fff;padding-left:clamp(14px,3vw,44px);
+    border-left:1px solid rgba(255,255,255,.19);transition:color .2s}
+  .arrival-meta-archive:hover{color:var(--accent-lit)}
   .arrival-meta strong{font-family:var(--disp);font-size:clamp(15px,1.55vw,21px);line-height:1.16;
     letter-spacing:-.018em;text-transform:none;color:#fff;font-weight:500;transition:color .2s}
   .arrival-meta .arrival-enter{color:#fff;text-align:right;white-space:nowrap;transition:color .2s}
   .arrival-meta:hover{border-color:rgba(255,255,255,.42)}
-  .arrival-meta:hover strong,.arrival-meta:hover .arrival-enter{color:var(--accent-lit)}
-  .arrival-scroll{position:absolute;right:clamp(20px,4vw,56px);z-index:3;display:flex;flex-direction:column;
-    align-items:center;gap:10px;bottom:calc(clamp(20px,3.4vh,34px) + 82px);font-family:var(--mono);font-size:11px;
-    letter-spacing:.2em;color:rgba(255,255,255,.88);writing-mode:vertical-rl;transition:color .2s}
-  .arrival-scroll i{display:block;width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.85),transparent)}
-  .arrival-scroll:hover{color:#fff}
+  .arrival-meta-project:hover strong,.arrival-meta-project:hover .arrival-enter{color:var(--accent-lit)}
   .arrival-sound{position:absolute;left:clamp(20px,4vw,56px);top:calc(57px + 22px);z-index:5;
     font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.9);
     background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.32);padding:10px 14px;
@@ -441,7 +442,6 @@
   @media (max-width:900px){
     .arrival{min-height:100svh}
     .arrival h1{max-width:13ch}
-    .arrival-scroll{display:none}
     .about-grid{grid-template-columns:1fr;gap:36px}
     .portrait-sm{max-width:340px}
     .grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px 22px}
@@ -464,9 +464,10 @@
     nav.main{padding-left:20px;padding-right:20px}
     .arrival h1{font-size:clamp(40px,12.2vw,68px);max-width:none}
     .arrival-deck{display:none}
-    .arrival-meta{grid-template-columns:1fr auto;gap:10px 16px}
-    .arrival-meta>span:first-child{display:none}
-    .arrival-meta .arrival-enter{grid-column:2;grid-row:1}
+    .arrival-meta{flex-wrap:wrap;gap:12px 16px}
+    .arrival-meta-project{flex:1 1 100%;grid-template-columns:1fr auto;gap:8px 14px}
+    .arrival-meta-project>span:first-child{display:none}
+    .arrival-meta-archive{margin-left:auto;padding-left:0;border-left:0}
     .wrap,.page{padding-left:20px;padding-right:20px}
     .grid{grid-template-columns:1fr;gap:30px}
     .suite{grid-template-columns:1fr}
@@ -475,7 +476,7 @@
     *{scroll-behavior:auto}
     .arrival-video,.arrival-sound,.arrival-progress{display:none}
     .rv>span{transform:none;opacity:1;animation:none}
-    .arrival-meta,.arrival-scroll{opacity:1;transform:none;animation:none}
+    .arrival-meta{opacity:1;transform:none;animation:none}
     .tile:hover .tile-media img{transform:none}
   }
 </style>
@@ -505,19 +506,21 @@
         <img class="arrival-poster" src="img/sev-state-of-the-nation.jpg" alt="A thousand videos per state, remapped onto the geographic form of each" fetchpriority="high">
         <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
       </div>
-      <button class="arrival-sound" id="arrivalSound" type="button" aria-pressed="false">SOUND ON</button>
+      <button class="arrival-sound" id="arrivalSound" type="button" aria-pressed="false">UNMUTE</button>
       <span class="arrival-progress" aria-hidden="true"></span>
       <div class="arrival-copy">
         <p class="arrival-kicker"><span class="rv"><span>Video Artist, Toolmaker, Curator.</span></span></p>
         <h1><span class="rv"><span>I build instruments</span></span><span class="rv"><span>for seeing across time.</span></span></h1>
         <p class="arrival-deck"><span class="rv"><span>I build emergent systems and software for exploring relations, and turn them into performative instruments for navigating unexpected images and ways of making meaning.</span></span></p>
       </div>
-      <a class="arrival-scroll" href="#archive"><span>THE ARCHIVE</span><i aria-hidden="true"></i></a>
-      <a class="arrival-meta" href="#/work/searchenginevisionstateofthenation">
-        <span>2026<br>SINGLE CHANNEL / 4K UHD / 23 MIN</span>
-        <strong>Search Engine Vision: State of the Nation</strong>
-        <span class="arrival-enter">ENTER PROJECT &rarr;</span>
-      </a>
+      <div class="arrival-meta">
+        <a class="arrival-meta-project" href="#/work/searchenginevisionstateofthenation">
+          <span>2026<br>SINGLE CHANNEL / 4K UHD / 23 MIN</span>
+          <strong>Search Engine Vision: State of the Nation</strong>
+          <span class="arrival-enter">ENTER PROJECT &rarr;</span>
+        </a>
+        <a class="arrival-meta-archive" href="#archive">THE ARCHIVE &darr;</a>
+      </div>
     </div>
 
     <div class="wrap archive" id="archive">
@@ -793,7 +796,7 @@
         var m2=player.setMuted(true); if(m2&&m2.catch) m2.catch(ignore);
       }
       soundBtn.setAttribute("aria-pressed",on?"true":"false");
-      soundBtn.textContent=on?"SOUND OFF":"SOUND ON";
+      soundBtn.textContent=on?"MUTE":"UNMUTE";
       soundBtn.dataset.on=on?"1":"";
     }
     if(soundBtn) soundBtn.addEventListener("click",function(){ setSound(!soundBtn.dataset.on); });
@@ -958,7 +961,7 @@
      title:"Search Engine Vision \"ISIS\"", year:"2016", sort:2016, medium:"Single channel video", tags:["Search Engine Vision"],
      vimeo:"845375893", spec:"Single channel video, 6min 31sec, 1920x1080 HD, 2016", credits:"Urban Institute for Contemporary Arts, ArtPrize 8, Time-Based Category, juror Yesomi Umolu, writer and Exhibitions Curator at the Reva and David Logan Center for the Arts at the University of Chicago, 2016, Grand Rapids, MI. Wallpaper installation 10 x 180 ft, printed at the Detroit Wallpaper Co. Funded by the Foundation for the Arts Emergency Grants, the ArtPrize Artist Seed Grant, and the Frey Foundation.",
      statement:["Search Engine Vision “ISIS” explores the semiotic shift of language as transient definitions that form organically Online. The first half of the piece starts with one thousand videos of the “Isis Goddess,” as a result of a YouTube search. The search all ready contains the terrorist organization ISIS, however when the search is pure “ISIS” a new group of one thousand videos emerges that starts to deconstruct the Goddess ISIS semiotically and in form."]},
-    {slug:"ritualoftherhizome", ak:"rhizome", thumb:"img/ritualoftherhizome.jpg",
+    {slug:"ritualoftherhizome", ak:"rhizome", thumb:"https://i.vimeocdn.com/video/577747272-8c49cc2e9203a57fae2d660e76252d6a0f65ae5c808805a0ffc8a3124a77386c-d_1280?region=us",
      title:"Ritual of the Rhizome", year:"2016", sort:2016, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
      vimeo:"172095205", spec:"Single channel video, 12min 12sec, 1920x1080 HD, 2016", credits:"Captured during a Signal Culture residency in 2016 with a one of a kind color wobbulator created by Jason Bernagozzi.",
      statement:["The tree serves as a plethora of metaphors that underpin philosophical thought and knowledge, a symbol of logical progression that branches out but always retains a logical start and end. The ritual traces this idea throughout many philosophical texts while presenting the foundational trunk of a tree, weighted in the center of each shot. The sermon of structure is lost in a repetitious ritual, which deconstructs linear logic and the representational image for the rhizomatic.","The script was created by searching the keywords tree, root, trunk, and branch from the following texts: Heidegger on Being and Acting: From Principles to Anarchy, Reiner Schürmann. A Thousand Plateaus, Félix Guattari and Gilles Deleuze. Beyond the limits of thought, Graham Priest. Kant's Theory of Knowledge: An Analytical Introduction, Georges Dicker. The Laws of Thought, George Boole. The Archaeology of Knowledge, Michel Foucault. The structure of appearance, Nelson Goodman. Man against Mass Society, Gabriel Marcel. Introduction to Metaphysics, Martin Heidegger. Logic as a Human Instrument, Francis H. Parker and Henry B. Veatch. Question of Being, Martin Heidegger. Poetry Language Thought, Martin Heidegger. Heidegger's Technologies: Postphenomenological Perspectives, Don Ihde."]},
@@ -1923,6 +1926,18 @@
   window.addEventListener("hashchange", function(){
     if(!location.hash||location.hash.indexOf("#/")===0) routeTo(location.hash,true);
   });
+  /* WORK is the archive: land on it rather than the top of the film */
+  if(navLinks.work){
+    navLinks.work.addEventListener("click",function(e){
+      if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+      e.preventDefault();
+      var scroll=function(){ var a=document.getElementById("archive");
+        if(a) a.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"start"}); };
+      var onHome=!location.hash||location.hash==="#"||location.hash==="#/";
+      if(onHome){ closeNav(); scroll(); }
+      else { navigate("#/"); setTimeout(scroll,60); }
+    });
+  }
   routeTo(location.hash.indexOf("#/")===0?location.hash:"#/",false);
 })();
 </script>

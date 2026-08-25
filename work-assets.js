@@ -2,6 +2,11 @@
 // Generated data only. Assets are listed in true top-to-bottom page order.
 
 window.WORK_ASSETS = {
+  "technobuddha": {
+    assets: [
+      { t:"video", id:"4979547", cap:"" }
+    ]
+  },
   "searchenginevisionstateofthenation": {
     assets: [
       { t:"image", src:"img/sev-state-of-the-nation.jpg", w:2400, h:1350, cap:"One thousand videos per state, remapped onto the geographic form of each." }
