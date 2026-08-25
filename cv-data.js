@@ -370,8 +370,8 @@ window.CV = {
       entries: [
         { y: "2026", t: "Grant Recipient, Project Titled: Search Engine Vision State of the Nation", d: "PI Eric Souther, ArtPrize Artist Seed Grant, awarded $2,000, Grand Rapids, MI." },
         { y: "2026", t: "Grant Recipient, \"Resonant Gallery\", WMU Grand Rapids", d: "PI Eric Souther, ArtPrize Venue Exhibition Grant, awarded $1,500, April 23, 2026, Grand Rapids, MI." },
-        { y: "2026", t: "Grant Recipient, \"Murmurations of Deep Time\", Support for Faculty Scholars Award SFSA, Western Michigan University", d: "Awarded $2,000, March 1, 2026, Kalamazoo, MI." },
-        { y: "2026", t: "Grant Recipient, \"Murmurations of Deep Time\", Kalamazoo Artistic Development Initiative (KADI), Arts Council of Greater Kalamazoo", d: "Awarded $1,862, January 5, 2026, Kalamazoo, MI." },
+        { y: "2026", t: "Grant Recipient, \"Murmurations of Deep Time\", Support for Faculty Scholars Award SFSA, Western Michigan University", d: "PI Eric Souther, awarded $2,000, March 1, 2026, Kalamazoo, MI." },
+        { y: "2026", t: "Grant Recipient, \"Murmurations of Deep Time\", Kalamazoo Artistic Development Initiative (KADI), Arts Council of Greater Kalamazoo", d: "PI Eric Souther, awarded $1,862, January 5, 2026, Kalamazoo, MI." },
         { y: "2025", t: "Winner Best Visual Design, WILDsound FEEDBACK Film and Screenplay Festival, 18th Annual", d: "Imagine Cinemas Carlton Cinema, Collaboration with Kelsey Paschich, October 28, 2025, Toronto, Canada." },
         { y: "2025", t: "Best Experimental Abstraction, Semi-Finalist, No Time of Deep Time, Experimental Brazil", d: "2025, Festival Director Fabricio Estevam Mira, Rio De Janeiro, Brazil." },
         { y: "2025", t: "Grant Recipient, \"Resonant Gallery\", WMU Grand Rapids", d: "PI Eric Souther, Co-PI Jacklyn Brickman, ArtPrize Venue Exhibition Grant, awarded $1,500, June 5, 2025, Grand Rapids, MI." },
