@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eric Souther — Video Artist &amp; Toolmaker</title>
-<meta name="description" content="Eric Souther builds moving-image works, performances, installations, and artist-built tools that trace signals through ritual, bodies, artificial intelligence, and deep time.">
+<meta name="description" content="Eric Souther builds emergent systems and software for exploring relations — performative instruments for navigating unexpected images and ways of making meaning.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Eric Souther — Video Artist &amp; Toolmaker">
-<meta property="og:description" content="Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological time.">
+<meta property="og:description" content="Emergent systems and software for exploring relations, turned into performative instruments for navigating unexpected images and ways of making meaning.">
 <meta property="og:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Eric Souther — Video Artist &amp; Toolmaker">
-<meta name="twitter:description" content="Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological time.">
+<meta name="twitter:description" content="Emergent systems and software for exploring relations, turned into performative instruments for navigating unexpected images and ways of making meaning.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,40 +68,44 @@
      behind its own edge.
      ============================================================ */
   .arrival{position:relative;min-height:100svh;margin-top:-57px;display:grid;grid-template-rows:1fr auto;
-    isolation:isolate;background:#050505;overflow:hidden;color:#fff}
-  .arrival-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#050505}
-  .arrival-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    isolation:isolate;background:#000;overflow:hidden;color:#fff}
+  .arrival-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#000}
+  .arrival-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;
     transition:opacity .9s ease}
-  /* an iframe cannot object-fit, so the player is oversized to cover instead */
+  /* an iframe cannot object-fit, so it is sized to contain: the full frame,
+     seamless black around it — the film's own ground and the page's are the same */
   .arrival-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:max(100vw, calc(100svh * 16 / 9));height:max(100svh, calc(100vw * 9 / 16));
+    width:min(100vw, calc(100svh * 16 / 9));height:min(100svh, calc(100vw * 9 / 16));
     opacity:0;transition:opacity 1.1s ease;pointer-events:none;z-index:1}
   .arrival-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
   .arrival-media.video-ready .arrival-video{opacity:1}
   .arrival-media.video-ready .arrival-poster{opacity:0}
   /* the film is the work; nothing tints it. the type carries its own shadow. */
-  .arrival-copy,.arrival-meta,.arrival-scroll,.arrival-loop-label,
+  .arrival-copy,.arrival-meta,.arrival-scroll,.arrival-sound,
   body.at-hero .brand,body.at-hero nav.main a,body.at-hero .nav-toggle{
     text-shadow:0 1px 2px rgba(0,0,0,.72),0 4px 22px rgba(0,0,0,.45)}
   .arrival-copy{position:relative;z-index:3;grid-row:1;align-self:end;width:100%;max-width:1560px;margin:0 auto;
     padding:calc(57px + clamp(40px,11vh,130px)) clamp(20px,4vw,56px) clamp(26px,5vh,62px)}
   .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 clamp(16px,2.6vh,30px);
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+    font-family:var(--mono);font-size:13.5px;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.95)}
   .arrival-kicker::before{content:"";width:38px;height:1px;background:var(--accent-lit);flex:none}
-  .arrival h1{font-size:clamp(40px,6.4vw,106px);line-height:.95;letter-spacing:-.045em;font-weight:600;
+  .arrival h1{font-size:clamp(38px,5.4vw,92px);line-height:.96;letter-spacing:-.042em;font-weight:600;
     margin:0 0 clamp(18px,2.8vh,34px);max-width:none}
-  .arrival-deck{font-size:clamp(15px,1.35vw,19px);line-height:1.5;max-width:46ch;margin:0;color:rgba(255,255,255,.8)}
+  .arrival-deck{font-size:clamp(15px,1.4vw,19px);line-height:1.55;max-width:52ch;margin:0;color:rgba(255,255,255,.88)}
   /* every line rises from behind its own edge */
   .rv{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
   @keyframes rise{to{transform:translateY(0);opacity:1}}
   .rv>span{display:block;transform:translateY(115%);opacity:0;
-    animation:rise 1.05s cubic-bezier(.16,.84,.32,1) forwards}
-  .arrival-kicker .rv>span{animation-delay:.12s}
-  .arrival h1 .rv:nth-of-type(1)>span{animation-delay:.22s}
-  .arrival h1 .rv:nth-of-type(2)>span{animation-delay:.34s}
-  .arrival-deck .rv>span{animation-delay:.54s}
+    animation:rise 1.4s cubic-bezier(.16,.84,.32,1) forwards}
+  .arrival-kicker .rv>span{animation-delay:.3s}
+  .arrival h1 .rv:nth-of-type(1)>span{animation-delay:.5s}
+  .arrival h1 .rv:nth-of-type(2)>span{animation-delay:.68s}
+  .arrival-deck .rv>span{animation-delay:.95s}
   @keyframes fadeUp{to{transform:none;opacity:1}}
-  .arrival-meta,.arrival-scroll{opacity:0;transform:translateY(14px);animation:fadeUp .9s ease .72s forwards}
+  .arrival-meta,.arrival-scroll{opacity:0;transform:translateY(14px);animation:fadeUp 1s ease 1.25s forwards}
+  /* leaving the hero re-arms the sequence; returning plays it again */
+  .arrival.rise-off .rv>span{animation:none;transform:translateY(115%);opacity:0}
+  .arrival.rise-off .arrival-meta,.arrival.rise-off .arrival-scroll{animation:none;opacity:0;transform:translateY(14px)}
   .arrival-meta{position:relative;z-index:3;grid-row:2;display:grid;grid-template-columns:auto 1fr auto;
     gap:clamp(14px,3vw,44px);align-items:end;width:100%;max-width:1560px;margin:0 auto;
     padding:18px clamp(20px,4vw,56px) clamp(20px,3.4vh,34px);font-family:var(--mono);font-size:10.5px;
@@ -113,14 +117,17 @@
   .arrival-meta:hover{border-color:rgba(255,255,255,.42)}
   .arrival-meta:hover strong,.arrival-meta:hover .arrival-enter{color:var(--accent-lit)}
   .arrival-scroll{position:absolute;right:clamp(20px,4vw,56px);z-index:3;display:flex;flex-direction:column;
-    align-items:center;gap:10px;bottom:calc(clamp(20px,3.4vh,34px) + 82px);font-family:var(--mono);font-size:9.5px;
-    letter-spacing:.2em;color:rgba(255,255,255,.58);writing-mode:vertical-rl;transition:color .2s}
-  .arrival-scroll i{display:block;width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent)}
+    align-items:center;gap:10px;bottom:calc(clamp(20px,3.4vh,34px) + 82px);font-family:var(--mono);font-size:11px;
+    letter-spacing:.2em;color:rgba(255,255,255,.88);writing-mode:vertical-rl;transition:color .2s}
+  .arrival-scroll i{display:block;width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.85),transparent)}
   .arrival-scroll:hover{color:#fff}
-  .arrival-loop-label{position:absolute;left:clamp(20px,4vw,56px);top:calc(57px + 26px);z-index:3;
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:rgba(255,255,255,.58);
-    opacity:0;transition:opacity .5s ease .3s}
-  .arrival:has(.video-ready) .arrival-loop-label{opacity:1}
+  .arrival-sound{position:absolute;left:clamp(20px,4vw,56px);top:calc(57px + 22px);z-index:5;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.9);
+    background:rgba(0,0,0,.32);border:1px solid rgba(255,255,255,.32);padding:10px 14px;
+    cursor:pointer;opacity:0;pointer-events:none;transition:opacity .5s ease .3s,border-color .2s,color .2s}
+  .arrival-sound:hover{color:#fff;border-color:rgba(255,255,255,.7)}
+  .arrival:has(.video-ready) .arrival-sound{opacity:1;pointer-events:auto}
+  .arrival:has(.free-run) .arrival-progress{display:none}
   .arrival-progress{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent-lit);
     z-index:4;transform:scaleX(0);transform-origin:0 50%;opacity:.85}
   .arrival:has(.video-playing) .arrival-progress{animation:arrival-minute 60s linear infinite}
@@ -466,7 +473,7 @@
   }
   @media (prefers-reduced-motion:reduce){
     *{scroll-behavior:auto}
-    .arrival-video,.arrival-loop-label,.arrival-progress{display:none}
+    .arrival-video,.arrival-sound,.arrival-progress{display:none}
     .rv>span{transform:none;opacity:1;animation:none}
     .arrival-meta,.arrival-scroll{opacity:1;transform:none;animation:none}
     .tile:hover .tile-media img{transform:none}
@@ -498,12 +505,12 @@
         <img class="arrival-poster" src="img/sev-state-of-the-nation.jpg" alt="A thousand videos per state, remapped onto the geographic form of each" fetchpriority="high">
         <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
       </div>
-      <span class="arrival-loop-label" aria-hidden="true">MUTED / 01:00 LOOP</span>
+      <button class="arrival-sound" id="arrivalSound" type="button" aria-pressed="false">SOUND ON</button>
       <span class="arrival-progress" aria-hidden="true"></span>
       <div class="arrival-copy">
         <p class="arrival-kicker"><span class="rv"><span>Video Artist, Toolmaker, Curator.</span></span></p>
         <h1><span class="rv"><span>I build instruments</span></span><span class="rv"><span>for seeing across time.</span></span></h1>
-        <p class="arrival-deck"><span class="rv"><span>Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological deep time.</span></span></p>
+        <p class="arrival-deck"><span class="rv"><span>I build emergent systems and software for exploring relations, and turn them into performative instruments for navigating unexpected images and ways of making meaning.</span></span></p>
       </div>
       <a class="arrival-scroll" href="#archive"><span>THE ARCHIVE</span><i aria-hidden="true"></i></a>
       <a class="arrival-meta" href="#/work/searchenginevisionstateofthenation">
@@ -687,16 +694,24 @@
   var reduceMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function initArrivalVideo(){
     var media=document.querySelector(".arrival-media"), host=document.getElementById("arrivalVideo");
-    /* the bar rides over the film, then takes its plate back */
+    /* the bar rides over the film, then takes its plate back;
+       leaving the hero re-arms the title sequence, returning replays it */
     (function(){
       var hero=document.querySelector(".arrival");
       if(!hero) return;
       var body=document.body;
+      var rm=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):null;
       if(!("IntersectionObserver" in window)) return;
+      var onHero=null;
       new IntersectionObserver(function(en){
         var e=en[0];
-        if(e.isIntersecting && e.intersectionRect.top<=58) body.classList.add("at-hero");
-        else body.classList.remove("at-hero");
+        var now=!!(e.isIntersecting && e.intersectionRect.top<=58);
+        if(now===onHero) return;
+        onHero=now;
+        body.classList.toggle("at-hero",now);
+        if(rm&&rm.matches) return;
+        if(now) hero.classList.remove("rise-off");
+        else hero.classList.add("rise-off");
       },{threshold:[0,.01,.5,1],rootMargin:"-57px 0px 0px 0px"}).observe(hero);
     }());
     var motionQuery=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -725,7 +740,7 @@
     frame.setAttribute("aria-hidden","true");
     host.appendChild(frame);
 
-    var player=null, resetting=false;
+    var player=null, resetting=false, letRun=false;
     function ignore(){}
     function play(){ if(motionQuery&&motionQuery.matches) return; if(player){ var p=player.play(); if(p&&p.catch) p.catch(ignore); } }
     function pause(){ if(player){ var p=player.pause(); if(p&&p.catch) p.catch(ignore); } }
@@ -746,7 +761,7 @@
       player.on("play",function(){ media.classList.add("video-ready","video-playing"); });
       player.on("pause",function(){ media.classList.remove("video-playing"); });
       player.on("timeupdate",function(data){
-        if(data.seconds<60||resetting) return;
+        if(letRun||data.seconds<60||resetting) return;
         resetting=true;
         player.setCurrentTime(0).then(function(){ resetting=false; play(); }).catch(function(){ resetting=false; });
       });
@@ -765,6 +780,23 @@
       var sdk=document.createElement("script"); sdk.src="https://player.vimeo.com/api/player.js"; sdk.async=true;
       sdk.addEventListener("load",connectPlayer); document.head.appendChild(sdk);
     }
+    /* browsers refuse audio before a gesture; one click brings it in at half volume,
+       and a sounding film is left to run — no more one-minute loop */
+    var soundBtn=document.getElementById("arrivalSound");
+    function setSound(on){
+      if(!player||!soundBtn) return;
+      if(on){
+        letRun=true; media.classList.add("free-run");
+        var m=player.setMuted(false); if(m&&m.catch) m.catch(ignore);
+        var v=player.setVolume(.5); if(v&&v.catch) v.catch(ignore);
+      } else {
+        var m2=player.setMuted(true); if(m2&&m2.catch) m2.catch(ignore);
+      }
+      soundBtn.setAttribute("aria-pressed",on?"true":"false");
+      soundBtn.textContent=on?"SOUND OFF":"SOUND ON";
+      soundBtn.dataset.on=on?"1":"";
+    }
+    if(soundBtn) soundBtn.addEventListener("click",function(){ setSound(!soundBtn.dataset.on); });
     function arrivalMotionChanged(e){
       if(e.matches){ pause(); media.classList.remove("video-ready","video-playing"); }
       else if(arrivalIsVisible()) restart();
