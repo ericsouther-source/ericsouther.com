@@ -79,9 +79,10 @@
   .arrival-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
   .arrival-media.video-ready .arrival-video{opacity:1}
   .arrival-media.video-ready .arrival-poster{opacity:0}
-  .arrival-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:
-    linear-gradient(90deg,rgba(5,5,7,.78) 0%,rgba(5,5,7,.52) 38%,rgba(5,5,7,.12) 72%,rgba(5,5,7,.05) 100%),
-    linear-gradient(180deg,rgba(5,5,7,.62) 0%,rgba(5,5,7,.16) 28%,rgba(5,5,7,.30) 58%,rgba(5,5,7,.88) 100%)}
+  /* the film is the work; nothing tints it. the type carries its own shadow. */
+  .arrival-copy,.arrival-meta,.arrival-scroll,.arrival-loop-label,
+  body.at-hero .brand,body.at-hero nav.main a,body.at-hero .nav-toggle{
+    text-shadow:0 1px 2px rgba(0,0,0,.72),0 4px 22px rgba(0,0,0,.45)}
   .arrival-copy{position:relative;z-index:3;grid-row:1;align-self:end;width:100%;max-width:1560px;margin:0 auto;
     padding:calc(57px + clamp(40px,11vh,130px)) clamp(20px,4vw,56px) clamp(26px,5vh,62px)}
   .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 clamp(16px,2.6vh,30px);
@@ -496,7 +497,6 @@
       <div class="arrival-media">
         <img class="arrival-poster" src="img/sev-state-of-the-nation.jpg" alt="A thousand videos per state, remapped onto the geographic form of each" fetchpriority="high">
         <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
-        <div class="arrival-scrim" aria-hidden="true"></div>
       </div>
       <span class="arrival-loop-label" aria-hidden="true">MUTED / 01:00 LOOP</span>
       <span class="arrival-progress" aria-hidden="true"></span>
