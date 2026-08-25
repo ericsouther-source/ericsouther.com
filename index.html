@@ -169,9 +169,10 @@
   .asset{min-width:0;position:relative;z-index:1;margin:0;grid-column:span var(--span,3);order:var(--ord,2)}
   @media (max-width:820px){
     .assets{grid-template-columns:repeat(2,1fr)}
-    .o-land,.o-sq,.a-text{grid-column:span 2}
-    .o-port,.o-unk{grid-column:span 1}
+    .o-land,.a-text{grid-column:span 2}
+    .o-sq,.o-port,.o-unk{grid-column:span 1}
   }
+  @media (max-width:520px){ .assets .asset{grid-column:span 2} }
   .asset.is-still{z-index:2}
   .asset.is-gif{z-index:5}
   .asset img{max-width:100%}
@@ -791,12 +792,12 @@
      statement:["Deep Time of Latent Space relates the strata of human activity within large language models as another layer of the Anthropocene, which places AI into the realm of geological thinking that spirals into deep time and broadcasts into the future.","The AI narrator takes us through the most incomprehensible moments of our history starting with the big bang, creation of earth, and the start of life. It uses its generalized knowledge to resolve our grasp of these moments into data-visualized images. It does so with confidence and a little bit of attitude, however, it tends to hallucinate. These hallucinations shine a light on what is needed to create a more ethical and accurate AI.","Lake George was chosen as a site of deep time and for its art historical significance. At the birth of geology in the nineteenth century the emerging science was in vogue. Many painters from the Hudson River School, including John Frederick Kensett and Thomas Cole, painted portraits of rocks at the lake's shores. This point in time marks a transformative shift away from the biblical 6,000 year age of the earth to the conception of deep time that spans billions of years."]},
     {slug:"bodyoddyoddyoddy", wix:"4d098a_944f5e3f20bb40e4a756d563054163b7~mv2.gif",
      lay:{ groups:[
-       {label:"THE INSTALLATION", idx:[1,0,4,6,7]},
-       {label:"SINGLE CHANNEL", noteIdx:9, sub:"The video below is a preview.", idx:[8]}
+       {label:"THE INSTALLATION", noteIdx:7, idx:[1,0,4,6]},
+       {label:"PROCESS", idx:[11]}
      ]},
      subtitle:"Destabilizing the Surveilling of Queer Bodies",
      title:"Body-Oddy-Oddy-Oddy", year:"2023-2024", sort:2023.5, medium:"8-channel installation", tags:["Performance"],
-     vimeo:"1158863622", spec:"Synchronized 8-channel installation with experimental animation, sound, and objects, 7min 9sec, 3840x2160 UHD 4k, 2023",
+     vimeo:"910144792", spec:"Single channel, 9min 21sec, and synchronized 8-channel installation, 7min 9sec. Experimental animation, sound, and objects, 3840x2160 UHD 4k, 2023-2024",
      credits:"with Benjamin Rosenthal",
      statement:["Body-oddy-oddy-oddy: Destabilizing the Surveilling of Queer Bodies explores the nature of how we understand the body, the ways in which we queer the body, and the performative nature of how we explore our identities in media space. The work challenges the supremacy of normative human body-to-body contact by exploring the role that a hybrid human-object-virtual encounter might pose for alternative forms of intimacy and contact.","In the making of the work, the use of self-surveillance as a strategy of making and being is critical to our understanding of contemporary bodily experiences. The opportunity for a feedback loop where the surveyor surveils themselves surveilling speaks to the ever-shifting nature of how we constantly reconfigure our experiences and bodies."]},
     {slug:"ultranervoussystem", wix:"4d098a_90c4cafc62f94e76a8fc79fe48025358~mv2.gif",
@@ -809,14 +810,16 @@
      statement:["Frequencies of Deep Time explores changes of geological time in Western New York, change that form strata in the rock formations of gorges like Watkins Glen State Park."]},
     {slug:"searchingformeaning", wix:"4d098a_e097351ca671493ca61cde7ba20e7ff4~mv2.gif",
      title:"Searching For Meaning Series", year:"2021-2022", sort:2021.5, medium:"Search Engine Vision", tags:["Search Engine Vision"],
-     vimeo:null, spec:"Search Engine Vision, 2021-2022", credits:"", statement:[]},
+     vimeo:null, spec:"Search Engine Vision, 2021-2022", credits:"First NFTs on the Tezos network. Viewable on objkt.",
+     statement:["Users of online communities create visual languages, and as a collective, I am interested in how they define definitions and meaning that exist within the moment.","Looking for the meaning across the TikTok network. This series was my first NFTs on the clean NFT network Tezos."]},
     {slug:"thegleaners", wix:"4d098a_ba960e1180c34fd592dc1c54a529a705~mv2.gif",
      title:"the gleaners, and: ritual for signaled bodies", year:"2020", sort:2020, medium:"Single channel video", tags:["Ritual"],
      vimeo:"882998240", spec:"Single channel video, 8min 32sec, 4096x2160, 2020", credits:"with Benjamin Rosenthal",
      statement:["the gleaners, and: ritual for signaled bodies performs at the edges between body and the external, oscillating and eroding those boundaries."]},
     {slug:"spacetimeform", wix:"4d098a_4ca0b46338dc4cd485a79b046075561a~mv2.jpg",
      title:"SPACE TIME FORM", year:"2020", sort:2020, medium:"Single channel video", tags:["Signal Processing"],
-     vimeo:"859150750", spec:"Single channel video, 11min 27sec, 3840x2160, 2020", credits:"", statement:[]},
+     vimeo:"859150750", spec:"Single channel video, 11min 29sec, 3840x2160 UHD 4k, 2020", credits:"",
+     statement:["Space & time is a material that ebbs & flows, it is not fixed, but in flux, and in doing so, it resists representational images. We are all enmeshed within this material as if folds and enfolds our past into the present, a process that entangles space-time matter with meaning."]},
     {slug:"exponentialgrowth", wix:"4d098a_7adbb230541d4062a29e215ea13fec4e~mv2.gif",
      title:"Exponential Growth", year:"2020", sort:2020, medium:"Single channel video", tags:["Signal Processing"],
      vimeo:"412035980", spec:"Single channel video, 13min 6sec, 1920x1080, 2020", credits:"with Andrew Deutsch",
@@ -845,20 +848,26 @@
      statement:["Many ritualistic practices include sensory overload, for example, drumming, dancing, or pain."]},
     {slug:"entangledecologies", thumb:"https://i.vimeocdn.com/video/731580626-e85f644fc10408458969cebb7bd56bca7dea45e5dd97feab1b1cbe2eb15cea20-d_640?region=us",
      title:"Entangled Ecologies", year:"2018", sort:2018, medium:"Single channel video", tags:["Performance"],
-     vimeo:"294591541", spec:"Single channel video, 5min 55sec, 1920x1080, 2018", credits:"", statement:[]},
+     vimeo:"294591541", spec:"Audiovisual performance, 5min 55sec, 1920x1080 HD, 2018",
+     credits:"A collaboration between Eric Souther, Michael Miller, and the Mnemosyne Quartet. First performed at the Kansas City Performing Media Festival, Charlotte Street's La Esquina Gallery, 29 September 2018.",
+     statement:["Composer Michael Miller and video artist Eric Souther, in conjunction with Charlotte Street Foundation, present Emergence of Post-Human Cartographies, an evening of audiovisual works performed by the improvisational electronica quartet Mnemosyne. The event took place during Open Spaces, Kansas City's biannual outdoor and indoor contemporary art exhibition."]},
     {slug:"agenciesofobservation", hidden:true, thumb:"https://i.vimeocdn.com/video/696389655-c1480724a7da5f0f2da4546dd0a86e85cd87c418c2a86eee5e865f68b5273cef-d_640?region=us",
      title:"Agencies of Observation", year:"2018", sort:2018, medium:"Single channel video", tags:[],
      vimeo:"266193559", spec:"Single channel video, 5min 36sec, 1920x1080, 2018", credits:"",
      statement:["A work drawing on Woody and Steina Vasulka, and on Karen Barad's Meeting the Universe Halfway."]},
     {slug:"ritualandrepetition", thumb:"https://i.vimeocdn.com/video/1697823840-0ea7af0010784190b45301d7460d2f6dc27ba367780b744f663b54b081f4934d-d_640?region=us",
      title:"Ritual and Repetition", year:"2018", sort:2018, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
-     vimeo:"845369807", spec:"Single channel video, 8min 30sec, 1920x1080, 2018", credits:"Shot at Nanputuo Temple, Xiamen.", statement:[]},
+     vimeo:"845369807", spec:"Single channel video, 8min 30sec, 1920x1080, 2018", credits:"Shot at Nanputuo Temple, Xiamen.",
+     statement:["Ritual and Repetition was shot in Xiamen at the Nanputuo Temple. The experimental short film examines the ritualistic space of the temple as a site that engages a range of histories and religions, Buddhism and Confucianism, which day after day interacts with crowds of people coming to pray, practice, sightsee, and explore the space."]},
     {slug:"agentivematter", thumb:"https://i.vimeocdn.com/video/682464780-e458fe544b71320ebf8048fe6647265db4f049016810cb73ad7990a124d5d532-d_640?region=us",
      title:"Agentive Matter", year:"2018", sort:2018, medium:"Single channel video", tags:["Performance"],
-     vimeo:"255125172", spec:"Single channel video, 15min 15sec, 1920x1080, 2018", credits:"", statement:[]},
+     vimeo:"255125172", spec:"Performance, 12-15min, 1920x1080 HD, 2018", credits:"Performed for Online Performance Art, 8 February 2018.",
+     statement:["Agentive Matter is a video and new media performance that explores the tension between material and symbolic communication.","A database of one thousand images of historical artifacts is collected and mapped into a 3D superstructure that houses and forms these objects. During the performance, I grasp and bend this structure with a sensor that tracks my hand. Gestures of grasping or grouping mid-air morphs and bends the structure folding the images into one another creating new relationships, meanings, and matter.","Through the form of aleatoric composition and improvisation, I am interested in literally touching the unseen structures where the language is both developed and dissolved, provoking a criticism concerning duality separating knowledge and being."]},
     {slug:"consultingtheoracles", thumb:"https://i.vimeocdn.com/video/679944964-2089bceef98436fa2d422cb62f623c5af61c209e19a87c41abb3e5df22892066-d_640?region=us",
      title:"Consulting The Oracles: Analog and Digital Cleromancy", year:"2017", sort:2017, medium:"Performance", tags:["Ritual", "Performance"],
-     vimeo:"253135448", spec:"Performance, 9min 52sec, 1920x1080, 2017", credits:"with Leslie Rollins. Engaging the I Ching.", statement:[]},
+     vimeo:"253135448", spec:"Performance, 9min 52sec, 1920x1080, 2017",
+     credits:"With Leslie Rollins. Documentation excerpts of a 20 to 23 minute performance at the Performing Media Festival, 2018. Soundscape contribution by Tim Stoneberg, Autumn Drones.",
+     statement:["Consulting The Oracles is a collaborative performance of Leslie Rollins and Eric Souther that engages myriad agencies of the I Ching through interactions within analog and digital sound and visual systems. During the performance, Leslie manipulates and counts with traditional yarrow stalks to consult the oracle, a meditative process which in time builds one of sixty-four possible hexagrams.","The performance uses an analog video synthesizer to enhance and expand video feedback, created with a video camera and CRT TV, which is partially controlled by an infrared sensing array placed in front of Leslie during the consultation. His analog stream is mapped onto three-dimensional shapes of Chinese ideographs associated with the trigrams and hexagrams. These digitally generated shapes are manipulated in real time via a hand tracking sensor. The hand and digital shape share the same X, Y and Z spatial relationships, combining in organic live animation coaxed from Eric's performance. This animation is composited on top of the consultation via a web camera, allowing for digital and physical entanglements as the process enfolds."]},
     {slug:"slowslowdown", hidden:true, thumb:"https://i.vimeocdn.com/video/673169156-3286c39f8987049dd69b365b21dc1a7806bac9905cd0af26cad96363e185341b-d_640?region=us",
      title:"Slow Slow Down", year:"2017", sort:2017, medium:"Single channel video", tags:[],
      vimeo:"247756323", spec:"Single channel video, 4min 20sec, 1920x1080, 2017", credits:"", statement:[]},
@@ -882,15 +891,16 @@
      statement:["Multiplying Muybridge is a hybrid analog and digital performance that uses an analog synthesizer to generate patterns in real time in Processing. Processing sends those frames to Max/MSP for live chroma-keying, so direct changes to the audio change how you see the layers of video.","Audio is controlled by playing the synthesizer's LFOs, by depth sensors wired to control voltage, and by drift speed from Processing driving the pitch of two oscillators."]},
     {slug:"searchenginevisionchrist", thumb:"https://i.vimeocdn.com/video/1697834236-d24f1b189b31380c664787a8f2c90b55223fa8ac7434354799219741e203d897-d_640?region=us",
      title:"Search Engine Vision \"Christ\"", year:"2014", sort:2014, medium:"Single channel video", tags:["Search Engine Vision"],
-     vimeo:"845376726", spec:"Single channel video, 5min 51sec, 1920x1080, 2014", credits:"", statement:[]},
+     vimeo:"845376726", spec:"Single channel video, 5min 51sec, 1920x1080 HD, 2014", credits:"",
+     statement:["Jesus Christ is surrounded and made up of the mass representations of the \u201cChrist.\u201d The collection of videos dives into the complexities of the Christian faith in the modern era, both critical and celebratory. Christ confronts his online existence that expands and challenges our notions of his meaning within the masses."]},
     {slug:"dissectingmuybridge", thumb:"https://i.vimeocdn.com/video/482671316-ecd9d6a68db3e3e2eaa2db872ff617f579cdbcddc6684ddf920e65425dba2191-d_640?region=us",
      title:"Dissecting Muybridge", year:"2014", sort:2014, medium:"Single channel video", tags:["Performance"],
      vimeo:"101002353", spec:"Single channel video, excerpts, 3min 54sec, 2014", credits:"",
      statement:["Dissecting Muybridge recontextualizes Eadweard Muybridge's late nineteenth century chronophotography, to both critique and analyze the language of film through the immediacy of video."]},
     {slug:"searchenginevisionbuddha", thumb:"https://i.vimeocdn.com/video/1697840359-4d10b3889390a89d2be7994da3c07dbab94d985aee57eecb1301ffed4ceef113-d_640?region=us",
      title:"Search Engine Vision \"Buddha\"", year:"2012", sort:2012, medium:"Single channel video", tags:["Search Engine Vision"],
-     vimeo:"845381334", spec:"Single channel video, 4min 57sec, 1920x1080, 2012", credits:"",
-     statement:["The Buddha is comprised of and confronted by one thousand videos of himself. He gazes knowingly upon his western existence online, and he searches for himself among the masses."]},
+     vimeo:"845381334", spec:"Single channel video, 4min 57sec, 1920x1080 HD, 2012", credits:"",
+     statement:["The Buddha is comprised and confronted with one thousand videos of himself. He gazes knowingly upon his western existence online, and he searches for himself among the masses. A conflict between timeless wisdom and the impermanence of a hollow vessel consumed by modern technology.","The first one thousand videos while searching \u201cBuddha\u201d on YouTube are downloaded and organized in a grid with After Effects. The output is then mapped onto a 3D model of Buddha and a 2 dimensional plane in MAX/MSP and Jitter via OpenGL objects. Programmed camera movements and positions of the objects are recorded in real-time."]},
     {slug:"lifeinthemaelstrom", thumb:"https://i.vimeocdn.com/video/1697833692-b384ad6166859050e8f532cc13f31e967f9501d632195fed2d768f16c5fc0c72-d_640?region=us",
      title:"Life In The Maelstrom", year:"2012", sort:2012, medium:"Single channel video", tags:["Signal Processing"],
      vimeo:"845374208", spec:"Single channel video, 7min 23sec, 1920x1080, 2012", credits:"",
@@ -1434,7 +1444,9 @@
     return 0;
   }
   function orientOf(r){ return r<=0 ? "unk" : (r>=1.2 ? "land" : (r<=0.82 ? "port" : "sq")); }
-  var SPAN={land:6,sq:3,port:2,unk:2}, ORD={land:1,sq:2,port:3,unk:3};
+  /* the hero is the main event at full width. everything in the run is supporting
+     material and sits smaller: landscape two up, square and vertical three up. */
+  var SPAN={land:3,sq:2,port:2,unk:2}, ORD={land:1,sq:2,port:3,unk:3};
   function applyOrient(wrap,k){
     wrap.className=wrap.className.replace(/\bo-(land|sq|port|unk)\b/g,"").trim()+" o-"+k;
     wrap.style.setProperty("--span",SPAN[k]);

@@ -14,7 +14,8 @@ window.WORK_ASSETS = {
       { t:"text", body:"With Gratitude and Support From\nThe ArtPrize Seed Grant\nThe University of Kansas\nWestern Michigan University\nNancy Minns\n& Detroit Wallpaper\nWinner of Digital Juried Category ArtPrize 2023" },
       { t:"video", id:"910144792", cap:"" },
       { t:"text", body:"Body-oddy-oddy-oddy: Destabilizing the Surveilling of Queer Bodies, by Eric Souther & Benjamin Rosenthal\nsingle channel, 2024, 9 min 21 sec, 3840 x 2160 UHD 4k" },
-      { t:"image", src:"https://static.wixstatic.com/media/4d098a_f0d8c975325d4bc4ba989a84d686c9eb~mv2.png", w:600, h:337, cap:"Behind the scenes visualization of motion capture setup." }
+      { t:"image", src:"https://static.wixstatic.com/media/4d098a_f0d8c975325d4bc4ba989a84d686c9eb~mv2.png", w:600, h:337, cap:"Behind the scenes visualization of motion capture setup." },
+      { t:"video", id:"1158863622", cap:"Behind the scenes: building the work." }
     ]
   },
   "theageofthesynthetic": {
