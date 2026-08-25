@@ -2,11 +2,6 @@
 // Generated data only. Assets are listed in true top-to-bottom page order.
 
 window.WORK_ASSETS = {
-  "technobuddha": {
-    assets: [
-      { t:"video", id:"5002615", cap:"The live collaborative performance \u2014 developed by Micheal Miller, Brad Baumgardner, Dhivya Ketharnath, Sriram Pavan Kumar Tankasala, and Eric Souther." }
-    ]
-  },
   "searchenginevisionstateofthenation": {
     assets: [
       { t:"image", src:"img/sev-state-of-the-nation.jpg", w:2400, h:1350, cap:"One thousand videos per state, remapped onto the geographic form of each." }
@@ -72,7 +67,6 @@ window.WORK_ASSETS = {
   },
   "dissectingmuybridge": {
     assets: [
-      { t:"video", id:"883005291", cap:"Part I: The Moving Image. 14min 13sec, 720x480 SD, 2014." },
       { t:"video", id:"883236039", cap:"Part II: Structures of Time. 15min 43sec, 720x480 SD, 2014." },
       { t:"video", id:"883235719", cap:"Part III: Limits of Chronophotography. 14min 50sec, 720x480 SD, 2014." },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_bd8bae324ebc438791a50a684aac5ad3~mv2.jpg", w:1861, h:1440, cap:"Still Image from Dissecting Muybridge Part I: The Moving Image" },
