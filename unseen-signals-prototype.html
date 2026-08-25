@@ -1144,6 +1144,11 @@
      title:"Ritual of the Rhizome", year:"2016", sort:2016, medium:"Single channel video", tags:["Ritual", "Signal Processing"],
      vimeo:"172095205", spec:"Single channel video, 7min 30sec, 1920x1080, 2016", credits:"",
      statement:["The tree serves as a plethora of metaphors that underpin philosophical thought and knowledge, a symbol of logical progression that branches out but always retains a logical start and end."]},
+    {slug:"multiplyingmuybridge", thumb:"https://i.vimeocdn.com/video/1697840243-c10b2634c9d21942e75615f06728a385d88ac846badd9e1afafae05d6ade13e3-d_640?region=us",
+     title:"Multiplying Muybridge", year:"2015", sort:2015, medium:"Audiovisual performance", tags:["Performance", "Signal Processing"],
+     vimeo:"845382736", spec:"Audiovisual performance, 12-15min, 1920x1080, 2015",
+     credits:"First performed at Everson Museum of Art, Syracuse, for the opening of Performing Media: Works by Signal Culture Artists in Residence, curated by Signal Culture. Later performed at Squeaky Wheel Film and Media Art Center, supported by The Andy Warhol Foundation, The ARTS Council of the Southern Finger Lakes, and the New York State Council on the Arts.",
+     statement:["Multiplying Muybridge is a hybrid analog and digital performance that uses an analog synthesizer to generate patterns in real time in Processing. Processing sends those frames to Max/MSP for live chroma-keying, so direct changes to the audio change how you see the layers of video.","Audio is controlled by playing the synthesizer's LFOs, by depth sensors wired to control voltage, and by drift speed from Processing driving the pitch of two oscillators."]},
     {slug:"searchenginevisionchrist", thumb:"https://i.vimeocdn.com/video/1697834236-d24f1b189b31380c664787a8f2c90b55223fa8ac7434354799219741e203d897-d_640?region=us",
      title:"Search Engine Vision \"Christ\"", year:"2014", sort:2014, medium:"Single channel video", tags:["Search Engine Vision"],
      vimeo:"845376726", spec:"Single channel video, 5min 51sec, 1920x1080, 2014", credits:"", statement:[]},
@@ -1167,6 +1172,10 @@
      title:"Search Engine Vision \"Chair\"", year:"2011", sort:2011, medium:"Single channel video", tags:["Search Engine Vision"],
      vimeo:"883004706", spec:"Single channel video, 5min 49sec, 1920x1080, 2011", credits:"",
      statement:["Users of online communities create visual languages, and as a collective, I am interested in how they define objects and their meaning. These transitive definitions of the objects exist within the moment."]},
+    {slug:"impermanence", thumb:"https://i.vimeocdn.com/video/1751675677-e146a77ed672ad93a2fc595490fd48ab4e66123344b7d2a0cf3dec4c02514ab9-d_640?region=us",
+     title:"Impermanence", year:"2011", sort:2011.1, medium:"Single channel video", tags:["Signal Processing"],
+     vimeo:"883247350", spec:"Single channel video, 7min 31sec, 1920x1080 HD, 2011", credits:"Shot in Times Square, New York.",
+     statement:["Impermanence, shot in Times Square, reveals the unseen layers of movement through time."]},
     {slug:"theinterfaceofmore", hidden:true, thumb:"https://i.vimeocdn.com/video/134478988-208e0b70ba0ec2b92809487f934536dc694dfdbdecd1f84671ec94f245cbfa4f-d_640?region=us",
      title:"The Interface of More", year:"2011", sort:2011, medium:"Aesthetic Interface", tags:[],
      vimeo:"19505998", spec:"Aesthetic Interface, 7min 56sec, 1920x1080, 2011", credits:"",
@@ -1811,9 +1820,20 @@
       return;
     }
     var vids=A?A.filter(function(a){return a.t==="video";}):[];
-    var hero=A?A[0]:null;
-    var rest=A?A.slice(1):[];
-    var vimeoId=vids.length?vids[0].id:w.vimeo;
+    /* the video leads the page. eric's own link when the work carries one, otherwise the
+       first video in the asset pack. everything else falls in behind it, deduped. */
+    var heroVid=null, heroFromPack=false;
+    if(w.vimeo){ heroVid={id:w.vimeo}; }
+    else if(vids.length){ heroVid=vids[0]; heroFromPack=true; }
+    var hero=heroVid?null:(A?A[0]:null);
+    var rest=[];
+    if(A) A.forEach(function(a){
+      if(a===hero) return;
+      if(heroFromPack&&a===heroVid) return;
+      if(heroVid&&!heroFromPack&&a.t==="video"&&a.id===w.vimeo) return;
+      rest.push(a);
+    });
+    var vimeoId=heroVid?heroVid.id:(vids.length?vids[0].id:w.vimeo);
 
     var back=document.createElement("a"); back.className="backlink"; back.href="#/"; back.textContent="← BACK TO THE WORK"; projBody.appendChild(back);
     var head=document.createElement("div"); head.className="proj-head";
@@ -1839,36 +1859,20 @@
       var sp=document.createElement("div"); sp.className="spec"; sp.textContent=w.spec; projBody.appendChild(sp);
     }
 
-    /* hero */
+    /* hero: the player itself, not a poster that has to be dismissed first.
+       one click on vimeo's own control starts it, instead of two. */
     var pm=document.createElement("div"); pm.className="pmedia";
-    if(hero && hero.t==="video"){
-      var pimg=document.createElement("img"); pimg.src=bigSrc(w); pimg.alt=w.title+", "+w.year;
-      pimg.addEventListener("error", function(){ pimg.style.display="none"; });
-      pm.appendChild(pimg);
-      var pb=document.createElement("button"); pb.className="playbtn"; pb.type="button"; pb.textContent="▶  PLAY";
-      pb.addEventListener("click", function(){
-        var f=document.createElement("iframe"); f.src=vimeoEmbed(hero,true);
-        f.setAttribute("allow","autoplay; fullscreen; picture-in-picture");
-        f.setAttribute("title", w.title+" on Vimeo");
-        pm.innerHTML=""; pm.appendChild(f);
-      });
-      pm.appendChild(pb);
+    if(heroVid){
+      var hf=document.createElement("iframe");
+      hf.src=vimeoEmbed(heroVid,false);
+      hf.setAttribute("allow","fullscreen; picture-in-picture");
+      hf.setAttribute("allowfullscreen","");
+      hf.setAttribute("title", w.title+" on Vimeo");
+      pm.appendChild(hf);
     } else if(hero && (hero.t==="image"||hero.t==="mp4")){
-      pm.appendChild(assetEl(hero,false,w.title+" — primary artwork"));
+      pm.appendChild(assetEl(hero,false,w.title+" primary artwork"));
       pm.style.aspectRatio="auto";
       pm.firstChild.style.width="100%";
-    } else if(w.vimeo){
-      var pimg2=document.createElement("img"); pimg2.src=bigSrc(w); pimg2.alt=w.title+", "+w.year;
-      pimg2.addEventListener("error", function(){ pimg2.style.display="none"; });
-      pm.appendChild(pimg2);
-      var pb2=document.createElement("button"); pb2.className="playbtn"; pb2.type="button"; pb2.textContent="▶  PLAY";
-      pb2.addEventListener("click", function(){
-        var f=document.createElement("iframe"); f.src="https://player.vimeo.com/video/"+w.vimeo+"?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
-        f.setAttribute("allow","autoplay; fullscreen; picture-in-picture");
-        f.setAttribute("title", w.title+" on Vimeo");
-        pm.innerHTML=""; pm.appendChild(f);
-      });
-      pm.appendChild(pb2);
     } else {
       var pimg3=document.createElement("img"); pimg3.src=bigSrc(w); pimg3.alt=w.title+", "+w.year;
       pimg3.addEventListener("error", function(){ pimg3.style.display="none"; });
