@@ -1,4 +1,6 @@
 .DS_Store
 tmp/
-previous-site-backup/
+Full CV.docx
+previews/source/
+.git/_stale/
 *.zip
