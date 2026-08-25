@@ -27,6 +27,7 @@
     --line-soft:rgba(18,18,20,.08);
     --accent:#0b6b4c;
     --accent-soft:rgba(11,107,76,.09);
+    --accent-lit:#5fd6a6;   /* the accent, legible on film */
     --mono:"Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --disp:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   }
@@ -60,38 +61,74 @@
   .view.on{display:block}
 
   /* ---------- ARRIVAL / THE SIGNAL FIELD ---------- */
-  .arrival{max-width:1320px;min-height:calc(100svh - 56px);margin:0 auto;padding:38px 28px 54px;display:grid;position:relative;isolation:isolate;
-    grid-template-columns:minmax(300px,5fr) minmax(440px,7fr);gap:clamp(38px,6vw,88px);align-items:center}
-  .arrival-copy{padding:30px 0;align-self:center;position:relative;z-index:1}
-  .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 30px;font-family:var(--mono);font-size:10.5px;
-    line-height:1.6;letter-spacing:.17em;color:var(--accent)}
-  .arrival-kicker::before{content:"";width:38px;height:1px;background:var(--accent);flex:none}
-  .arrival h1{font-size:clamp(44px,5.8vw,82px);line-height:.98;letter-spacing:-.045em;font-weight:600;margin:0 0 30px;max-width:9.5ch}
-  .arrival-deck{font-size:clamp(16px,1.5vw,20px);line-height:1.55;max-width:34ch;margin:0 0 34px;color:#38383a}
-  .arrival-links{display:flex;flex-wrap:wrap;gap:12px 24px}
-  .arrival-links a{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;padding:9px 0;border-bottom:1px solid var(--line);transition:.2s}
-  .arrival-links a:hover{color:var(--accent);border-color:var(--accent)}
-  .arrival-feature{display:block;align-self:center;min-width:0;position:relative;z-index:1}
-  .arrival-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:#050505;isolation:isolate}
-  .arrival-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
-    transition:opacity .55s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-  .arrival-video{position:absolute;inset:0;z-index:1;opacity:0;transition:opacity .55s ease;background:#050505;pointer-events:none}
+  /* ============================================================
+     THE ARRIVAL
+     A full-bleed title sequence. The newest work plays edge to edge,
+     the header floats over it, and each line of type rises from
+     behind its own edge.
+     ============================================================ */
+  .arrival{position:relative;min-height:100svh;margin-top:-57px;display:grid;grid-template-rows:1fr auto;
+    isolation:isolate;background:#050505;overflow:hidden;color:#fff}
+  .arrival-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#050505}
+  .arrival-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    transition:opacity .9s ease}
+  /* an iframe cannot object-fit, so the player is oversized to cover instead */
+  .arrival-video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:max(100vw, calc(100svh * 16 / 9));height:max(100svh, calc(100vw * 9 / 16));
+    opacity:0;transition:opacity 1.1s ease;pointer-events:none;z-index:1}
   .arrival-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
   .arrival-media.video-ready .arrival-video{opacity:1}
   .arrival-media.video-ready .arrival-poster{opacity:0}
-  .arrival-hit{position:absolute;inset:0;z-index:3}
-  .arrival-hit:focus-visible{outline-offset:-4px}
-  .arrival-loop-label{position:absolute;left:14px;bottom:13px;color:#fff;background:rgba(5,5,5,.76);padding:7px 9px;
-    font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;z-index:4;opacity:0;transition:opacity .3s;pointer-events:none}
-  .arrival-media.video-ready .arrival-loop-label{opacity:1}
-  .arrival-progress{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent);z-index:4;
-    transform:scaleX(0);transform-origin:left center;pointer-events:none}
-  .arrival-media.video-playing .arrival-progress{animation:arrival-minute 60s linear infinite}
+  .arrival-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:
+    linear-gradient(90deg,rgba(5,5,7,.78) 0%,rgba(5,5,7,.52) 38%,rgba(5,5,7,.12) 72%,rgba(5,5,7,.05) 100%),
+    linear-gradient(180deg,rgba(5,5,7,.62) 0%,rgba(5,5,7,.16) 28%,rgba(5,5,7,.30) 58%,rgba(5,5,7,.88) 100%)}
+  .arrival-copy{position:relative;z-index:3;grid-row:1;align-self:end;width:100%;max-width:1560px;margin:0 auto;
+    padding:calc(57px + clamp(40px,11vh,130px)) clamp(20px,4vw,56px) clamp(26px,5vh,62px)}
+  .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 clamp(16px,2.6vh,30px);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+  .arrival-kicker::before{content:"";width:38px;height:1px;background:var(--accent-lit);flex:none}
+  .arrival h1{font-size:clamp(40px,6.4vw,106px);line-height:.95;letter-spacing:-.045em;font-weight:600;
+    margin:0 0 clamp(18px,2.8vh,34px);max-width:none}
+  .arrival-deck{font-size:clamp(15px,1.35vw,19px);line-height:1.5;max-width:46ch;margin:0;color:rgba(255,255,255,.8)}
+  /* every line rises from behind its own edge */
+  .rv{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+  @keyframes rise{to{transform:translateY(0);opacity:1}}
+  .rv>span{display:block;transform:translateY(115%);opacity:0;
+    animation:rise 1.05s cubic-bezier(.16,.84,.32,1) forwards}
+  .arrival-kicker .rv>span{animation-delay:.12s}
+  .arrival h1 .rv:nth-of-type(1)>span{animation-delay:.22s}
+  .arrival h1 .rv:nth-of-type(2)>span{animation-delay:.34s}
+  .arrival-deck .rv>span{animation-delay:.54s}
+  @keyframes fadeUp{to{transform:none;opacity:1}}
+  .arrival-meta,.arrival-scroll{opacity:0;transform:translateY(14px);animation:fadeUp .9s ease .72s forwards}
+  .arrival-meta{position:relative;z-index:3;grid-row:2;display:grid;grid-template-columns:auto 1fr auto;
+    gap:clamp(14px,3vw,44px);align-items:end;width:100%;max-width:1560px;margin:0 auto;
+    padding:18px clamp(20px,4vw,56px) clamp(20px,3.4vh,34px);font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.66);
+    border-top:1px solid rgba(255,255,255,.19);transition:border-color .25s}
+  .arrival-meta strong{font-family:var(--disp);font-size:clamp(15px,1.55vw,21px);line-height:1.16;
+    letter-spacing:-.018em;text-transform:none;color:#fff;font-weight:500;transition:color .2s}
+  .arrival-meta .arrival-enter{color:#fff;text-align:right;white-space:nowrap;transition:color .2s}
+  .arrival-meta:hover{border-color:rgba(255,255,255,.42)}
+  .arrival-meta:hover strong,.arrival-meta:hover .arrival-enter{color:var(--accent-lit)}
+  .arrival-scroll{position:absolute;right:clamp(20px,4vw,56px);z-index:3;display:flex;flex-direction:column;
+    align-items:center;gap:10px;bottom:calc(clamp(20px,3.4vh,34px) + 82px);font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.2em;color:rgba(255,255,255,.58);writing-mode:vertical-rl;transition:color .2s}
+  .arrival-scroll i{display:block;width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.6),transparent)}
+  .arrival-scroll:hover{color:#fff}
+  .arrival-loop-label{position:absolute;left:clamp(20px,4vw,56px);top:calc(57px + 26px);z-index:3;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:rgba(255,255,255,.58);
+    opacity:0;transition:opacity .5s ease .3s}
+  .arrival:has(.video-ready) .arrival-loop-label{opacity:1}
+  .arrival-progress{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--accent-lit);
+    z-index:4;transform:scaleX(0);transform-origin:0 50%;opacity:.85}
+  .arrival:has(.video-playing) .arrival-progress{animation:arrival-minute 60s linear infinite}
   @keyframes arrival-minute{to{transform:scaleX(1)}}
-  .arrival-meta{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start;padding-top:13px;font-family:var(--mono);
-    font-size:10px;line-height:1.55;letter-spacing:.08em;color:var(--ink-dim)}
-  .arrival-meta strong{font-family:var(--disp);font-size:17px;line-height:1.2;letter-spacing:-.01em;color:var(--ink);font-weight:500}
-  .arrival-meta .arrival-enter{color:var(--accent);text-align:right;white-space:nowrap}
+  /* the header rides over the film until the archive comes up */
+  body.at-hero header{background:transparent;border-bottom-color:rgba(255,255,255,.16)}
+  body.at-hero .brand,body.at-hero nav.main a{color:#fff}
+  body.at-hero nav.main a:hover{color:var(--accent-lit)}
+  body.at-hero .nav-toggle{color:#fff;background:transparent;border-color:rgba(255,255,255,.4)}
 
   .archive{border-top:1px solid var(--line-soft);scroll-margin-top:68px}
 
@@ -394,10 +431,9 @@
     font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-dim)}
 
   @media (max-width:900px){
-    .arrival{min-height:auto;grid-template-columns:1fr;gap:28px;padding-top:48px}
-    .arrival-copy{padding-bottom:0}
-    .arrival h1{max-width:11ch}
-    .arrival-feature{width:min(100%,720px)}
+    .arrival{min-height:100svh}
+    .arrival h1{max-width:13ch}
+    .arrival-scroll{display:none}
     .about-grid{grid-template-columns:1fr;gap:36px}
     .portrait-sm{max-width:340px}
     .grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px 22px}
@@ -418,11 +454,9 @@
   @media (max-width:640px){
     .bar{padding-left:20px;padding-right:20px}
     nav.main{padding-left:20px;padding-right:20px}
-    .arrival{padding:36px 20px 44px}
-    .arrival-kicker{margin-bottom:22px}
-    .arrival h1{font-size:clamp(42px,14vw,62px);margin-bottom:24px}
-    .arrival-media{aspect-ratio:16/9}
-    .arrival-meta{grid-template-columns:1fr auto}
+    .arrival h1{font-size:clamp(40px,12.2vw,68px);max-width:none}
+    .arrival-deck{display:none}
+    .arrival-meta{grid-template-columns:1fr auto;gap:10px 16px}
     .arrival-meta>span:first-child{display:none}
     .arrival-meta .arrival-enter{grid-column:2;grid-row:1}
     .wrap,.page{padding-left:20px;padding-right:20px}
@@ -432,6 +466,8 @@
   @media (prefers-reduced-motion:reduce){
     *{scroll-behavior:auto}
     .arrival-video,.arrival-loop-label,.arrival-progress{display:none}
+    .rv>span{transform:none;opacity:1;animation:none}
+    .arrival-meta,.arrival-scroll{opacity:1;transform:none;animation:none}
     .tile:hover .tile-media img{transform:none}
   }
 </style>
@@ -457,28 +493,24 @@
   <!-- ============ WORK: THE GRID ============ -->
   <section class="view on" id="view-index">
     <div class="arrival">
+      <div class="arrival-media">
+        <img class="arrival-poster" src="img/sev-state-of-the-nation.jpg" alt="A thousand videos per state, remapped onto the geographic form of each" fetchpriority="high">
+        <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
+        <div class="arrival-scrim" aria-hidden="true"></div>
+      </div>
+      <span class="arrival-loop-label" aria-hidden="true">MUTED / 01:00 LOOP</span>
+      <span class="arrival-progress" aria-hidden="true"></span>
       <div class="arrival-copy">
-        <p class="arrival-kicker">Video Artist, Toolmaker, Curator.</p>
-        <h1>I build instruments for seeing across time.</h1>
-        <p class="arrival-deck">Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological deep time.</p>
-        <div class="arrival-links">
-          <a href="#archive">ENTER THE ARCHIVE ↓</a>
-        </div>
+        <p class="arrival-kicker"><span class="rv"><span>Video Artist, Toolmaker, Curator.</span></span></p>
+        <h1><span class="rv"><span>I build instruments</span></span><span class="rv"><span>for seeing across time.</span></span></h1>
+        <p class="arrival-deck"><span class="rv"><span>Moving-image works, performances, installations, and artist-built tools trace signals through ritual, bodies, artificial intelligence, and geological deep time.</span></span></p>
       </div>
-      <div class="arrival-feature">
-        <div class="arrival-media">
-          <img class="arrival-poster" src="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png" alt="Eric Souther performing before green synthesized forms in Devotional Signals" fetchpriority="high">
-          <div class="arrival-video" id="arrivalVideo" aria-hidden="true"></div>
-          <a class="arrival-hit" href="#/work/devotionalsignals" aria-label="Enter Devotional Signals, 2025 to 2026"></a>
-          <span class="arrival-loop-label" aria-hidden="true">MUTED / 01:00 LOOP</span>
-          <span class="arrival-progress" aria-hidden="true"></span>
-        </div>
-        <a class="arrival-meta" href="#/work/devotionalsignals">
-          <span>2025—2026<br>AUDIOVISUAL PERFORMANCE</span>
-          <strong>Devotional Signals~</strong>
-          <span class="arrival-enter">ENTER PROJECT →</span>
-        </a>
-      </div>
+      <a class="arrival-scroll" href="#archive"><span>THE ARCHIVE</span><i aria-hidden="true"></i></a>
+      <a class="arrival-meta" href="#/work/searchenginevisionstateofthenation">
+        <span>2026<br>SINGLE CHANNEL / 4K UHD / 23 MIN</span>
+        <strong>Search Engine Vision: State of the Nation</strong>
+        <span class="arrival-enter">ENTER PROJECT &rarr;</span>
+      </a>
     </div>
 
     <div class="wrap archive" id="archive">
@@ -655,6 +687,18 @@
   var reduceMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function initArrivalVideo(){
     var media=document.querySelector(".arrival-media"), host=document.getElementById("arrivalVideo");
+    /* the bar rides over the film, then takes its plate back */
+    (function(){
+      var hero=document.querySelector(".arrival");
+      if(!hero) return;
+      var body=document.body;
+      if(!("IntersectionObserver" in window)) return;
+      new IntersectionObserver(function(en){
+        var e=en[0];
+        if(e.isIntersecting && e.intersectionRect.top<=58) body.classList.add("at-hero");
+        else body.classList.remove("at-hero");
+      },{threshold:[0,.01,.5,1],rootMargin:"-57px 0px 0px 0px"}).observe(hero);
+    }());
     var motionQuery=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
     var saveData=!!(navigator.connection&&navigator.connection.saveData);
     if(!media||!host||saveData) return;
@@ -674,9 +718,9 @@
     if(host.hasAttribute("data-video-ready")) return;
     host.setAttribute("data-video-ready","");
     var frame=document.createElement("iframe");
-    frame.src="https://player.vimeo.com/video/1178941183?background=1&autoplay=1&muted=1&loop=1&autopause=0&playsinline=1&dnt=1&title=0&byline=0&portrait=0";
+    frame.src="https://player.vimeo.com/video/1221268645?background=1&autoplay=1&muted=1&loop=1&autopause=0&playsinline=1&dnt=1&title=0&byline=0&portrait=0";
     frame.allow="autoplay; fullscreen; picture-in-picture";
-    frame.title="Muted one-minute loop from Devotional Signals";
+    frame.title="Muted one-minute loop from Search Engine Vision: State of the Nation";
     frame.tabIndex=-1;
     frame.setAttribute("aria-hidden","true");
     host.appendChild(frame);
@@ -851,10 +895,6 @@
      statement:["This work focuses on the prayer flags located at the Shambhala Mountain Center in Red Feather Lakes Colorado. What I find interesting about prayer flags is they are not prayers to a God, but prayers and good will sent out into the world. The song is also prayers of good will to others. Custom software was created that utilized frame difference to isolate flag movement for video feedback, allowing the flags movement and color to emanate outward, a process that conceptually reinforces the flags intentions."]},
 
     /* ---- pre-2019 ---- */
-    {slug:"xyz", hidden:true, thumb:"img/xyz.jpg",
-     title:"XYZ", year:"2018", sort:2018, medium:"Audiovisual performance", tags:["Performance"],
-     vimeo:"298219225", spec:"Audiovisual performance, 8min 58sec, 1920x1080, 2018", credits:"",
-     statement:["XYZ is an audiovisual performance that focuses on the exploration of sonic material for real-time sculpture."]},
     {slug:"ritualtocleanseneoliberalism",  thumb:"img/ritualtocleanseneoliberalism.jpg",
      title:"Ritual to Cleanse Neoliberalism", year:"2018", sort:2018, medium:"Performance", tags:["Ritual"],
      vimeo:"295396698", spec:"Performance, 15min, 1920x1080 HD, 2016-2017", credits:"",
@@ -923,26 +963,10 @@
      title:"Impermanence", year:"2011", sort:2011.1, medium:"Single channel video", tags:["Signal Processing"],
      vimeo:"883247350", spec:"Single channel video, 7min 31sec, 1920x1080 HD, 2011", credits:"Shot in Times Square, New York.",
      statement:["Impermanence, shot in Times Square, reveals the unseen layers of movement through time. I see this space of moving digital architecture and fast-paced crowds as a physical representation of our electronic culture, an icon of media saturation. I want to place my viewer in an alternative dimension of time. When encountering the video, one is met with stark black and white flashing images of people and many levels of grey tones as the past layers of time start to fade out of sight. If something or someone moves within the composition, they are imaged as white, and as they move from one place to the other, they leave trails of time behind them.","As the crowds of people move through the screen leaving trails of time, they layer on top of each other, intertwining past and present times. I focused on the different kinds of time that I could perceive in Times Square. I found many onlookers and people taking a moment to sit still and take in the environment. I sought out these stationary people within the crowds and placed them as focusing points of my compositions, as people continued to shuffle by behind them. The resulting image created a silhouette of contrasted time. Not only are others’ movements surrounding them, but the other is also defining them. The images are revealed to us like memories, flickering insubstantial forms that periodically give rise to vague details that are always in a state of flux."]},
-    {slug:"theinterfaceofmore", hidden:true, thumb:"https://i.vimeocdn.com/video/134478988-208e0b70ba0ec2b92809487f934536dc694dfdbdecd1f84671ec94f245cbfa4f-d_640?region=us",
-     title:"The Interface of More", year:"2011", sort:2011, medium:"Aesthetic Interface", tags:[],
-     vimeo:"19505998", spec:"Aesthetic Interface, 7min 56sec, 1920x1080, 2011", credits:"",
-     statement:["Aesthetic Interfaces are fully functional applications that are aesthetically organized as drawings. These applications are not neutral, but are subjective interfaces."]},
     {slug:"digitalmandala",  thumb:"img/digitalmandala.jpg",
      title:"Digital Mandala", year:"2009", sort:2009, medium:"Interactive installation", tags:["Ritual"],
      vimeo:"4986741", spec:"Aesthetic Interface, real-time application, adaptive resolution, 2009", credits:"",
      statement:["Digital Mandala is a work in which I explore my voice and body through a series of 800 prerecorded audio samples. The mandalic-triggering interface forms a sound portrait that probabilistically accesses the database, and initiates and controls the speed of the audio allowing for it to breathe and continually renew itself within the utterances set in cyclic motion."]},
-    {slug:"breathofthecipher", hidden:true, thumb:"https://i.vimeocdn.com/video/14636225-5798fe85cc0cf783f65ba9861a77c13afdf2da993a496d7e40d2e7f8ad7fe29d-d_640?region=us",
-     title:"Breath of the Cipher", year:"2009", sort:2009, medium:"Installation", tags:[],
-     vimeo:"5003832", spec:"Installation excerpt, 1min 41sec, 1280x720, 2009", credits:"",
-     statement:["A numerical database collected by my everyday life: phone numbers, personal stats, or how many steps it took to get to work that day."]},
-    {slug:"dataform", hidden:true, thumb:"https://i.vimeocdn.com/video/14513572-428290bc645cc4d3cca482b8e48301c15d9af71a60c5b933890a8f1ddb7b1123-d_640?region=us",
-     title:"DATAFORM", year:"2009", sort:2009, medium:"Interactive installation", tags:[],
-     vimeo:"4987481", spec:"Interactive installation, 1min 30sec, 720x480, 2009", credits:"",
-     statement:["An interactive installation that develops around a database of text archived from social networks like Facebook or Twitter. The text is interfaced within an interactive system that links all the information to one free flowing thought."]},
-    {slug:"extensionsofthebody", hidden:true, thumb:"https://i.vimeocdn.com/video/14523937-bb186497b4f7424e90819f59166e676a06ab540f8710da89ca9e071c51bf6c7d-d_640?region=us",
-     title:"Extensions of The Body", year:"2009", sort:2009, medium:"Interactive environment", tags:[],
-     vimeo:"4988077", spec:"Interactive environment, 9min 49sec, 720x480, 2009", credits:"",
-     statement:["Explores the unseen movements of dance in space. An interactive environment where the experience of the dance is extended through live video manipulation, projection mapping onto the body, and live light painting via an LED hula hoop."]},
     {slug:"technobuddha",  thumb:"img/technobuddha.jpg",
      title:"The Life of the Techno Buddha", year:"2009", sort:2008.9, medium:"Single channel video", tags:["Search Engine Vision"],
      vimeo:"4979547", spec:"Single channel video, 2min 12sec, 1440x1080, 2009", credits:"",
