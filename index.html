@@ -32,6 +32,7 @@
     --disp:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   }
   *{box-sizing:border-box}
+  [tabindex="-1"]:focus{outline:none}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
@@ -1898,7 +1899,9 @@
   /* reviewing work: left and right step through the archive. A focused
      slideshow keeps its own arrows, and typing fields are left alone. */
   document.addEventListener("keydown",function(e){
-    if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight") return;
+    var fwd = e.key==="ArrowRight"||e.key==="ArrowDown";
+    var back = e.key==="ArrowLeft"||e.key==="ArrowUp";
+    if(!fwd&&!back) return;
     if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;
     var t=e.target;
     if(t&&t.closest&&t.closest("input,textarea,select,[contenteditable=true],.gal")) return;
@@ -1908,7 +1911,7 @@
     for(var k=0;k<works.length;k++){ if(works[k].slug===m[1]){ cur=k; break; } }
     if(cur<0) return;
     e.preventDefault();
-    var j=e.key==="ArrowRight"?(cur+1)%works.length:(cur-1+works.length)%works.length;
+    var j=fwd?(cur+1)%works.length:(cur-1+works.length)%works.length;
     navigate("#/work/"+works[j].slug);
   });
 
