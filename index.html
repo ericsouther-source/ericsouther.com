@@ -238,6 +238,9 @@
   .title-gif img{width:100%;height:auto;display:block}
 
   /* gif under the credits, hard right */
+  .side-art{margin:8px 0 0}
+  .side-art img{width:100%;height:auto;display:block}
+  .side-art figcaption{font-family:var(--mono);font-size:10.5px;color:var(--ink-dim);margin-top:8px;line-height:1.5}
   .credit-gif{margin:20px 0 0 auto;position:relative;z-index:5}
   .credit-gif img{width:100%;height:auto;display:block}
 
@@ -910,8 +913,8 @@
      vimeo:null, spec:"1920x1080, 9min 59sec, 2024", credits:"Featuring an interview with Dr. Jeremy Farrell, the Jefferson Project at Lake George.",
      statement:["Deep Time of Latent Space relates the strata of human activity within large language models as another layer of the Anthropocene, which places AI into the realm of geological thinking that spirals into deep time and broadcasts into the future.","The AI narrator takes us through the most incomprehensible moments of our history starting with the big bang, creation of earth, and the start of life. It uses its generalized knowledge to resolve our grasp of these moments into data-visualized images. It does so with confidence and a little bit of attitude, however, it tends to hallucinate. These hallucinations shine a light on what is needed to create a more ethical and accurate AI.","The Jefferson Project at Lake George uses specific and local data to understand the impact of human activity on fresh water, and how to mitigate those effects. A short interview with Dr. Jeremy Farrell shares how the Jefferson Project uses machine learning to create predictive models for understanding the patterns of past and reaching into the future to assist in preservation. A useful model for understanding the value of the local and self-generated databases.","Lake George was also chosen as a site of deep time and for its art historical significance. At the birth of geology in the nineteenth century the emerging science was in vogue. Many painters from the Hudson River School including John Frederick Kensett, Thomas Cole, and other painters painted portraits of rocks at the lake's shores. This point of time marks a transformative shift away from the biblical 6,000-year age of the earth to the conception of deep time that spans billions of years. Its implications allow for long-term thinking today. Another component to help guide the future of AI."]},
     {slug:"bodyoddyoddyoddy", wix:"4d098a_944f5e3f20bb40e4a756d563054163b7~mv2.gif",
-     lay:{ groups:[
-       {label:"THE INSTALLATION", noteIdx:7, idx:[1,0,4,6]},
+     lay:{ sideArt:0, groups:[
+       {label:"THE INSTALLATION", noteIdx:7, idx:[1,4,6], wide:[6]},
        {label:"PROCESS", idx:[11,12,13]}
      ]},
      subtitle:"Destabilizing the Surveilling of Queer Bodies",
@@ -1547,6 +1550,7 @@
   function assetEl(a, lazy, altFallback){
     var wrap=document.createElement("figure"); wrap.className="asset";
     applyOrient(wrap, orientOf(ratioOf(a)), a.t);
+    if(a._wide){ wrap.style.setProperty("--span",6); }
     if(a._i!=null) wrap.setAttribute("data-i", a._i);
     if(a.t==="video"){
       wrap.className += " is-vid";
@@ -1806,6 +1810,16 @@
       side.appendChild(l); side.appendChild(v);
     }
     field("YEAR", w.year); field("MEDIUM", w.mediumFull||w.medium); field("SERIES", w.tags.join(", ")); field("CREDITS", w.credits);
+    if(lay && lay.sideArt!=null && A && A[lay.sideArt]){
+      var sart=document.createElement("figure"); sart.className="side-art";
+      var sai=document.createElement("img");
+      sai.src=sizedAssetSrc(A[lay.sideArt],1200); sai.alt=A[lay.sideArt].cap||""; sai.loading="lazy";
+      sart.appendChild(sai);
+      if(A[lay.sideArt].cap){
+        var sac=document.createElement("figcaption"); sac.textContent=A[lay.sideArt].cap; sart.appendChild(sac);
+      }
+      side.appendChild(sart);
+    }
     if(lay && lay.creditGif!=null && A && A[lay.creditGif]){
       var cg=document.createElement("div"); cg.className="credit-gif";
       cg.style.width = (A[lay.creditGif].w ? Math.min(200, Math.max(110, Math.round(A[lay.creditGif].w*0.24))) : 170)+"px";
@@ -1851,7 +1865,9 @@
         var note=[];
         if(g.noteIdx!=null && A[g.noteIdx] && A[g.noteIdx].body) note.push(A[g.noteIdx].body);
         if(g.sub) note.push(g.sub);
-        renderGroup(g.label, note.join("  ·  "), g.idx.map(function(k){ return A[k]; }).filter(Boolean));
+        var items=g.idx.map(function(k){ return A[k]; }).filter(Boolean);
+        items.forEach(function(a){ a._wide = !!(g.wide && g.wide.indexOf(a._i)>=0); });
+        renderGroup(g.label, note.join("  ·  "), items);
       });
     } else if(rest.length){
       renderGroup("MORE FROM THIS WORK", "", rest);

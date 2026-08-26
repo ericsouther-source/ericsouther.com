@@ -12,7 +12,7 @@ window.WORK_ASSETS = {
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_dbaa3c1468f34c05aab44a6bd321af00~mv2.png", w:1500, h:932, cap:"" },
       { t:"video", id:"880662668", cap:"" },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_51763ec559334d81830fb53ad640efd6~mv2.gif", w:750, h:1347, cap:"" },
-      { t:"image", src:"https://static.wixstatic.com/media/4d098a_a6a7a65267c04691a1831c20cf8a52fc~mv2.gif", w:750, h:765, cap:"" },
+      { t:"image", src:"https://static.wixstatic.com/media/4d098a_a6a7a65267c04691a1831c20cf8a52fc~mv2.gif", w:750, h:765, cap:"Benjamin Rosenthal and Eric Souther." },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_1d0d328e6b2440928d60534ca1692033~mv2.png", w:1920, h:1920, cap:"" },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_0cafa5d711fb4294839c25b758ecae77~mv2.gif", w:378, h:672, cap:"" },
       { t:"image", src:"https://static.wixstatic.com/media/4d098a_29817253c9fc4c4594f8c7cf79affe33~mv2.png", w:1500, h:1696, cap:"wallpaper 11.5 x 13 ft" },
