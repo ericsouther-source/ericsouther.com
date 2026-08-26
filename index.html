@@ -1431,7 +1431,8 @@
         if(e.d){ var d=document.createElement("div"); d.className="cv-d"; d.textContent=e.d; mid.appendChild(d); }
         li.appendChild(y); li.appendChild(mid); ul.appendChild(li);
         var vitalTxt=(e.t+" "+(e.d||"")).replace(/new york state college/ig,"");
-        var folds=!CV_FOLD_EXEMPT[s.id] && e.keep!==true && !cvRecent(e.y) && !CV_VITAL.test(vitalTxt) && !CV_MAJOR.test(vitalTxt);
+        /* someone who tunneled into teaching wants the whole record open */
+        var folds=g!=="teaching" && !CV_FOLD_EXEMPT[s.id] && e.keep!==true && !cvRecent(e.y) && !CV_VITAL.test(vitalTxt) && !CV_MAJOR.test(vitalTxt);
         obj.rows.push({li:li, fold:folds, hay:(searchContext+" "+(e.y||"")+" "+e.t+" "+e.d).toLowerCase()});
         CV_TOTAL++;
       });
