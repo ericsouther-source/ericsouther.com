@@ -359,6 +359,9 @@
   .cv-sec[open]>summary::before{content:"−"}
   .cv-sec>summary h2{flex:1}
   .cv-sec .cv-list{padding-bottom:20px}
+  .cv-fold{display:block;margin:-6px 0 22px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+    color:var(--accent);background:none;border:1px dashed rgba(11,107,76,.45);padding:9px 14px;cursor:pointer;transition:.15s}
+  .cv-fold:hover{background:var(--accent-soft);border-style:solid}
   .cv-org>summary{padding:22px 0!important}
   .cv-org>summary h2{font-size:13px;letter-spacing:.22em}
   .cv-org-body{margin:0 0 8px 5px;padding:0 0 16px 34px;border-left:1px solid var(--line-soft)}
@@ -1375,6 +1378,20 @@
   var CV_DEFAULT_GROUP="practice";
   var cvSecs=[], cvOrgs=[], cvOrgMap={}, CV_TOTAL=0, cvGroup=CV_DEFAULT_GROUP, cvQ="";
   var cvBody=document.getElementById("cvBody"), cvCount=document.getElementById("cvCount");
+  /* the curator's cut: the record keeps everything, but the default view
+     shows the last five years plus anything at a museum, biennial, or in a
+     major world city. The window slides forward on its own as years pass;
+     an entry with keep:true is always front. */
+  var CV_NOW=new Date().getFullYear();
+  var CV_FOLD_EXEMPT={ "education":1, "professional-appointments":1 };
+  var CV_VITAL=/museum|museo|mus\u00e9e|kunsthalle|kunstverein|biennial|biennale|triennial/i;
+  var CV_MAJOR=/new york|nyc|brooklyn|manhattan|los angeles|chicago|san francisco|london|paris|berlin|tokyo|beijing|shanghai|seoul|hong kong|s\u00e3o paulo|sao paulo|mexico city|toronto|montreal|amsterdam|rotterdam|vienna|venice|madrid|barcelona|rome|milan|sydney|istanbul|linz/i;
+  function cvRecent(y){
+    if(/present/i.test(y||"")) return true;
+    var m=(y||"").match(/\d{4}/g); if(!m) return false;
+    var latest=0; for(var i=0;i<m.length;i++) latest=Math.max(latest,+m[i]);
+    return latest>=CV_NOW-5;
+  }
 
   function ensureCvOrganization(config){
     if(cvOrgMap[config.k]) return cvOrgMap[config.k];
@@ -1403,7 +1420,7 @@
       var cnt=document.createElement("span"); cnt.className="idx";
       hd.appendChild(h2); hd.appendChild(cnt);
       var ul=document.createElement("ul"); ul.className="cv-list";
-      var obj={el:sec,g:g,cnt:cnt,rows:[],parent:parent};
+      var obj={el:sec,g:g,cnt:cnt,rows:[],parent:parent,showAll:false};
       var searchContext=(s.label+" "+(orgConfig?orgConfig.label:"")).toLowerCase();
       s.entries.forEach(function(e){
         var li=document.createElement("li");
@@ -1413,10 +1430,17 @@
         mid.appendChild(t);
         if(e.d){ var d=document.createElement("div"); d.className="cv-d"; d.textContent=e.d; mid.appendChild(d); }
         li.appendChild(y); li.appendChild(mid); ul.appendChild(li);
-        obj.rows.push({li:li, hay:(searchContext+" "+(e.y||"")+" "+e.t+" "+e.d).toLowerCase()});
+        var vitalTxt=(e.t+" "+(e.d||"")).replace(/new york state college/ig,"");
+        var folds=!CV_FOLD_EXEMPT[s.id] && e.keep!==true && !cvRecent(e.y) && !CV_VITAL.test(vitalTxt) && !CV_MAJOR.test(vitalTxt);
+        obj.rows.push({li:li, fold:folds, hay:(searchContext+" "+(e.y||"")+" "+e.t+" "+e.d).toLowerCase()});
         CV_TOTAL++;
       });
       sec.appendChild(hd); sec.appendChild(ul);
+      if(obj.rows.some(function(r){return r.fold;})){
+        obj.foldBtn=document.createElement("button"); obj.foldBtn.type="button"; obj.foldBtn.className="cv-fold";
+        obj.foldBtn.addEventListener("click",function(){ obj.showAll=!obj.showAll; cvFilter(); });
+        sec.appendChild(obj.foldBtn);
+      }
       if(parent){ parent.body.appendChild(sec); parent.sections.push(obj); parent.total+=obj.rows.length; }
       else cvBody.appendChild(sec);
       cvSecs.push(obj);
@@ -1440,24 +1464,30 @@
 
     function cvFilter(){
       var shown=0, filtering=(cvGroup!=="all")||!!cvQ;
-      cvOrgs.forEach(function(o){ o.visible=0; });
+      cvOrgs.forEach(function(o){ o.visible=0; o.folded=0; });
       cvSecs.forEach(function(s){
-        var okG=(cvGroup==="all")||(s.g===cvGroup), vis=0;
+        var okG=(cvGroup==="all")||(s.g===cvGroup), vis=0, folded=0;
         s.rows.forEach(function(r){
-          var ok=okG && (!cvQ || r.hay.indexOf(cvQ)>=0);
+          var pass=okG && (!cvQ || r.hay.indexOf(cvQ)>=0);
+          var ok=pass && (!r.fold || s.showAll || !!cvQ);
+          if(pass && !ok) folded++;
           r.li.style.display= ok ? "" : "none";
           if(ok) vis++;
         });
-        s.el.style.display = vis ? "" : "none";
+        if(s.foldBtn){
+          s.foldBtn.style.display=(folded||s.showAll)&&okG&&!cvQ ? "" : "none";
+          s.foldBtn.textContent = s.showAll ? "\u2212 FOLD EARLIER ENTRIES" : "+ "+folded+" EARLIER \u2014 SHOW ALL "+s.rows.length;
+        }
+        s.el.style.display = (vis||folded) ? "" : "none";
         if(filtering) s.el.open=!!vis;
-        s.cnt.textContent = (vis===s.rows.length) ? String(s.rows.length) : vis+" OF "+s.rows.length;
-        if(s.parent) s.parent.visible+=vis;
+        s.cnt.textContent = !cvQ ? String(s.rows.length) : ((vis===s.rows.length) ? String(s.rows.length) : vis+" OF "+s.rows.length);
+        if(s.parent){ s.parent.visible+=vis; s.parent.folded+=folded; }
         shown+=vis;
       });
       cvOrgs.forEach(function(o){
-        o.el.style.display=o.visible ? "" : "none";
+        o.el.style.display=(o.visible||o.folded) ? "" : "none";
         if(filtering) o.el.open=!!o.visible;
-        o.cnt.textContent=(o.visible===o.total) ? o.total+" ENTRIES" : o.visible+" OF "+o.total+" ENTRIES";
+        o.cnt.textContent = !cvQ ? o.total+" ENTRIES" : ((o.visible===o.total) ? o.total+" ENTRIES" : o.visible+" OF "+o.total+" ENTRIES");
       });
       cvCount.textContent = (shown===CV_TOTAL) ? CV_TOTAL+" ENTRIES" : shown+" OF "+CV_TOTAL+" ENTRIES";
     }
