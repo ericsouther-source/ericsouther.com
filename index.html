@@ -1895,6 +1895,22 @@
     navBar.classList.toggle("nav-open",open); navToggle.setAttribute("aria-expanded",open?"true":"false"); navToggle.textContent=open?"CLOSE":"MENU";
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeNav(); });
+  /* reviewing work: left and right step through the archive. A focused
+     slideshow keeps its own arrows, and typing fields are left alone. */
+  document.addEventListener("keydown",function(e){
+    if(e.key!=="ArrowLeft"&&e.key!=="ArrowRight") return;
+    if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.altKey||e.shiftKey) return;
+    var t=e.target;
+    if(t&&t.closest&&t.closest("input,textarea,select,[contenteditable=true],.gal")) return;
+    var m=(location.hash||"").match(/^#\/work\/([a-z0-9-]+)/);
+    if(!m) return;
+    var cur=-1;
+    for(var k=0;k<works.length;k++){ if(works[k].slug===m[1]){ cur=k; break; } }
+    if(cur<0) return;
+    e.preventDefault();
+    var j=e.key==="ArrowRight"?(cur+1)%works.length:(cur-1+works.length)%works.length;
+    navigate("#/work/"+works[j].slug);
+  });
 
   var metaDescription=document.querySelector('meta[name="description"]');
   function setMetaContent(selector,value){ var el=document.querySelector(selector); if(el&&value) el.setAttribute("content",value); }
