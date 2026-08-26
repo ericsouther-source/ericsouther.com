@@ -140,7 +140,7 @@
   body.at-hero nav.main a:hover{color:var(--accent-lit)}
   body.at-hero .nav-toggle{color:#fff;background:transparent;border-color:rgba(255,255,255,.4)}
 
-  .archive{border-top:1px solid var(--line-soft);scroll-margin-top:68px}
+  .archive{border-top:1px solid var(--line-soft);scroll-margin-top:57px}
 
   .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
     padding:44px 0 18px;border-bottom:1px solid var(--line);margin-bottom:22px}
@@ -733,7 +733,7 @@
       var onHero=null;
       new IntersectionObserver(function(en){
         var e=en[0];
-        var now=!!(e.isIntersecting && e.intersectionRect.top<=58);
+        var now=!!(e.isIntersecting && e.intersectionRect.height>24 && e.intersectionRect.top<=58);
         if(now===onHero) return;
         onHero=now;
         body.classList.toggle("at-hero",now);
