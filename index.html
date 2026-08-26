@@ -211,6 +211,16 @@
   .pbody{display:grid;grid-template-columns:1.55fr 1fr;gap:48px;padding-bottom:6px;position:relative;overflow:visible}
   .statement p{font-size:clamp(15.5px,1.7vw,18.5px);line-height:1.65;margin:0 0 20px;color:#2e2e30;max-width:64ch}
   .pbody.facts-only{grid-template-columns:minmax(240px,420px)}
+  /* the essay layout: colophon strip, then two columns of text */
+  .pbody.longform{display:block}
+  .pbody.longform .pside{display:flex;flex-wrap:wrap;gap:6px 56px;align-items:baseline;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+    padding:16px 0 14px;margin-bottom:30px}
+  .pbody.longform .pside .lbl{display:inline;margin:0 10px 0 0}
+  .pbody.longform .pside .val{display:inline;margin:0}
+  .pbody.longform .statement{columns:2;column-gap:56px;max-width:none}
+  .pbody.longform .statement p{break-inside:avoid-column}
+  .pbody.longform .statement p:first-child{margin-top:0}
   .step-gif{float:right;width:min(42%,220px);margin:2px 0 22px 24px}
   .step-gif img{display:block;width:100%;height:auto}
   .pside .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-dim);display:block;margin-bottom:8px}
@@ -478,6 +488,8 @@
     .bar.nav-open nav.main{display:grid}
     nav.main a{min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--line-soft)}
     .pbody{grid-template-columns:1fr;gap:32px}
+    .pbody.longform .statement{columns:1}
+    .pbody.longform .pside{gap:6px 28px}
     .news-list li{grid-template-columns:1fr;gap:8px}
     .news-list .kind{justify-self:start}
   }
@@ -914,7 +926,7 @@
      credits:"Documentation of Devotional Signals~ performed live in Michigan Theater for the 64th Ann Arbor Film Festival.",
      statement:["Devotional Signals ~ is an audio-visual alchemic process that explores the materiality of the signal as it shifts through historical forms into contemporary graphics. The leap motion was used to create a twelve complex oscillator spatial mixer with x & z, y generates an envelope (one per hand), invisible planes left and right of the performer trigger drums that can be grabbed mid air morphing the audio-visual material."]},
     {slug:"videoinstruments", wix:"4d098a_e4dc460e90da44f7a87c474171325b00~mv2.jpg",
-     title:"Video Instruments: Artists and Toolmakers Past and Present", year:"WIP", sort:2025.9, medium:"Research archive", tags:["Signal Processing"],
+     title:"Video Instruments: Artists and Toolmakers Past and Present", year:"WIP", sort:2025.9, medium:"Research archive", longform:true, tags:["Signal Processing"],
      vimeo:"294269009", spec:"Documentary in progress, 2025",
      credits:"",
      statement:["Video Instruments: Artists & Toolmakers Past and Present is a documentary that traces the remarkable lineage of artist-driven technological innovation from analog video synthesizers to contemporary digital tools. The film reveals how the experimental spirit of early video instrument creators and artists have profoundly influenced modern software development, creative communities, and digital art practices.","The documentary explores a unique technological genealogy where artists are not just users of tools, but active creators and reimaginers of technological systems. From the first generation of video instrument makers who hacked commercial equipment in the late 1960s to today's open-source software developers and digital artists, the project illuminates a continuous thread of creative technological innovation.","Early video instrument creators like Dan Sandin, Stephen Beck, Jeffrey Schier, and Eric Siegel created custom circuits that challenged industrial video production norms and created new communities of artists exploring the electronic image. Jeffrey Schier built one of the first colorizers in the very first video art exhibition “TV As a Creative Medium” in 1969 at the Howard Wise Gallery.","Their work among others helped to ignite arts organizations in the late 60s and early 70s that gave critical access to artist-built tools. We hear from Sherry Hocking, who helped lead with her husband Ralph Hocking the Experimental Television Center (1969-2009) in Owego, NY, the oral histories from Stephen Beck and his involvement with the National Center for Experiments in Television (NCET), founded in 1969, and the Circle Graphics Habitat founded in 1973 by Tom DeFanti and Dan Sandin. Their work of opening technological systems and creating performative visual tools directly prefigures contemporary approaches to software development as well as understanding how to collaborate with machines, a much-needed skill in the age of AI.","The documentary will showcase how the collaborative, open-source ethos of early video artists has evolved into vibrant contemporary communities. Interviews with artists like Casey Reas (Processing), Jason Bernagozzi (Signal Culture), and Olivia Jack (Hydra Video Synth) will demonstrate how the spirit of technological experimentation continues through digital platforms that encourage community-driven tool development and artistic exchange. Methodologically, the documentary combines archival footage, original interviews, and demonstrations of both historical and contemporary video instruments, often by processing the interviewer with the tools they developed. The visual approach will be as dynamic and experimental as the tools themselves, reflecting the performative and improvisational nature of artist-made technologies.","Ultimately, Video Instruments is a celebration of creative technological innovation. It shows how artists have consistently reimagined technological systems, creating tools that expand our understanding of visual expression and challenge the boundaries between art, technology, and performance.","I interviewed many early pioneers and current artist, and toolmakers invested in artist built tools. To date I have collected interviews with: Stephen Beck, Dan Sandin, Tom DeFanti, Eric Siegel, Jane Veeder, Dave Jones, Peer Bode, Walter Wright, Jeffrey Schier (Image Articulator, Vasulka's), Sherry Hocking (ETC), Hank Rudolph (ETC + Signal Culture), Ed Tannenbaum, Alan Powell, Rob Schafer (max/msp Jitter), Benton Bainbridge, Mathew Schlanger, Jason Grilicky, Jason and Debora Bernagozzi (Signal Culture), James Connolly, and Casey Reas (Processing).","I hope to interview: Dave Sieg (Scanimate), Barbara Sykes, LOVID (Kyle Lapidus and Tali Hinkis), Anton Marini (Syphon Protocol), Joost Rekveld, Olivia Jack, and Jamie Fenton."]},
@@ -1878,8 +1890,10 @@
       cgi.addEventListener("error", function(){ cg.style.display="none"; });
       cg.appendChild(cgi); side.appendChild(cg);
     }
+    if(w.longform) body.classList.add("longform");
     if(w.statement.length) body.appendChild(st); else body.classList.add("facts-only");
-    body.appendChild(side); projBody.appendChild(body);
+    if(w.longform){ body.insertBefore(side, st); } else { body.appendChild(side); }
+    projBody.appendChild(body);
 
     /* named groups when the work is really two works, otherwise one run in page order */
     /* four or more stills stop being a run you scroll and become a stage that
