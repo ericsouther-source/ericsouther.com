@@ -4,16 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eric Souther — Video Artist &amp; Toolmaker</title>
+<link rel="canonical" href="https://ericsouther.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person",
+ "name":"Eric Souther",
+ "url":"https://ericsouther.com/",
+ "image":"https://ericsouther.com/img/sev-state-of-the-nation.jpg",
+ "jobTitle":"Associate Professor of Kinetic Imaging",
+ "description":"Video artist, toolmaker and curator. Emergent systems and software for exploring relations, turned into performative instruments for navigating unexpected images and ways of making meaning.",
+ "worksFor":{"@type":"CollegeOrUniversity","name":"Western Michigan University","department":"Gwen Frostic School of Art, College of Fine Arts"},
+ "alumniOf":[{"@type":"CollegeOrUniversity","name":"New York State College of Ceramics at Alfred University"},{"@type":"CollegeOrUniversity","name":"Kansas City Art Institute"}],
+ "knowsAbout":["Video art","Video synthesis","Signal processing","Experimental animation","Creative coding","Media archaeology"],
+ "sameAs":["https://vimeo.com/souther","https://www.instagram.com/ericsouther","https://www.patreon.com/c/PhilosophicalTools","https://objkt.com/profile/souther/created"]}
+</script>
 <meta name="description" content="What we are, seen through our signals. Eric Souther builds emergent systems and software for exploring relations — performative instruments for navigating unexpected images and ways of making meaning.">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Eric Souther — Video Artist &amp; Toolmaker">
 <meta property="og:description" content="Emergent systems and software for exploring relations, turned into performative instruments for navigating unexpected images and ways of making meaning.">
-<meta property="og:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
+<meta property="og:image" content="https://ericsouther.com/img/sev-state-of-the-nation.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Eric Souther — Video Artist &amp; Toolmaker">
 <meta name="twitter:description" content="Emergent systems and software for exploring relations, turned into performative instruments for navigating unexpected images and ways of making meaning.">
-<meta name="twitter:image" content="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png">
+<meta name="twitter:image" content="https://ericsouther.com/img/sev-state-of-the-nation.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -592,7 +605,9 @@
           <p class="para">My work has been exhibited and screened nationally and internationally across the United States, Europe, Asia, and South America.</p>
           <a class="cvbtn" href="#/cv">CURRICULUM VITAE</a>
           <div class="contact" style="margin-top:44px">
-            <span class="lbl">ELSEWHERE</span>
+            <span class="lbl">FOR INQUIRIES</span>
+            <a class="mail" id="mailLink" href="#" rel="nofollow">writing the address&hellip;</a>
+            <span class="lbl" style="margin-top:34px">ELSEWHERE</span>
             <div class="social" style="margin-top:0">
               <a href="https://www.instagram.com/ericsouther" target="_blank" rel="noopener">INSTAGRAM</a>
               <a href="https://www.patreon.com/c/PhilosophicalTools" target="_blank" rel="noopener">PHILOSOPHICAL TOOLS</a>
@@ -736,7 +751,7 @@
 (function(){
   "use strict";
   var MEDIA = "https://static.wixstatic.com/media/";
-  var DEFAULT_SHARE_IMAGE="https://static.wixstatic.com/media/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png/v1/fill/w_1400,h_788,q_90,enc_avif,quality_auto/4d098a_6dd36d445a3d435fa6ea40faa3b2cebb~mv2.png";
+  var DEFAULT_SHARE_IMAGE="https://ericsouther.com/img/sev-state-of-the-nation.jpg";
   var reduceMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function initArrivalVideo(){
     var media=document.querySelector(".arrival-media"), host=document.getElementById("arrivalVideo");
@@ -2011,6 +2026,18 @@
     navBar.classList.toggle("nav-open",open); navToggle.setAttribute("aria-expanded",open?"true":"false"); navToggle.textContent=open?"CLOSE":"MENU";
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeNav(); });
+  /* the address is assembled here rather than written in the page, so a
+     harvester reading the source finds no address and no at-sign. Anyone
+     with a browser gets an ordinary link. */
+  (function(){
+    var a=document.getElementById("mailLink");
+    if(!a) return;
+    var flip=function(s){ return s.split("").reverse().join(""); };
+    var who=flip("rehtuos.cire"), where=flip("ude.hcimw");
+    var addr=who+String.fromCharCode(64)+where;
+    a.href=String.fromCharCode(109,97,105,108,116,111,58)+addr;
+    a.textContent=addr;
+  }());
   /* reviewing work: left and right step through the archive. A focused
      slideshow keeps its own arrows, and typing fields are left alone. */
   document.addEventListener("keydown",function(e){
