@@ -81,19 +81,22 @@
      the header floats over it, and each line of type rises from
      behind its own edge.
      ============================================================ */
-  .arrival{--film-gap:200px;
-    position:relative;min-height:100svh;margin-top:-57px;display:grid;grid-template-rows:1fr auto auto;
+  /* 160px is the widest black band that costs the map nothing: past it the
+     film stops being limited by the window width and starts shrinking. */
+  .arrival{--film-gap:160px;
+    position:relative;min-height:100svh;margin-top:-57px;display:grid;grid-template-rows:1fr auto;
     isolation:isolate;background:#000;overflow:hidden;color:#fff}
-  .arrival-media{position:relative;grid-row:1;min-height:0;
-    margin-top:calc(57px + var(--film-gap));z-index:0;overflow:hidden;background:#000;cursor:pointer}
+  .arrival-media{position:absolute;top:calc(57px + var(--film-gap));left:0;right:0;bottom:0;
+    z-index:0;overflow:hidden;background:#000;cursor:pointer}
   /* the film rides the top of the frame: whatever slack the window leaves
      falls below, behind the type, instead of opening a void above the map */
   .arrival-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
     object-position:center top;display:block;transition:opacity .9s ease}
   /* an iframe cannot object-fit, so it is sized to contain: the full frame,
      seamless black around it — the film's own ground and the page's are the same */
-  .arrival-video{position:absolute;inset:0;margin:auto;aspect-ratio:16/9;
-    width:auto;height:auto;max-width:100%;max-height:100%;
+  .arrival-video{position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:min(100%, calc((100svh - 57px - var(--film-gap)) * 16 / 9));
+    height:min(100%, calc(100vw * 9 / 16));
     opacity:0;transition:opacity 1.1s ease;pointer-events:none;z-index:1}
   .arrival-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
   .arrival-media.video-ready .arrival-video{opacity:1}
@@ -102,7 +105,7 @@
   .arrival-copy,.arrival-meta,.arrival-sound,
   body.at-hero .brand,body.at-hero nav.main a,body.at-hero .nav-toggle{
     text-shadow:0 1px 2px rgba(0,0,0,.72),0 4px 22px rgba(0,0,0,.45)}
-  .arrival-copy{position:relative;z-index:3;grid-row:2;width:100%;max-width:1560px;margin:0 auto;
+  .arrival-copy{position:relative;z-index:3;grid-row:1;align-self:end;width:100%;max-width:1560px;margin:0 auto;
     padding:clamp(26px,4.5vh,54px) clamp(20px,4vw,56px) clamp(20px,3.5vh,44px)}
   .arrival-kicker{display:flex;align-items:center;gap:12px;margin:0 0 clamp(16px,2.6vh,30px);
     font-family:var(--mono);font-size:13.5px;letter-spacing:.17em;text-transform:uppercase;color:#fff;
@@ -125,7 +128,7 @@
   /* leaving the hero re-arms the sequence; returning plays it again */
   .arrival.rise-off .rv>span{animation:none;transform:translateY(115%);opacity:0}
   .arrival.rise-off .arrival-meta{animation:none;opacity:0;transform:translateY(14px)}
-  .arrival-meta{position:relative;z-index:3;grid-row:3;display:flex;align-items:end;
+  .arrival-meta{position:relative;z-index:3;grid-row:2;display:flex;align-items:end;
     gap:clamp(14px,3vw,44px);width:100%;max-width:1560px;margin:0 auto;
     padding:18px clamp(20px,4vw,56px) clamp(20px,3.4vh,34px);font-family:var(--mono);font-size:10.5px;
     letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.66);
