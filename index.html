@@ -443,18 +443,18 @@
   .lede-lg{font-size:clamp(19px,2.4vw,27px);line-height:1.4;letter-spacing:-.015em;margin:0 0 20px;max-width:30ch;font-weight:500}
   .para{font-size:clamp(15px,1.7vw,17.5px);line-height:1.65;margin:0 0 18px;color:#2e2e30;max-width:66ch}
   .hist .para{max-width:78ch}
-  .tools-lead{max-width:80ch;margin-left:auto;margin-right:auto}
+  .tools-lead{max-width:none}
   /* the source gif is light-on-dark: invert flips it to black-on-white, and multiply
      drops the (now white) background straight into the page so it carries no box */
   /* the gif carries baked-in whitespace around the wordmark, so its file edge is not
      its visual edge. these negative margins pull the actual P onto the button's left
      edge and close the dead space underneath. tuned by eye, nudge freely. */
-  .tools-video{position:relative;aspect-ratio:16/9;background:#000;margin:22px 0 10px}
+  .tools-video{position:relative;aspect-ratio:16/9;background:#000;max-width:80ch;margin:22px auto 10px}
   .tools-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .tools-video-cap{font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--ink-dim);margin:0 auto 26px;max-width:70ch;text-align:center}
   .tools-gif{display:block;max-width:540px;margin:14px auto -22px}
   .tools-gif img{width:100%;height:auto;display:block;filter:invert(1);mix-blend-mode:multiply}
-  .tools-lead>.para{text-align:center}
+  .tools-lead>.para{text-align:center;margin-left:auto;margin-right:auto}
   .tools-lead .patreon{margin:0 auto;display:table}
   .sc-logo img{width:100%;height:auto;display:block}
   .sc-logo{display:block;max-width:150px}
