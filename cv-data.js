@@ -53,6 +53,7 @@ window.CV = {
       id: "selected-group",
       label: "SELECTED GROUP EXHIBITIONS, SCREENINGS, & PERFORMANCES",
       entries: [
+        { y: "2026", u: "https://www.fotogeniafilmfestival.org/officialselection", t: "Festival Fotogenia, 8th Annual, Posgrado en Artes y Diseño, National Autonomous University of Mexico", d: "November 20 to 28, 2026, Mexico City, Mexico." },
         { y: "2026", t: "Landscape, Apparently, Ferris State University's Kendall College of Art and Design, ArtPrize", d: "Curated by Michele Bosak, August 31 to October 24, 2026, Grand Rapids, MI." },
         { y: "2026", t: "Short Cuts, SHED", d: "Jurors included Janelle VanderKelen, Lilan Yang, and SHED curator Gabrielle Banzhaf, October 1 to 4, 2026, Cleveland, OH." },
         { y: "2026", t: "Restructuring Realities: International Video Forum 1, Ely Center of Contemporary Art", d: "June 7 to July 5, 2026, New Haven, CT." },

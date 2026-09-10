@@ -399,6 +399,8 @@
   .cv-list li:last-child{border-bottom:1px solid var(--line-soft)}
   .cv-y{font-family:var(--mono);font-size:11px;color:var(--accent);padding-top:2px;white-space:nowrap}
   .cv-t{font-size:15.5px;line-height:1.38;font-weight:500;letter-spacing:-.005em}
+  .cv-t a{border-bottom:1px solid var(--line)}
+  .cv-t a:hover{color:var(--accent);border-color:var(--accent)}
   .cv-d{font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:5px;line-height:1.6}
   .cv-miss{font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--ink-dim);border:1px dashed var(--line);
     padding:20px;border-radius:3px;background:var(--plate)}
@@ -1158,6 +1160,7 @@
   ];
 
   var upcomingNews = [
+    {d:"2026-11-20", end:"2026-11-28", when:"November 20 to 28, 2026", t:"Festival Fotogenia", v:"Posgrado en Artes y Diseño, National Autonomous University of Mexico · 8th Annual", loc:"Mexico City, Mexico", link:"https://www.fotogeniafilmfestival.org/officialselection", kind:"SCREENING"},
     {d:"2026-10-22", end:"2026-12-11", when:"October 22 to December 11, 2026", t:"Frequencies of Deep Time", v:"Baber Room Gallery, Central Michigan University · Solo exhibition", loc:"Mount Pleasant, MI", link:"", kind:"EXHIBITION"},
     {d:"2026-10-01", end:"2026-10-04", when:"October 1 to 4, 2026", t:"Short Cuts", v:"SHED · Jurors Janelle VanderKelen, Lilan Yang, and curator Gabrielle Banzhaf", loc:"Cleveland, OH", link:"https://www.shed-projects.org/short-cuts", kind:"SCREENING"},
     {d:"2026-09-18", end:"2026-10-03", when:"September 18 to October 3, 2026", t:"Reskinned", v:"Resonant Gallery / ArtPrize Venue · Co-curated with Micah Alhadeff", loc:"Grand Rapids, MI", link:"", kind:"EXHIBITION"},
@@ -1451,7 +1454,11 @@
         var li=document.createElement("li");
         var y=document.createElement("span"); y.className="cv-y"; y.textContent=e.y||"";
         var mid=document.createElement("div");
-        var t=document.createElement("div"); t.className="cv-t"; t.textContent=e.t;
+        var t=document.createElement("div"); t.className="cv-t";
+        if(e.u){
+          var ta=document.createElement("a"); ta.href=e.u; ta.target="_blank"; ta.rel="noopener";
+          ta.textContent=e.t; t.appendChild(ta);
+        } else { t.textContent=e.t; }
         mid.appendChild(t);
         if(e.d){ var d=document.createElement("div"); d.className="cv-d"; d.textContent=e.d; mid.appendChild(d); }
         li.appendChild(y); li.appendChild(mid); ul.appendChild(li);
