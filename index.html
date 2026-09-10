@@ -416,7 +416,7 @@
   .news-group{margin-bottom:44px}
   .news-group[id]{scroll-margin-top:76px}
   .news-list{list-style:none;margin:0;padding:0}
-  .news-list li{border-top:1px solid var(--line-soft);padding:17px 0;display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:start}
+  .news-list li{border-top:1px solid var(--line-soft);padding:17px 0;display:grid;grid-template-columns:152px 1fr auto;gap:20px;align-items:start}
   .news-list li:last-child{border-bottom:1px solid var(--line-soft)}
   .news-list .when{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--accent)}
   .news-list .when.past{color:var(--ink-dim)}
@@ -1236,9 +1236,29 @@
   portrait.addEventListener("error", function(){ portrait.style.display="none"; });
 
   /* ---------- news ---------- */
+  /* Both the upcoming list and the entries derived from the CV write their
+     dates in one grammar, so a single pass compresses every row: month names
+     abbreviate, an en dash replaces "to", and a repeated month or year is
+     said once. Anything unexpected passes through untouched. */
+  var NEWS_M={January:"JAN",February:"FEB",March:"MAR",April:"APR",May:"MAY",June:"JUN",
+              July:"JUL",August:"AUG",September:"SEP",October:"OCT",November:"NOV",December:"DEC"};
+  function shortWhen(s){
+    if(!s) return s;
+    var M="(January|February|March|April|May|June|July|August|September|October|November|December)";
+    var D="\\s+(\\d{1,2})", Y="\\s*(\\d{4})", m;
+    m=s.match(new RegExp("^"+M+D+"\\s+to"+D+","+Y+"$"));
+    if(m) return NEWS_M[m[1]]+" "+m[2]+"\u2013"+m[3]+", "+m[4];
+    m=s.match(new RegExp("^"+M+D+"\\s+to\\s+"+M+D+","+Y+"$"));
+    if(m) return NEWS_M[m[1]]+" "+m[2]+" \u2013 "+NEWS_M[m[3]]+" "+m[4]+", "+m[5];
+    m=s.match(new RegExp("^"+M+D+","+Y+"\\s+to\\s+"+M+D+","+Y+"$"));
+    if(m) return NEWS_M[m[1]]+" "+m[2]+", "+m[3]+" \u2013 "+NEWS_M[m[4]]+" "+m[5]+", "+m[6];
+    m=s.match(new RegExp("^"+M+D+","+Y+"$"));
+    if(m) return NEWS_M[m[1]]+" "+m[2]+", "+m[3];
+    return s;
+  }
   function newsRow(x, isPast){
     var li=document.createElement("li");
-    var w=document.createElement("span"); w.className="when"+(isPast?" past":""); w.textContent=x.when;
+    var w=document.createElement("span"); w.className="when"+(isPast?" past":""); w.textContent=shortWhen(x.when);
     var mid=document.createElement("span");
     var t=document.createElement("div"); t.className="nt";
     if(x.link){ var a=document.createElement("a"); a.href=x.link; a.target="_blank"; a.rel="noopener"; a.textContent=x.t; t.appendChild(a); }
