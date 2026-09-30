@@ -56,6 +56,7 @@ window.CV = {
         { y: "2026", u: "https://www.fotogeniafilmfestival.org/officialselection", t: "Festival Fotogenia, 8th Annual, Posgrado en Artes y Diseño, National Autonomous University of Mexico", d: "November 20 to 28, 2026, Mexico City, Mexico." },
         { y: "2026", t: "Time Fest, The Queen Theatre", d: "Collaboration with Kelsey Paschich, November 5 to 7, 2026, Bryan, TX." },
         { y: "2026", t: "Landscape, Apparently, Ferris State University's Kendall College of Art and Design, ArtPrize", d: "Curated by Michele Bosak, August 31 to October 24, 2026, Grand Rapids, MI." },
+        { y: "2026", t: "LUFF, Lausanne Underground Film & Music Festival, 25th Edition, Casino de Montbenon", d: "Special Edition, Collaboration with Benjamin Rosenthal, October 14 to 18, 2026, Lausanne, Switzerland." },
         { y: "2026", t: "Short Cuts, SHED", d: "Jurors included Janelle VanderKelen, Lilan Yang, and SHED curator Gabrielle Banzhaf, October 1 to 4, 2026, Cleveland, OH." },
         { y: "2026", t: "Restructuring Realities: International Video Forum 1, Ely Center of Contemporary Art", d: "June 7 to July 5, 2026, New Haven, CT." },
         { y: "2026", t: "Denver Underground Film Festival, Stellar Theatre", d: "June 16 to 18, 2026, Denver, CO." },
